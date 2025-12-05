@@ -13,10 +13,11 @@ export default function Index() {
   const tours = [
     {
       title: 'Индивидуальный VIP тур',
-      description: 'Персональный водитель, комфортный автомобиль премиум-класса',
+      description: 'Персональный водитель на автомобиле премиум-класса',
       price: 'от 45 000 ₽',
       duration: '2-7 дней',
       icon: 'Crown',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/44638fd9-ea84-42c6-b566-7672803c8acb.jpg',
       features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Трансферы включены']
     },
     {
@@ -25,7 +26,8 @@ export default function Index() {
       price: 'от 55 000 ₽',
       duration: '3-5 дней',
       icon: 'ChefHat',
-      features: ['Мастер-классы от шефа', 'Дегустации', 'Посещение ферм', 'Эксклюзивные рестораны']
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/423cb975-3f13-4e33-9b5a-221f159f5a1d.jpg',
+      features: ['Мастер-классы от шефа', 'Дегустации вин', 'Посещение ферм', 'Эксклюзивные рестораны']
     },
     {
       title: 'Фототур для профессионалов',
@@ -33,6 +35,7 @@ export default function Index() {
       price: 'от 40 000 ₽',
       duration: '4-6 дней',
       icon: 'Camera',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg',
       features: ['Фотограф-эксперт', 'Секретные локации', 'Индивидуальный маршрут', 'Обработка фото']
     },
     {
@@ -41,6 +44,7 @@ export default function Index() {
       price: 'от 38 000 ₽',
       duration: '3-7 дней',
       icon: 'Church',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg',
       features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места']
     }
   ];
@@ -49,27 +53,54 @@ export default function Index() {
     {
       name: 'Классический маршрут',
       cities: ['Сергиев Посад', 'Переславль-Залесский', 'Ростов Великий', 'Ярославль', 'Кострома', 'Иваново', 'Суздаль', 'Владимир'],
-      duration: '7 дней'
+      duration: '7 дней',
+      highlights: 'Все главные города Золотого кольца'
     },
     {
       name: 'Экспресс-маршрут',
       cities: ['Сергиев Посад', 'Суздаль', 'Владимир'],
-      duration: '3 дня'
+      duration: '3 дня',
+      highlights: 'Самые значимые достопримечательности'
     },
     {
       name: 'Расширенный маршрут',
       cities: ['Москва', 'Сергиев Посад', 'Переславль', 'Ростов', 'Ярославль', 'Кострома', 'Плёс', 'Иваново', 'Суздаль', 'Владимир', 'Боголюбово'],
-      duration: '10 дней'
+      duration: '10 дней',
+      highlights: 'Полное погружение с дополнительными городами'
     }
   ];
 
   const gallery = [
-    { title: 'Суздальский кремль', category: 'Архитектура' },
-    { title: 'Ростовский кремль', category: 'Памятники' },
-    { title: 'Церковь Покрова на Нерли', category: 'Храмы' },
-    { title: 'Ярославль', category: 'Города' },
-    { title: 'Троице-Сергиева Лавра', category: 'Монастыри' },
-    { title: 'Владимирские соборы', category: 'Архитектура' }
+    { 
+      title: 'Суздальский кремль', 
+      category: 'Архитектура',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+    },
+    { 
+      title: 'Церковь Покрова на Нерли', 
+      category: 'Храмы',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+    },
+    { 
+      title: 'Ярославль, набережная', 
+      category: 'Города',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+    },
+    { 
+      title: 'Троице-Сергиева Лавра', 
+      category: 'Монастыри',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+    },
+    { 
+      title: 'Владимирские соборы', 
+      category: 'Архитектура',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+    },
+    { 
+      title: 'Ростовский кремль', 
+      category: 'Памятники',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+    }
   ];
 
   const faqs = [
@@ -96,141 +127,181 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#F5F1E8] to-white">
+    <div className="min-h-screen bg-white font-inter">
       {/* Header */}
-      <header className="fixed top-0 w-full bg-[#1A1F2C]/95 backdrop-blur-sm z-50 border-b border-[#D4AF37]/20">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Icon name="Crown" className="text-[#D4AF37]" size={28} />
-            <span className="text-2xl font-bold text-[#D4AF37] font-cormorant">
-              Золотое Кольцо VIP
+      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center">
+              <Icon name="Crown" className="text-white" size={20} />
+            </div>
+            <span className="text-2xl font-bold text-[#1A1F2C] font-playfair">
+              Золотое Кольцо
             </span>
           </div>
           <div className="hidden md:flex gap-8 items-center">
-            <a href="#tours" className="text-white hover:text-[#D4AF37] transition-colors">Туры</a>
-            <a href="#routes" className="text-white hover:text-[#D4AF37] transition-colors">Маршруты</a>
-            <a href="#gallery" className="text-white hover:text-[#D4AF37] transition-colors">Галерея</a>
-            <a href="#faq" className="text-white hover:text-[#D4AF37] transition-colors">FAQ</a>
-            <a href="#contact" className="text-white hover:text-[#D4AF37] transition-colors">Контакты</a>
+            <a href="#tours" className="text-gray-700 hover:text-[#D4AF37] transition-colors font-medium">Туры</a>
+            <a href="#routes" className="text-gray-700 hover:text-[#D4AF37] transition-colors font-medium">Маршруты</a>
+            <a href="#gallery" className="text-gray-700 hover:text-[#D4AF37] transition-colors font-medium">Галерея</a>
+            <a href="#contact" className="text-gray-700 hover:text-[#D4AF37] transition-colors font-medium">Контакты</a>
           </div>
-          <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-[#1A1F2C] font-semibold">
+          <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white font-semibold shadow-lg hover:shadow-xl transition-all">
             <Icon name="Phone" size={16} className="mr-2" />
-            +7 (495) 123-45-67
+            Позвонить
           </Button>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto text-center">
-          <div className="animate-fade-in">
-            <h1 className="text-6xl md:text-7xl font-bold text-[#1A1F2C] mb-6 font-cormorant">
-              Эксклюзивные туры<br />
-              <span className="text-[#D4AF37]">по Золотому кольцу</span>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg)`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-6 text-center text-white">
+          <div className="max-w-4xl mx-auto animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
+              <Icon name="Award" size={20} className="text-[#D4AF37]" />
+              <span className="text-sm font-medium">Премиум туры по историческим местам России</span>
+            </div>
+            
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 font-playfair leading-tight">
+              Путешествие<br />по <span className="text-[#D4AF37]">Золотому кольцу</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Индивидуальные VIP туры по древним городам России с персональным водителем и комфортными автомобилями премиум-класса
+            
+            <p className="text-xl md:text-2xl mb-12 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+              Откройте величие древних русских городов в комфорте автомобиля премиум-класса с персональным гидом
             </p>
+            
             <div className="flex gap-4 justify-center flex-wrap">
-              <Button size="lg" className="bg-[#D4AF37] hover:bg-[#B8941F] text-[#1A1F2C] text-lg px-8 font-semibold">
+              <Button size="lg" className="bg-[#D4AF37] hover:bg-[#B8941F] text-white text-lg px-10 py-7 font-semibold shadow-2xl hover:shadow-[#D4AF37]/50 transition-all hover:scale-105">
                 Подобрать тур
-                <Icon name="ArrowRight" size={20} className="ml-2" />
+                <Icon name="ArrowRight" size={22} className="ml-3" />
               </Button>
-              <Button size="lg" variant="outline" className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 text-lg px-8">
-                <Icon name="Play" size={20} className="mr-2" />
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#1A1F2C] text-lg px-10 py-7 backdrop-blur-sm bg-white/10">
+                <Icon name="Play" size={22} className="mr-3" />
                 Смотреть видео
               </Button>
             </div>
           </div>
+        </div>
 
-          {/* Features */}
-          <div className="grid md:grid-cols-4 gap-6 mt-16">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <Icon name="ChevronDown" size={32} className="text-white/70" />
+        </div>
+      </section>
+
+      {/* Features Bar */}
+      <section className="py-16 bg-[#1A1F2C] text-white">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8">
             {[
               { icon: 'Car', title: 'Премиум авто', desc: 'Mercedes, BMW, Audi' },
               { icon: 'User', title: 'Личный гид', desc: 'Эксперт-историк' },
               { icon: 'Hotel', title: 'Отели 5★', desc: 'Лучшие гостиницы' },
               { icon: 'Shield', title: 'Гарантия', desc: 'Полная страховка' }
             ].map((feature, i) => (
-              <Card key={i} className="border-[#D4AF37]/30 hover:shadow-lg transition-all hover:scale-105 animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
-                <CardContent className="pt-6 text-center">
-                  <Icon name={feature.icon} className="text-[#D4AF37] mx-auto mb-3" size={40} />
-                  <h3 className="font-semibold text-[#1A1F2C] mb-1">{feature.title}</h3>
-                  <p className="text-sm text-gray-600">{feature.desc}</p>
-                </CardContent>
-              </Card>
+              <div key={i} className="text-center animate-scale-in" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#D4AF37] rounded-2xl mb-4">
+                  <Icon name={feature.icon} size={32} className="text-white" />
+                </div>
+                <h3 className="font-semibold text-lg mb-1">{feature.title}</h3>
+                <p className="text-gray-400">{feature.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Tours Section */}
-      <section id="tours" className="py-20 px-4 bg-white">
+      <section id="tours" className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-[#1A1F2C] mb-4 font-cormorant">
-              Наши <span className="text-[#D4AF37]">эксклюзивные туры</span>
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#1A1F2C] mb-6 font-playfair">
+              Эксклюзивные <span className="text-[#D4AF37]">туры</span>
             </h2>
-            <p className="text-gray-600 text-lg">Каждый тур создан для незабываемых впечатлений</p>
+            <p className="text-gray-600 text-xl">Каждый тур создан для незабываемых впечатлений и максимального комфорта</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {tours.map((tour, i) => (
-              <Card key={i} className="border-[#D4AF37]/30 hover:shadow-2xl transition-all hover:scale-105 overflow-hidden">
-                <div className="bg-gradient-to-br from-[#D4AF37]/10 to-transparent p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <Icon name={tour.icon} className="text-[#D4AF37]" size={48} />
-                    <span className="text-sm bg-[#D4AF37] text-[#1A1F2C] px-3 py-1 rounded-full font-semibold">
-                      {tour.duration}
-                    </span>
+              <Card key={i} className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={tour.image} 
+                    alt={tour.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                  <div className="absolute top-4 right-4 bg-[#D4AF37] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    {tour.duration}
                   </div>
-                  <CardHeader className="p-0 mb-4">
-                    <CardTitle className="text-2xl text-[#1A1F2C] font-cormorant">
-                      {tour.title}
-                    </CardTitle>
-                    <CardDescription className="text-base">{tour.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <ul className="space-y-2 mb-6">
-                      {tour.features.map((feature, j) => (
-                        <li key={j} className="flex items-center gap-2">
-                          <Icon name="Check" className="text-[#D4AF37]" size={18} />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex items-center justify-between">
-                      <span className="text-3xl font-bold text-[#D4AF37] font-cormorant">
-                        {tour.price}
-                      </span>
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-[#1A1F2C] font-semibold">
-                            Забронировать
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-[500px]">
-                          <DialogHeader>
-                            <DialogTitle className="text-2xl font-cormorant">
-                              Бронирование тура
-                            </DialogTitle>
-                            <DialogDescription>
-                              Оставьте заявку, и мы свяжемся с вами в течение часа
-                            </DialogDescription>
-                          </DialogHeader>
-                          <form className="space-y-4 mt-4">
-                            <Input placeholder="Ваше имя" />
-                            <Input type="tel" placeholder="Телефон" />
-                            <Input type="email" placeholder="Email" />
-                            <Textarea placeholder="Пожелания к туру" />
-                            <Button className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-[#1A1F2C] font-semibold">
-                              Отправить заявку
-                            </Button>
-                          </form>
-                        </DialogContent>
-                      </Dialog>
+                  <div className="absolute bottom-4 left-4">
+                    <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl">
+                      <Icon name={tour.icon} className="text-[#D4AF37]" size={28} />
                     </div>
-                  </CardContent>
+                  </div>
                 </div>
+                
+                <CardContent className="p-8">
+                  <CardTitle className="text-2xl mb-3 font-playfair text-[#1A1F2C]">
+                    {tour.title}
+                  </CardTitle>
+                  <CardDescription className="text-base mb-6 text-gray-600">
+                    {tour.description}
+                  </CardDescription>
+                  
+                  <ul className="space-y-3 mb-6">
+                    {tour.features.map((feature, j) => (
+                      <li key={j} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0">
+                          <Icon name="Check" className="text-[#D4AF37]" size={14} />
+                        </div>
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="flex items-center justify-between pt-6 border-t border-gray-100">
+                    <div>
+                      <div className="text-sm text-gray-500 mb-1">Стоимость</div>
+                      <div className="text-3xl font-bold text-[#D4AF37] font-playfair">
+                        {tour.price}
+                      </div>
+                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white font-semibold shadow-lg hover:shadow-xl transition-all px-6">
+                          Забронировать
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[500px]">
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl font-playfair">
+                            Бронирование тура
+                          </DialogTitle>
+                          <DialogDescription>
+                            Оставьте заявку, и мы свяжемся с вами в течение часа
+                          </DialogDescription>
+                        </DialogHeader>
+                        <form className="space-y-4 mt-4">
+                          <Input placeholder="Ваше имя" className="h-12" />
+                          <Input type="tel" placeholder="Телефон" className="h-12" />
+                          <Input type="email" placeholder="Email" className="h-12" />
+                          <Textarea placeholder="Пожелания к туру" rows={4} />
+                          <Button className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white font-semibold h-12">
+                            Отправить заявку
+                          </Button>
+                        </form>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -238,93 +309,113 @@ export default function Index() {
       </section>
 
       {/* Routes Section */}
-      <section id="routes" className="py-20 px-4 bg-gradient-to-b from-[#F5F1E8] to-white">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-[#1A1F2C] mb-4 font-cormorant">
+      <section id="routes" className="py-24 px-6 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#1A1F2C] mb-6 font-playfair">
               Популярные <span className="text-[#D4AF37]">маршруты</span>
             </h2>
-            <p className="text-gray-600 text-lg">Выберите готовый маршрут или создадим индивидуальный</p>
+            <p className="text-gray-600 text-xl">Выберите готовый маршрут или создадим индивидуальный специально для вас</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             {routes.map((route, i) => (
               <Card
                 key={i}
-                className={`cursor-pointer transition-all ${
+                className={`cursor-pointer transition-all duration-300 ${
                   activeRoute === i
-                    ? 'border-[#D4AF37] shadow-xl scale-105'
-                    : 'border-gray-200 hover:border-[#D4AF37]/50'
+                    ? 'border-[#D4AF37] shadow-xl scale-105 bg-gradient-to-br from-[#D4AF37]/5 to-transparent'
+                    : 'border-gray-200 hover:border-[#D4AF37]/50 hover:shadow-lg'
                 }`}
                 onClick={() => setActiveRoute(i)}
               >
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span className="font-cormorant">{route.name}</span>
-                    <Icon name="MapPin" className="text-[#D4AF37]" size={24} />
-                  </CardTitle>
-                  <CardDescription className="text-base font-semibold text-[#D4AF37]">
-                    {route.duration}
+                <CardHeader className="pb-4">
+                  <div className="flex items-start justify-between mb-2">
+                    <CardTitle className="font-playfair text-xl">{route.name}</CardTitle>
+                    <Icon 
+                      name={activeRoute === i ? "CheckCircle2" : "Circle"} 
+                      className={activeRoute === i ? "text-[#D4AF37]" : "text-gray-300"} 
+                      size={24} 
+                    />
+                  </div>
+                  <div className="flex items-center gap-2 text-[#D4AF37] font-semibold">
+                    <Icon name="Clock" size={16} />
+                    <span>{route.duration}</span>
+                  </div>
+                  <CardDescription className="text-sm mt-2">
+                    {route.highlights}
                   </CardDescription>
                 </CardHeader>
               </Card>
             ))}
           </div>
 
-          <Card className="border-[#D4AF37]/30 bg-white">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 text-[#1A1F2C] font-cormorant">
-                Маршрут: {routes[activeRoute].name}
+          <Card className="border-[#D4AF37]/30 shadow-xl overflow-hidden">
+            <div className="bg-gradient-to-r from-[#D4AF37]/10 to-transparent p-8">
+              <h3 className="text-3xl font-bold mb-6 text-[#1A1F2C] font-playfair">
+                {routes[activeRoute].name}
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 mb-8">
                 {routes[activeRoute].cities.map((city, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className="bg-[#D4AF37] text-[#1A1F2C] rounded-full w-8 h-8 flex items-center justify-center font-bold">
-                      {i + 1}
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md">
+                      <div className="w-7 h-7 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        {i + 1}
+                      </div>
+                      <span className="font-medium text-gray-800">{city}</span>
                     </div>
-                    <span className="text-lg font-medium">{city}</span>
                     {i < routes[activeRoute].cities.length - 1 && (
-                      <Icon name="ArrowRight" className="text-[#D4AF37] mx-2" size={20} />
+                      <Icon name="MoveRight" className="text-[#D4AF37]" size={20} />
                     )}
                   </div>
                 ))}
               </div>
-              <Button className="mt-8 bg-[#D4AF37] hover:bg-[#B8941F] text-[#1A1F2C] font-semibold">
+              <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white font-semibold shadow-lg hover:shadow-xl transition-all px-8 h-12">
                 Забронировать этот маршрут
                 <Icon name="ArrowRight" size={18} className="ml-2" />
               </Button>
-            </CardContent>
+            </div>
           </Card>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-20 px-4 bg-white">
+      <section id="gallery" className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-[#1A1F2C] mb-4 font-cormorant">
-              <span className="text-[#D4AF37]">Галерея</span> впечатлений
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#1A1F2C] mb-6 font-playfair">
+              Галерея <span className="text-[#D4AF37]">впечатлений</span>
             </h2>
-            <p className="text-gray-600 text-lg">Красота древних городов в лучших кадрах</p>
+            <p className="text-gray-600 text-xl">Красота древних городов в лучших кадрах</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {gallery.map((item, i) => (
-              <Card key={i} className="overflow-hidden border-[#D4AF37]/30 hover:shadow-xl transition-all group cursor-pointer">
-                <div className="h-64 bg-gradient-to-br from-[#D4AF37]/20 to-[#1A1F2C]/20 flex items-center justify-center relative overflow-hidden">
-                  <Icon name="Image" className="text-[#D4AF37] group-hover:scale-110 transition-transform" size={80} />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all" />
+              <div 
+                key={i} 
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer h-80"
+              >
+                <img 
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                  <div className="text-xs font-semibold text-[#D4AF37] mb-2 uppercase tracking-wider">
+                    {item.category}
+                  </div>
+                  <h3 className="text-xl font-bold font-playfair">{item.title}</h3>
                 </div>
-                <CardContent className="p-4">
-                  <h3 className="font-semibold text-lg text-[#1A1F2C]">{item.title}</h3>
-                  <p className="text-sm text-[#D4AF37]">{item.category}</p>
-                </CardContent>
-              </Card>
+                <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Icon name="ZoomIn" className="text-white" size={20} />
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-8">
-            <Button variant="outline" className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10">
+          <div className="text-center mt-12">
+            <Button variant="outline" className="border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white px-8 h-12 font-semibold">
               Смотреть все фото
               <Icon name="ExternalLink" size={18} className="ml-2" />
             </Button>
@@ -333,21 +424,25 @@ export default function Index() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 px-4 bg-gradient-to-b from-[#F5F1E8] to-white">
+      <section id="faq" className="py-24 px-6 bg-white">
         <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-[#1A1F2C] mb-4 font-cormorant">
-              Часто задаваемые <span className="text-[#D4AF37]">вопросы</span>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#1A1F2C] mb-6 font-playfair">
+              Частые <span className="text-[#D4AF37]">вопросы</span>
             </h2>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-[#D4AF37]/30 rounded-lg px-6 bg-white">
-                <AccordionTrigger className="text-left text-lg font-semibold hover:text-[#D4AF37]">
+              <AccordionItem 
+                key={i} 
+                value={`item-${i}`} 
+                className="border border-gray-200 rounded-xl px-6 bg-white shadow-sm hover:shadow-md transition-shadow"
+              >
+                <AccordionTrigger className="text-left text-lg font-semibold hover:text-[#D4AF37] py-5 hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600">
+                <AccordionContent className="text-gray-600 pb-5 leading-relaxed">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -357,62 +452,71 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-[#1A1F2C] mb-4 font-cormorant">
-              <span className="text-[#D4AF37]">Свяжитесь</span> с нами
+      <section id="contact" className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#1A1F2C] mb-6 font-playfair">
+              Свяжитесь <span className="text-[#D4AF37]">с нами</span>
             </h2>
-            <p className="text-gray-600 text-lg">Мы ответим в течение часа</p>
+            <p className="text-gray-600 text-xl">Мы ответим в течение часа</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-[#D4AF37]/30">
-              <CardContent className="p-8 space-y-6">
-                <div className="flex items-start gap-4">
-                  <Icon name="Phone" className="text-[#D4AF37] mt-1" size={24} />
+            <Card className="border-0 shadow-xl">
+              <CardContent className="p-8 space-y-8">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon name="Phone" className="text-[#D4AF37]" size={24} />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Телефон</h3>
-                    <p className="text-gray-600">+7 (495) 123-45-67</p>
-                    <p className="text-sm text-gray-500">Ежедневно 9:00 - 21:00</p>
+                    <h3 className="font-semibold text-lg mb-2 text-[#1A1F2C]">Телефон</h3>
+                    <p className="text-gray-700 font-medium text-lg">+7 (495) 123-45-67</p>
+                    <p className="text-sm text-gray-500 mt-1">Ежедневно 9:00 - 21:00</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <Icon name="Mail" className="text-[#D4AF37] mt-1" size={24} />
+                
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon name="Mail" className="text-[#D4AF37]" size={24} />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <p className="text-gray-600">vip@goldring.ru</p>
+                    <h3 className="font-semibold text-lg mb-2 text-[#1A1F2C]">Email</h3>
+                    <p className="text-gray-700 font-medium">vip@goldring.ru</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <Icon name="MapPin" className="text-[#D4AF37] mt-1" size={24} />
+                
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon name="MapPin" className="text-[#D4AF37]" size={24} />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Офис</h3>
-                    <p className="text-gray-600">г. Москва, Красная площадь, 1</p>
+                    <h3 className="font-semibold text-lg mb-2 text-[#1A1F2C]">Офис</h3>
+                    <p className="text-gray-700">г. Москва, Красная площадь, 1</p>
                   </div>
                 </div>
-                <div className="flex gap-4 pt-4">
-                  <Button size="icon" variant="outline" className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10">
+                
+                <div className="flex gap-3 pt-6 border-t border-gray-100">
+                  <Button size="icon" className="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-white transition-all w-12 h-12">
                     <Icon name="MessageCircle" size={20} />
                   </Button>
-                  <Button size="icon" variant="outline" className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10">
+                  <Button size="icon" className="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-white transition-all w-12 h-12">
                     <Icon name="Send" size={20} />
                   </Button>
-                  <Button size="icon" variant="outline" className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10">
+                  <Button size="icon" className="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-white transition-all w-12 h-12">
                     <Icon name="Instagram" size={20} />
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-[#D4AF37]/30">
+            <Card className="border-0 shadow-xl">
               <CardContent className="p-8">
-                <form className="space-y-4">
-                  <Input placeholder="Ваше имя" />
-                  <Input type="tel" placeholder="Телефон" />
-                  <Input type="email" placeholder="Email" />
-                  <Textarea placeholder="Расскажите о ваших пожеланиях" rows={4} />
-                  <Button className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-[#1A1F2C] font-semibold">
+                <form className="space-y-5">
+                  <Input placeholder="Ваше имя" className="h-12" />
+                  <Input type="tel" placeholder="Телефон" className="h-12" />
+                  <Input type="email" placeholder="Email" className="h-12" />
+                  <Textarea placeholder="Расскажите о ваших пожеланиях" rows={5} />
+                  <Button className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white font-semibold h-12 shadow-lg hover:shadow-xl transition-all">
                     Отправить заявку
                     <Icon name="Send" size={18} className="ml-2" />
                   </Button>
@@ -424,48 +528,63 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1A1F2C] text-white py-12 px-4">
+      <footer className="bg-[#1A1F2C] text-white py-16 px-6">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Icon name="Crown" className="text-[#D4AF37]" size={28} />
-                <span className="text-xl font-bold text-[#D4AF37] font-cormorant">
-                  Золотое Кольцо VIP
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center">
+                  <Icon name="Crown" className="text-white" size={20} />
+                </div>
+                <span className="text-xl font-bold text-[#D4AF37] font-playfair">
+                  Золотое Кольцо
                 </span>
               </div>
-              <p className="text-gray-400 text-sm">
-                Эксклюзивные туры по древним городам России с персональным сервисом
+              <p className="text-gray-400 leading-relaxed">
+                Эксклюзивные туры по древним городам России с персональным сервисом премиум-класса
               </p>
             </div>
+            
             <div>
-              <h4 className="font-semibold mb-4">Туры</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-semibold mb-6 text-lg">Туры</h4>
+              <ul className="space-y-3 text-gray-400">
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Индивидуальные</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Гастрономические</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Фототуры</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Духовные</a></li>
               </ul>
             </div>
+            
             <div>
-              <h4 className="font-semibold mb-4">Компания</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-semibold mb-6 text-lg">Компания</h4>
+              <ul className="space-y-3 text-gray-400">
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">О нас</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Отзывы</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Блог</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Контакты</a></li>
               </ul>
             </div>
+            
             <div>
-              <h4 className="font-semibold mb-4">Контакты</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>+7 (495) 123-45-67</li>
-                <li>vip@goldring.ru</li>
-                <li>Москва, Красная площадь, 1</li>
+              <h4 className="font-semibold mb-6 text-lg">Контакты</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li className="flex items-center gap-2">
+                  <Icon name="Phone" size={16} />
+                  +7 (495) 123-45-67
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Mail" size={16} />
+                  vip@goldring.ru
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="MapPin" size={16} />
+                  Москва, Красная площадь, 1
+                </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+          
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
             <p>© 2024 Золотое Кольцо VIP. Все права защищены.</p>
           </div>
         </div>
