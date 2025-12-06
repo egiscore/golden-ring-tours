@@ -376,63 +376,41 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          <div className="grid md:grid-cols-3 gap-8">
             {routes.map((route, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveRoute(index)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                  activeRoute === index
-                    ? 'bg-[#D4AF37] text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {route.name}
-              </button>
+              <Card key={index} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
+                      <Icon name="MapPin" className="text-[#D4AF37]" size={24} />
+                    </div>
+                    <div className="bg-[#D4AF37] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      {route.duration}
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl font-playfair text-[#1A1F2C]">{route.name}</CardTitle>
+                  <CardDescription className="text-gray-600">{route.highlights}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 mb-6">
+                    {route.cities.slice(0, 5).map((city, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                        <Icon name="Check" size={16} className="text-[#D4AF37] flex-shrink-0" />
+                        <span>{city}</span>
+                      </div>
+                    ))}
+                    {route.cities.length > 5 && (
+                      <div className="text-sm text-gray-500 pl-6">и ещё {route.cities.length - 5} городов...</div>
+                    )}
+                  </div>
+                  <Button onClick={() => scrollToSection('contact')} className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white">
+                    Подробнее
+                    <Icon name="ArrowRight" size={16} className="ml-2" />
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
           </div>
-
-          <Card className="max-w-4xl mx-auto shadow-xl border-0">
-            <CardContent className="p-8">
-              <div className="mb-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
-                    <Icon name="Clock" className="text-[#D4AF37]" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold font-playfair text-[#1A1F2C]">{routes[activeRoute].name}</h3>
-                    <p className="text-gray-600">{routes[activeRoute].duration}</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 bg-[#D4AF37]/5 p-4 rounded-lg border-l-4 border-[#D4AF37]">
-                  {routes[activeRoute].highlights}
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                {routes[activeRoute].cities.map((city, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-[#D4AF37]/5 transition-colors">
-                    <div className="w-8 h-8 bg-[#D4AF37] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                      {index + 1}
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-semibold text-[#1A1F2C]">{city}</div>
-                    </div>
-                    <Icon name="ChevronRight" className="text-gray-400" size={20} />
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 flex gap-4">
-                <Button onClick={() => scrollToSection('contact')} className="flex-1 bg-[#D4AF37] hover:bg-[#B8941F] text-white h-12">
-                  Заказать этот маршрут
-                </Button>
-                <Button variant="outline" className="border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white">
-                  <Icon name="Download" size={18} />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
@@ -450,21 +428,22 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {gallery.map((item, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 aspect-[4/3]">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="text-sm font-semibold text-[#D4AF37] mb-1">{item.category}</div>
-                    <h3 className="text-xl font-bold font-playfair">{item.title}</h3>
+              <Card key={index} className="group overflow-hidden border-0 hover:shadow-2xl transition-all duration-300 cursor-pointer">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <div className="text-xs font-semibold text-[#D4AF37] mb-1">{item.category}</div>
+                    <h3 className="text-lg font-bold font-playfair">{item.title}</h3>
                   </div>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
