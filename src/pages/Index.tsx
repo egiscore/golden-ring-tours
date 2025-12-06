@@ -376,41 +376,54 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {routes.map((route, index) => (
-              <Card key={index} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
-                      <Icon name="MapPin" className="text-[#D4AF37]" size={24} />
-                    </div>
-                    <div className="bg-[#D4AF37] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      {route.duration}
-                    </div>
-                  </div>
-                  <CardTitle className="text-2xl font-playfair text-[#1A1F2C]">{route.name}</CardTitle>
-                  <CardDescription className="text-gray-600">{route.highlights}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 mb-6">
-                    {route.cities.slice(0, 5).map((city, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
-                        <Icon name="Check" size={16} className="text-[#D4AF37] flex-shrink-0" />
-                        <span>{city}</span>
-                      </div>
-                    ))}
-                    {route.cities.length > 5 && (
-                      <div className="text-sm text-gray-500 pl-6">и ещё {route.cities.length - 5} городов...</div>
-                    )}
-                  </div>
-                  <Button onClick={() => scrollToSection('contact')} className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white">
-                    Подробнее
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
+          <Card className="max-w-4xl mx-auto border-0 shadow-2xl">
+            <CardHeader>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {routes.map((route, index) => (
+                  <Button
+                    key={index}
+                    onClick={() => setActiveRoute(index)}
+                    variant={activeRoute === index ? 'default' : 'outline'}
+                    className={activeRoute === index ? 'bg-[#D4AF37] hover:bg-[#B8941F] text-white' : 'border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10'}
+                  >
+                    {route.name}
                   </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                ))}
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="flex items-center gap-4 text-[#D4AF37]">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Clock" size={20} />
+                    <span className="font-semibold">{routes[activeRoute].duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Icon name="MapPin" size={20} />
+                    <span className="font-semibold">{routes[activeRoute].cities.length} городов</span>
+                  </div>
+                </div>
+                
+                <p className="text-lg text-gray-700">{routes[activeRoute].highlights}</p>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  {routes[activeRoute].cities.map((city, index) => (
+                    <div key={index} className="flex items-center gap-3 bg-[#F5F1E8] rounded-lg p-4 hover:bg-[#D4AF37]/10 transition-colors">
+                      <div className="w-8 h-8 bg-[#D4AF37] text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        {index + 1}
+                      </div>
+                      <span className="font-medium text-gray-800">{city}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button onClick={() => scrollToSection('contact')} size="lg" className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white text-lg h-14">
+                  Забронировать этот маршрут
+                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
