@@ -426,7 +426,8 @@ export default function Index() {
                           key={`arrow-${index}`}
                           name="ArrowRight" 
                           size={24} 
-                          className="text-[#D4AF37] hidden md:block" 
+                          className="text-[#D4AF37] hidden md:block animate-arrow" 
+                          style={{ animationDelay: `${index * 0.1}s` }}
                         />
                       )}
                     </>
