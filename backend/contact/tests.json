@@ -1,0 +1,20 @@
+{
+  "tests": [
+    {
+      "name": "Test contact form submission",
+      "method": "POST",
+      "body": {
+        "name": "Иван Тестовый",
+        "phone": "+7 (999) 123-45-67",
+        "email": "test@example.com",
+        "message": "Тестовое сообщение для проверки формы"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
