@@ -417,7 +417,7 @@ export default function Index() {
                     <>
                       <div 
                         key={`city-${index}`}
-                        className="flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white rounded-lg px-6 py-3 font-semibold shadow-md hover:shadow-xl transition-all"
+                        className="flex items-center gap-3 bg-white border-2 border-[#D4AF37] text-[#1A1F2C] rounded-lg px-6 py-3 font-semibold shadow-sm hover:shadow-lg transition-all"
                       >
                         <span className="text-lg">{city}</span>
                       </div>
