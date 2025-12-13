@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Send test booking",
+      "method": "GET",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "test_status": 200
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
