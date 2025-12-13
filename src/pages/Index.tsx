@@ -236,8 +236,8 @@ export default function Index() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-2 text-[#1A1F2C]">Телефон</h3>
-                      <a href="tel:+74951234567" className="text-[#D4AF37] hover:text-[#B8941F] font-semibold text-lg">
-                        +7 (495) 123-45-67
+                      <a href="tel:+74951797444" className="text-[#D4AF37] hover:text-[#B8941F] font-semibold text-lg">
+                        +7 (495) 179-74-44
                       </a>
                       <p className="text-gray-600 text-sm mt-1">Без выходных, 9:00-21:00</p>
                     </div>
@@ -251,8 +251,8 @@ export default function Index() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-2 text-[#1A1F2C]">Email</h3>
-                      <a href="mailto:info@goldring-tours.ru" className="text-[#D4AF37] hover:text-[#B8941F] font-semibold">
-                        info@goldring-tours.ru
+                      <a href="mailto:tours@vfs.travel" className="text-[#D4AF37] hover:text-[#B8941F] font-semibold">
+                        tours@vfs.travel
                       </a>
                       <p className="text-gray-600 text-sm mt-1">Ответим за 15 минут</p>
                     </div>

@@ -22,9 +22,9 @@ export default function Header({ scrollToSection }: HeaderProps) {
           <button onClick={() => scrollToSection('gallery')} className="text-gray-700 hover:text-[#D4AF37] transition-colors font-medium">Галерея</button>
           <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-[#D4AF37] transition-colors font-medium">Контакты</button>
         </div>
-        <a href="tel:+74951234567" className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold">
+        <a href="tel:+74951797444" className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold">
           <Icon name="Phone" size={18} />
-          <span className="hidden lg:inline">+7 (495) 123-45-67</span>
+          <span className="hidden lg:inline">+7 (495) 179-74-44</span>
         </a>
       </nav>
     </header>
