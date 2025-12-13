@@ -75,11 +75,19 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     msg.attach(MIMEText(html_body, 'html'))
     
     # Отправка на email
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-        server.login(smtp_email, smtp_password)
-        server.send_message(msg)
+    email_sent = False
+    email_error = None
+    if smtp_email and smtp_password:
+        try:
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+                server.login(smtp_email, smtp_password)
+                server.send_message(msg)
+            email_sent = True
+        except Exception as e:
+            email_error = str(e)
     
     # Отправка в Telegram
+    telegram_sent = False
     if telegram_bot_token and telegram_chat_id:
         telegram_message = f"""🔔 <b>Новая заявка с сайта</b>
 
@@ -90,23 +98,45 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 💬 <b>Сообщение:</b>
 {contact_request.message}"""
         
-        telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-        telegram_payload = {
-            'chat_id': telegram_chat_id,
-            'text': telegram_message,
-            'parse_mode': 'HTML'
-        }
-        requests.post(telegram_url, json=telegram_payload)
+        try:
+            telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+            telegram_payload = {
+                'chat_id': telegram_chat_id,
+                'text': telegram_message,
+                'parse_mode': 'HTML'
+            }
+            response = requests.post(telegram_url, json=telegram_payload, timeout=5)
+            if response.status_code == 200:
+                telegram_sent = True
+        except Exception:
+            pass
     
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        },
-        'body': json.dumps({
-            'success': True,
-            'message': 'Заявка успешно отправлена'
-        }),
-        'isBase64Encoded': False
-    }
+    if email_sent or telegram_sent:
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({
+                'success': True,
+                'message': 'Заявка успешно отправлена',
+                'email_sent': email_sent,
+                'telegram_sent': telegram_sent
+            }),
+            'isBase64Encoded': False
+        }
+    else:
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({
+                'success': False,
+                'message': 'Не удалось отправить заявку',
+                'error': email_error
+            }),
+            'isBase64Encoded': False
+        }

@@ -51,20 +51,26 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) throw new Error('Ошибка отправки');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Ошибка отправки');
+      }
 
       toast({
-        title: '✅ Заявка отправлена!',
-        description: 'Мы свяжемся с вами в течение часа',
+        title: '✅ Заявка успешно отправлена!',
+        description: 'Менеджер свяжется с вами в ближайшее время',
+        duration: 5000,
       });
 
       onClose();
       (e.target as HTMLFormElement).reset();
     } catch (error) {
+      console.error('Submission error:', error);
       toast({
-        title: '❌ Ошибка',
-        description: 'Не удалось отправить заявку. Попробуйте позже.',
+        title: '❌ Ошибка отправки',
+        description: error instanceof Error ? error.message : 'Не удалось отправить заявку. Позвоните нам: +7 (495) 179-74-44',
         variant: 'destructive',
+        duration: 7000,
       });
     } finally {
       setIsSubmitting(false);
