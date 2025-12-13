@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
+import BookingModal from '@/components/modals/BookingModal';
 
 interface ToursSectionProps {
   scrollToSection: (id: string) => void;
@@ -104,48 +104,24 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                     <div className="text-sm text-gray-500 mb-1">Цена</div>
                     <div className="text-2xl font-bold text-[#D4AF37] font-playfair">{tour.price}</div>
                   </div>
-                  <Dialog open={isBookingOpen} onOpenChange={setIsBookingOpen}>
-                    <DialogTrigger asChild>
-                      <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-white">
-                        Забронировать
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[500px]">
-                      <DialogHeader>
-                        <DialogTitle className="text-2xl font-playfair">Забронировать тур</DialogTitle>
-                        <DialogDescription>
-                          Оставьте заявку, и мы свяжемся с вами в течение часа
-                        </DialogDescription>
-                      </DialogHeader>
-                      <form className="space-y-4">
-                        <div>
-                          <label className="text-sm font-medium mb-2 block">Ваше имя</label>
-                          <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" placeholder="Иван Иванов" />
-                        </div>
-                        <div>
-                          <label className="text-sm font-medium mb-2 block">Телефон</label>
-                          <input type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" placeholder="+7 (999) 123-45-67" />
-                        </div>
-                        <div>
-                          <label className="text-sm font-medium mb-2 block">Email</label>
-                          <input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" placeholder="email@example.com" />
-                        </div>
-                        <div>
-                          <label className="text-sm font-medium mb-2 block">Комментарий</label>
-                          <textarea className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] min-h-[100px]" placeholder="Расскажите о ваших пожеланиях..." />
-                        </div>
-                        <Button type="submit" className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-12">
-                          Отправить заявку
-                        </Button>
-                      </form>
-                    </DialogContent>
-                  </Dialog>
+                  <Button 
+                    className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
+                    onClick={() => setIsBookingOpen(true)}
+                  >
+                    Забронировать
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
+
+      <BookingModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)}
+        source="главная"
+      />
     </section>
   );
 }

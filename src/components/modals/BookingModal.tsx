@@ -6,9 +6,10 @@ import { useToast } from '@/hooks/use-toast';
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  source?: string;
 }
 
-export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
+export default function BookingModal({ isOpen, onClose, source = 'главная' }: BookingModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -21,7 +22,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
       email: formData.get('email') as string,
-      message: `Тур: ${formData.get('tour')}\n\nКомментарий: ${formData.get('comment') || 'Не указан'}`
+      message: `📍 Источник: ${source}\n\nТур: ${formData.get('tour')}\n\nКомментарий: ${formData.get('comment') || 'Не указан'}`
     };
 
     try {

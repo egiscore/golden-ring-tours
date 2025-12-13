@@ -297,7 +297,8 @@ export default function Retargeting() {
 
       <BookingModal 
         isOpen={isBookingOpen} 
-        onClose={() => setIsBookingOpen(false)} 
+        onClose={() => setIsBookingOpen(false)}
+        source="промо (скидка 5%)"
       />
     </div>
   );
