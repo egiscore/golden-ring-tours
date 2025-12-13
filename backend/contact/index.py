@@ -57,7 +57,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     msg['From'] = smtp_email
     msg['To'] = recipient_email
     
-    message_lines = contact_request.message.split('\n')
+    message_html = contact_request.message.replace('\n', '<br>')
     
     html_body = f"""
     <html>
@@ -68,8 +68,9 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
           <p><strong>Телефон:</strong> {contact_request.phone}</p>
           <p><strong>Email:</strong> {contact_request.email}</p>
           <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
-          <p><strong>Сообщение:</strong></p>
-          <p style="background: white; padding: 15px; border-radius: 4px; white-space: pre-line;">{contact_request.message}</p>
+          <div style="background: white; padding: 15px; border-radius: 4px;">
+            {message_html}
+          </div>
         </div>
       </body>
     </html>
