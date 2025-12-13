@@ -29,32 +29,32 @@ export default function Index() {
     { 
       title: 'Суздальский кремль', 
       category: 'Архитектура',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+      image: 'https://images.unsplash.com/photo-1625660827038-3f1c12f65ae8?w=800&q=80'
     },
     { 
       title: 'Церковь Покрова на Нерли', 
       category: 'Храмы',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+      image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80'
     },
     { 
       title: 'Ярославль, набережная', 
       category: 'Города',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+      image: 'https://images.unsplash.com/photo-1520106212299-d99c443e4568?w=800&q=80'
     },
     { 
       title: 'Троице-Сергиева Лавра', 
       category: 'Монастыри',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+      image: 'https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800&q=80'
     },
     { 
       title: 'Владимирские соборы', 
       category: 'Архитектура',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+      image: 'https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=800&q=80'
     },
     { 
       title: 'Ростовский кремль', 
       category: 'Памятники',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg'
+      image: 'https://images.unsplash.com/photo-1618588507085-c79565432917?w=800&q=80'
     }
   ];
 
