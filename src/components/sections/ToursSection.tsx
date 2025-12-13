@@ -14,8 +14,8 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
   const tours = [
     {
       title: 'Индивидуальный VIP тур',
-      description: 'Персональный водитель на автомобиле премиум-класса',
-      price: 'от 45 000 ₽',
+      description: 'Максимальный комфорт и полное погружение в историю',
+      price: 'от 42 000 ₽',
       duration: '2-7 дней',
       icon: 'Crown',
       image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/44638fd9-ea84-42c6-b566-7672803c8acb.jpg',
@@ -23,8 +23,8 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
     },
     {
       title: 'Гастрономический тур',
-      description: 'С шеф-поваром: традиционная кухня и авторские блюда',
-      price: 'от 55 000 ₽',
+      description: 'Авторские блюда и лучшие вина региона',
+      price: 'от 52 000 ₽',
       duration: '3-5 дней',
       icon: 'ChefHat',
       image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/423cb975-3f13-4e33-9b5a-221f159f5a1d.jpg',
@@ -32,8 +32,8 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
     },
     {
       title: 'Фототур для профессионалов',
-      description: 'Лучшие локации и рассветы с профессиональным фотографом',
-      price: 'от 40 000 ₽',
+      description: 'Секретные локации и профессиональный опыт',
+      price: 'от 38 000 ₽',
       duration: '4-6 дней',
       icon: 'Camera',
       image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg',
@@ -41,8 +41,8 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
     },
     {
       title: 'Духовное путешествие',
-      description: 'Монастыри и храмы с духовным наставником',
-      price: 'от 38 000 ₽',
+      description: 'Паломничество с духовным наставником',
+      price: 'от 35 000 ₽',
       duration: '3-7 дней',
       icon: 'Church',
       image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/12b5362a-7c92-4001-84d6-ae2b39bc0cbc.jpg',
@@ -58,9 +58,9 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
             <Icon name="Sparkles" size={18} className="text-[#D4AF37]" />
             <span className="text-sm font-semibold text-[#D4AF37]">Эксклюзивные предложения</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-[#1A1F2C]">Наши туры</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-[#1A1F2C]">Выберите свой формат путешествия</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Каждый тур разработан индивидуально с учётом ваших интересов и пожеланий
+            <strong>Каждый тур — это уникальный опыт.</strong> Мы создадим программу специально под вас, учитывая все пожелания
           </p>
         </div>
 

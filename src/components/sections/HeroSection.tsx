@@ -18,12 +18,11 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-playfair leading-tight text-[#1A1F2C]">
-                Золотое кольцо<br />
-                <span className="text-[#D4AF37]">в стиле VIP</span>
+                Путешествие,<br />о котором <span className="text-[#D4AF37]">мечтали</span>
               </h1>
               
               <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
-                Откройте величие древних русских городов на автомобиле премиум-класса с персональным гидом-экспертом
+                <strong>Забудьте о массовых турах.</strong> Персональный автомобиль премиум-класса, личный гид-эксперт и программа только для вас — это Золотое кольцо без компромиссов
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -37,14 +36,34 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                 </Button>
               </div>
 
+              <div className="bg-white/80 backdrop-blur-sm border border-[#D4AF37]/20 rounded-2xl p-6 mb-8">
+                <div className="flex items-start gap-3 mb-4">
+                  <Icon name="CheckCircle" size={24} className="text-[#D4AF37] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
+                      <strong className="text-[#1A1F2C]">Гарантия незабываемых впечатлений</strong> — 98% наших клиентов возвращаются снова или рекомендуют нас друзьям
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                  <span className="ml-2 font-semibold">4.9 из 5</span>
+                  <span className="text-gray-400">• 500+ отзывов</span>
+                </div>
+              </div>
+
               <div className="grid grid-cols-3 gap-6">
                 <div>
-                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Довольных клиентов</div>
+                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">14</div>
+                  <div className="text-sm text-gray-600">Лет на рынке</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">14</div>
-                  <div className="text-sm text-gray-600">Лет опыта</div>
+                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">500+</div>
+                  <div className="text-sm text-gray-600">Счастливых гостей</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">100%</div>
@@ -63,14 +82,14 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
               
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center">
-                    <Icon name="Award" className="text-[#D4AF37]" size={24} />
+              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-2xl shadow-2xl p-6 max-w-xs text-white">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="TrendingUp" className="text-white" size={24} />
                   </div>
                   <div>
-                    <div className="font-bold text-[#1A1F2C]">Лучшее качество</div>
-                    <div className="text-sm text-gray-600">Рейтинг 4.9 из 5</div>
+                    <div className="text-2xl font-bold font-playfair mb-1">-30%</div>
+                    <div className="text-sm text-white/90">При бронировании до конца месяца</div>
                   </div>
                 </div>
               </div>

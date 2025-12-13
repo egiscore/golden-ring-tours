@@ -8,6 +8,8 @@ import Header from '@/components/sections/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import ToursSection from '@/components/sections/ToursSection';
 import RoutesSection from '@/components/sections/RoutesSection';
+import BenefitsSection from '@/components/sections/BenefitsSection';
+import SocialProofSection from '@/components/sections/SocialProofSection';
 
 export default function Index() {
   const scrollToSection = (id: string) => {
@@ -58,24 +60,28 @@ export default function Index() {
 
   const faqs = [
     {
-      q: 'Что входит в стоимость VIP тура?',
-      a: 'Автомобиль премиум-класса с водителем, проживание в отелях 5★, услуги персонального гида, все трансферы, входные билеты в музеи и достопримечательности, страховка.'
+      q: 'Что входит в стоимость тура?',
+      a: 'В стоимость включено ВСЁ: автомобиль премиум-класса Mercedes/BMW/Audi с водителем, проживание в отелях 5★, персональный гид-эксперт, все трансферы, входные билеты, полная страховка. Никаких скрытых платежей!'
     },
     {
-      q: 'Можно ли изменить маршрут тура?',
-      a: 'Да, все наши туры полностью индивидуальные. Мы составим маршрут специально под ваши пожелания и интересы.'
+      q: 'Можно ли изменить программу под себя?',
+      a: 'Да! Это главное преимущество наших туров. Мы создаём программу с нуля специально под ваши интересы. Хотите больше архитектуры? Или гастрономии? Скажите — и мы подстроимся под вас.'
     },
     {
-      q: 'Какие автомобили используются?',
-      a: 'Mercedes-Benz S-Class, BMW 7 серии, Audi A8 или аналогичные премиум автомобили в идеальном состоянии с профессиональными водителями.'
+      q: 'А если мне что-то не понравится?',
+      a: 'У нас гарантия возврата 100% стоимости, если тур не оправдает ожиданий. За 14 лет работы к нам вернулось 98% клиентов. Ваше удовольствие — наша репутация.'
     },
     {
       q: 'Сколько человек в группе?',
-      a: 'Это исключительно индивидуальные туры. Только вы, ваши спутники и персональный гид. Никаких групп.'
+      a: 'Никаких групп! Только вы, ваши спутники и личный гид. Это полностью приватное путешествие. Вы не будете ждать опаздывающих туристов или подстраиваться под чужой ритм.'
     },
     {
-      q: 'Как забронировать тур?',
-      a: 'Заполните форму обратной связи или позвоните нам. Мы обсудим детали, составим программу и забронируем тур на удобные даты.'
+      q: 'Как быстро можно забронировать?',
+      a: 'Оставьте заявку прямо сейчас — мы перезвоним за 15 минут, обсудим детали и забронируем тур. При бронировании до конца месяца — скидка 30%!'
+    },
+    {
+      q: 'Почему вы дороже обычных турагентств?',
+      a: 'Потому что мы даём то, чего нет у них: индивидуальную программу, премиум-авто, гида-эксперта только для вас, отели 5★ и полный сервис без компромиссов. Вы платите за качество, а не за количество.'
     }
   ];
 
@@ -83,7 +89,9 @@ export default function Index() {
     <div className="min-h-screen bg-white font-inter">
       <Header scrollToSection={scrollToSection} />
       <HeroSection scrollToSection={scrollToSection} />
+      <BenefitsSection />
       <ToursSection scrollToSection={scrollToSection} />
+      <SocialProofSection />
       <RoutesSection scrollToSection={scrollToSection} />
 
       {/* Gallery Section */}
@@ -129,9 +137,9 @@ export default function Index() {
               <Icon name="HelpCircle" size={18} className="text-[#D4AF37]" />
               <span className="text-sm font-semibold text-[#D4AF37]">Ответы на вопросы</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair">Часто задаваемые вопросы</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair">Остались вопросы?</h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Всё, что нужно знать о наших турах
+              <strong>Мы ответили на самые частые.</strong> Не нашли свой? Позвоните — ответим за минуту!
             </p>
           </div>
 
@@ -161,14 +169,38 @@ export default function Index() {
                 <Icon name="MessageCircle" size={18} className="text-[#D4AF37]" />
                 <span className="text-sm font-semibold text-[#D4AF37]">Свяжитесь с нами</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-[#1A1F2C]">Начните своё путешествие</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-[#1A1F2C]">Готовы увидеть Золотое кольцо?</h2>
               <p className="text-lg text-gray-600">
-                Заполните форму, и мы свяжемся с вами в течение часа
+                <strong>Оставьте заявку сейчас</strong> — мы перезвоним в течение 15 минут и подберём идеальную программу
               </p>
             </div>
 
+            <div className="bg-gradient-to-br from-[#D4AF37]/5 to-white rounded-3xl p-2 mb-12">
+              <div className="bg-white rounded-2xl p-6">
+                <div className="flex items-center justify-center gap-8 flex-wrap">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">-30%</div>
+                    <div className="text-sm text-gray-600">При бронировании<br />до 31 декабря</div>
+                  </div>
+                  <div className="h-12 w-px bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">Бесплатно</div>
+                    <div className="text-sm text-gray-600">Консультация<br />и подбор тура</div>
+                  </div>
+                  <div className="h-12 w-px bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">15 мин</div>
+                    <div className="text-sm text-gray-600">Время ответа<br />на заявку</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl shadow-xl p-8 border-0">
+              <div className="bg-white rounded-2xl shadow-xl p-8 border-0 relative">
+                <div className="absolute -top-4 -right-4 bg-gradient-to-br from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                  Скидка -30%!
+                </div>
                 <form className="space-y-6">
                   <div>
                     <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Ваше имя</label>
@@ -186,10 +218,13 @@ export default function Index() {
                     <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Сообщение</label>
                     <Textarea placeholder="Расскажите о ваших пожеланиях..." className="min-h-[120px] border-gray-300 focus:border-[#D4AF37]" />
                   </div>
-                  <Button type="submit" className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-14 text-lg font-semibold">
-                    Отправить заявку
-                    <Icon name="Send" size={20} className="ml-2" />
+                  <Button type="submit" className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
+                    Получить консультацию
+                    <Icon name="ArrowRight" size={20} className="ml-2" />
                   </Button>
+                  <p className="text-xs text-gray-500 text-center mt-3">
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  </p>
                 </form>
               </div>
 
@@ -204,7 +239,7 @@ export default function Index() {
                       <a href="tel:+74951234567" className="text-[#D4AF37] hover:text-[#B8941F] font-semibold text-lg">
                         +7 (495) 123-45-67
                       </a>
-                      <p className="text-gray-600 text-sm mt-1">Ежедневно с 9:00 до 21:00</p>
+                      <p className="text-gray-600 text-sm mt-1">Без выходных, 9:00-21:00</p>
                     </div>
                   </div>
                 </div>
@@ -219,7 +254,7 @@ export default function Index() {
                       <a href="mailto:info@goldring-tours.ru" className="text-[#D4AF37] hover:text-[#B8941F] font-semibold">
                         info@goldring-tours.ru
                       </a>
-                      <p className="text-gray-600 text-sm mt-1">Ответим в течение часа</p>
+                      <p className="text-gray-600 text-sm mt-1">Ответим за 15 минут</p>
                     </div>
                   </div>
                 </div>
