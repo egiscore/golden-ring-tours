@@ -26,14 +26,12 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
     const utmContent = urlParams.get('utm_content') || '';
     const keyword = urlParams.get('keyword') || urlParams.get('utm_term') || '';
     
-    let sourceInfo = `📍 Страница: ${source}`;
-    if (utmSource !== 'direct') {
-      sourceInfo += `\n🎯 Источник: ${utmSource}`;
-      if (utmMedium) sourceInfo += ` / ${utmMedium}`;
-      if (utmCampaign) sourceInfo += `\n📢 Кампания: ${utmCampaign}`;
-      if (utmContent) sourceInfo += `\n🎨 Содержание: ${utmContent}`;
-      if (keyword) sourceInfo += `\n🔑 Ключевое слово: ${keyword}`;
-    }
+    let sourceInfo = `📍 Страница: ${source}\n🎯 Источник: ${utmSource}`;
+    if (utmMedium) sourceInfo += ` / ${utmMedium}`;
+    if (utmCampaign) sourceInfo += `\n📢 Кампания: ${utmCampaign}`;
+    if (utmContent) sourceInfo += `\n🎨 Содержание: ${utmContent}`;
+    if (keyword) sourceInfo += `\n🔑 Ключевое слово: ${keyword}`;
+    if (!keyword) sourceInfo += `\n🔑 Ключевое слово: не указано`;
     
     const data = {
       name: formData.get('name') as string,
