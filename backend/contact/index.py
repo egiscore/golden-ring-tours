@@ -93,11 +93,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     # Отправка в Telegram
     telegram_sent = False
     if telegram_bot_token and telegram_chat_id:
-        telegram_message = f"""🔔 <b>Новая заявка с сайта</b>
+        telegram_message = f"""🔔 Новая заявка с сайта
 
-👤 <b>Имя:</b> {contact_request.name}
-📱 <b>Телефон:</b> {contact_request.phone}
-📧 <b>Email:</b> {contact_request.email}
+👤 Имя: {contact_request.name}
+📱 Телефон: {contact_request.phone}
+📧 Email: {contact_request.email}
 
 {contact_request.message}"""
         
@@ -105,8 +105,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
             telegram_payload = {
                 'chat_id': telegram_chat_id,
-                'text': telegram_message,
-                'parse_mode': 'HTML'
+                'text': telegram_message
             }
             response = requests.post(telegram_url, json=telegram_payload, timeout=5)
             if response.status_code == 200:
