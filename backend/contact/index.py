@@ -57,6 +57,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     msg['From'] = smtp_email
     msg['To'] = recipient_email
     
+    message_lines = contact_request.message.split('\n')
+    
     html_body = f"""
     <html>
       <body style="font-family: Arial, sans-serif; padding: 20px;">
@@ -65,8 +67,9 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
           <p><strong>Имя:</strong> {contact_request.name}</p>
           <p><strong>Телефон:</strong> {contact_request.phone}</p>
           <p><strong>Email:</strong> {contact_request.email}</p>
+          <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
           <p><strong>Сообщение:</strong></p>
-          <p style="background: white; padding: 15px; border-radius: 4px;">{contact_request.message}</p>
+          <p style="background: white; padding: 15px; border-radius: 4px; white-space: pre-line;">{contact_request.message}</p>
         </div>
       </body>
     </html>
@@ -95,7 +98,6 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 📱 <b>Телефон:</b> {contact_request.phone}
 📧 <b>Email:</b> {contact_request.email}
 
-💬 <b>Сообщение:</b>
 {contact_request.message}"""
         
         try:
