@@ -18,11 +18,28 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get('utm_source') || 'direct';
+    const utmMedium = urlParams.get('utm_medium') || '';
+    const utmCampaign = urlParams.get('utm_campaign') || '';
+    const utmContent = urlParams.get('utm_content') || '';
+    const keyword = urlParams.get('keyword') || urlParams.get('utm_term') || '';
+    
+    let sourceInfo = `📍 Страница: ${source}`;
+    if (utmSource !== 'direct') {
+      sourceInfo += `\n🎯 Источник: ${utmSource}`;
+      if (utmMedium) sourceInfo += ` / ${utmMedium}`;
+      if (utmCampaign) sourceInfo += `\n📢 Кампания: ${utmCampaign}`;
+      if (utmContent) sourceInfo += `\n🎨 Содержание: ${utmContent}`;
+      if (keyword) sourceInfo += `\n🔑 Ключевое слово: ${keyword}`;
+    }
+    
     const data = {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
       email: formData.get('email') as string,
-      message: `📍 Источник: ${source}\n\nТур: ${formData.get('tour')}\n\nКомментарий: ${formData.get('comment') || 'Не указан'}`
+      message: `${sourceInfo}\n\n🎫 Тур: ${formData.get('tour')}\n\n💬 Комментарий: ${formData.get('comment') || 'Не указан'}`
     };
 
     try {
