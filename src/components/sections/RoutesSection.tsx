@@ -82,25 +82,23 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
             </CardHeader>
             <CardContent className="p-8">
               <div className="flex flex-wrap items-center justify-center gap-3">
-                {routes[activeRoute].cities.map((city, index) => (
-                  <>
-                    <div 
-                      key={`city-${index}`}
-                      className="flex items-center gap-3 bg-white border-2 border-[#D4AF37] text-[#1A1F2C] rounded-lg px-6 py-3 font-semibold shadow-sm hover:shadow-lg transition-all"
-                    >
-                      <span className="text-lg">{city}</span>
-                    </div>
-                    {index < routes[activeRoute].cities.length - 1 && (
-                      <Icon 
-                        key={`arrow-${index}`}
-                        name="ArrowRight" 
-                        size={24} 
-                        className="text-[#D4AF37] hidden md:block animate-arrow" 
-                        style={{ animationDelay: `${index * 0.1}s` }}
-                      />
-                    )}
-                  </>
-                ))}
+                {routes[activeRoute].cities.flatMap((city, index) => [
+                  <div 
+                    key={`city-${index}`}
+                    className="flex items-center gap-3 bg-white border-2 border-[#D4AF37] text-[#1A1F2C] rounded-lg px-6 py-3 font-semibold shadow-sm hover:shadow-lg transition-all"
+                  >
+                    <span className="text-lg">{city}</span>
+                  </div>,
+                  index < routes[activeRoute].cities.length - 1 ? (
+                    <Icon 
+                      key={`arrow-${index}`}
+                      name="ArrowRight" 
+                      size={24} 
+                      className="text-[#D4AF37] hidden md:block animate-arrow" 
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    />
+                  ) : null
+                ]).filter(Boolean)}
               </div>
               <Button 
                 onClick={() => scrollToSection('contact')} 
