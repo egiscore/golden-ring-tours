@@ -31,27 +31,30 @@ export default function Retargeting() {
   const tours = [
     {
       title: 'Индивидуальный VIP тур',
+      subtitle: 'Золотое Кольцо в премиум-формате',
       originalPrice: '42 000 ₽',
       discountPrice: '39 900 ₽',
       duration: '2-7 дней',
       icon: 'Crown',
-      features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Трансферы включены']
+      features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Все города маршрута']
     },
     {
       title: 'Гастрономический тур',
+      subtitle: 'Вкусы древней Руси',
       originalPrice: '52 000 ₽',
       discountPrice: '49 400 ₽',
       duration: '3-5 дней',
       icon: 'ChefHat',
-      features: ['Мастер-классы от шефа', 'Дегустации вин', 'Посещение ферм', 'Эксклюзивные рестораны']
+      features: ['Мастер-классы от шефа', 'Дегустации местных вин', 'Посещение ферм', 'Аутентичные рестораны']
     },
     {
       title: 'Фототур для профессионалов',
+      subtitle: 'Золотые купола в объективе',
       originalPrice: '38 000 ₽',
       discountPrice: '36 100 ₽',
       duration: '4-6 дней',
       icon: 'Camera',
-      features: ['Фотограф-эксперт', 'Секретные локации', 'Индивидуальный маршрут', 'Обработка фото']
+      features: ['Фотограф-эксперт', 'Лучшие локации', 'Рассветы и закаты', 'Обработка фото']
     }
   ];
 
@@ -59,23 +62,32 @@ export default function Retargeting() {
     <div className="min-h-screen bg-gradient-to-b from-primary/5 via-white to-primary/5">
       {/* Hero Section с акцентом на скидку */}
       <section className="relative overflow-hidden pt-32 pb-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1513326738677-b964603b136d?q=80')] bg-cover bg-center opacity-5" />
+        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/dc11c82c-f1f7-4790-a687-b4eded4a846e.jpg')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/90 to-white" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Специальное предложение баннер */}
-            <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-full mb-8 animate-pulse">
-              <Icon name="Sparkles" size={20} />
-              <span className="font-semibold">Специальное предложение только для вас</span>
+            {/* Логотип / Бренд */}
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Icon name="Church" size={40} className="text-[#D4AF37]" />
+              <h2 className="text-3xl font-bold text-[#1A1F2C]">Золотое Кольцо</h2>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
-              Скидка 5%<br />на любой тур
+            {/* Специальное предложение баннер */}
+            <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border-2 border-[#D4AF37] px-6 py-3 rounded-full mb-8 animate-pulse">
+              <Icon name="Sparkles" size={20} className="text-[#D4AF37]" />
+              <span className="font-semibold text-[#1A1F2C]">Специальное предложение только для вас</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#D4AF37] via-[#B8941F] to-[#D4AF37] bg-clip-text text-transparent">
+              Скидка 5%<br />на туры по Золотому Кольцу
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Вы почти приняли решение. Мы дарим вам дополнительную скидку, 
-              чтобы ваше путешествие стало еще выгоднее
+            <p className="text-xl md:text-2xl text-gray-700 mb-4 max-w-2xl mx-auto">
+              Откройте для себя древние города России с комфортом премиум-класса
+            </p>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Владимир • Суздаль • Ярославль • Ростов Великий • Кострома • Иваново • Сергиев Посад • Переславль-Залесский
             </p>
 
             {/* Таймер обратного отсчета */}
@@ -135,7 +147,8 @@ export default function Retargeting() {
                   <Icon name={tour.icon} size={32} className="text-primary" />
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3">{tour.title}</h3>
+                <h3 className="text-2xl font-bold mb-2">{tour.title}</h3>
+                <p className="text-sm text-[#D4AF37] font-medium mb-3">{tour.subtitle}</p>
                 <p className="text-muted-foreground mb-4">{tour.duration}</p>
 
                 {/* Цена со скидкой */}
@@ -227,14 +240,14 @@ export default function Retargeting() {
               {[
                 {
                   name: 'Екатерина Волкова',
-                  tour: 'VIP тур',
-                  text: 'Увидела рекламу и решила воспользоваться скидкой. Не пожалела ни секунды! Организация на высшем уровне.',
+                  tour: 'VIP тур по Золотому Кольцу',
+                  text: 'Увидела рекламу и решила воспользоваться скидкой. Суздаль и Владимир поразили красотой! Организация на высшем уровне.',
                   rating: 5
                 },
                 {
                   name: 'Дмитрий Соколов',
                   tour: 'Гастрономический тур',
-                  text: 'Скидка была приятным бонусом, но главное — впечатления! Это было незабываемо.',
+                  text: 'Скидка была приятным бонусом, но главное — узнал настоящую русскую кухню! Впечатления от древних городов незабываемы.',
                   rating: 5
                 }
               ].map((review, index) => (
