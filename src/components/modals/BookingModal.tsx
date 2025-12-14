@@ -106,7 +106,7 @@ export default function BookingModal({
       <DialogContent className="sm:max-w-[400px]">
         <DialogHeader>
           <DialogTitle className="text-xl font-playfair">
-            Забронировать тур
+            Подберите мне тур
           </DialogTitle>
           <DialogDescription className="text-sm">
             Свяжемся с вами в течение часа
