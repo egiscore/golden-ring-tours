@@ -114,42 +114,42 @@ export default function BookingModal({
         </DialogHeader>
         <form className="space-y-3" onSubmit={handleSubmit} key={selectedTour}>
           <div>
-            <label className="text-xs font-medium mb-1 block">Ваше имя</label>
+            <label className="text-sm font-medium mb-1 block">Ваше имя</label>
             <input
               type="text"
               name="name"
               required
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               placeholder="Иван"
             />
           </div>
           <div>
-            <label className="text-xs font-medium mb-1 block">Телефон</label>
+            <label className="text-sm font-medium mb-1 block">Телефон</label>
             <input
               type="tel"
               name="phone"
               required
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               placeholder="+7 (999) 123-45-67"
             />
           </div>
           <div>
-            <label className="text-xs font-medium mb-1 block">
+            <label className="text-sm font-medium mb-1 block">
               Email (необязательно)
             </label>
             <input
               type="email"
               name="email"
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               placeholder="email@example.com"
             />
           </div>
           <div>
-            <label className="text-xs font-medium mb-1 block">Тур</label>
+            <label className="text-sm font-medium mb-1 block">Тур</label>
             <select
               name="tour"
               defaultValue={selectedTour || "Автобусный тур"}
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
               <option>Автобусный тур</option>
               <option>Круиз на лайнере</option>
@@ -162,12 +162,12 @@ export default function BookingModal({
             </select>
           </div>
           <div>
-            <label className="text-xs font-medium mb-1 block">
+            <label className="text-sm font-medium mb-1 block">
               Комментарий
             </label>
             <textarea
               name="comment"
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] min-h-[70px]"
+              className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] min-h-[80px]"
               placeholder="Расскажите о Ваших пожеланиях..."
             />
           </div>
@@ -175,7 +175,7 @@ export default function BookingModal({
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-10 text-sm"
+            className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-12 text-base"
           >
             {isSubmitting ? "Отправка..." : "Отправить"}
           </Button>
