@@ -28,7 +28,7 @@ interface PromoToursGridProps {
     content: string;
     term: string;
   };
-  onBookingClick: () => void;
+  onBookingClick: (tourTitle: string) => void;
 }
 
 export default function PromoToursGrid({
@@ -101,7 +101,7 @@ export default function PromoToursGrid({
                       utm_campaign: utmParams.campaign || 'none'
                     });
                   }
-                  onBookingClick();
+                  onBookingClick(tour.title);
                 }}
               >
                 Забронировать со скидкой

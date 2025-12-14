@@ -86,6 +86,7 @@ const cityTargeting: Record<string, {
 
 export default function Retargeting() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedTour, setSelectedTour] = useState<string>('');
   const [userCity, setUserCity] = useState<string>('moscow');
   const [utmParams, setUtmParams] = useState({
     source: '',
@@ -272,7 +273,10 @@ export default function Retargeting() {
         userCity={userCity}
         cityTargeting={cityTargeting}
         utmParams={utmParams}
-        onBookingClick={() => setIsBookingOpen(true)}
+        onBookingClick={(tourTitle: string) => {
+          setSelectedTour(tourTitle);
+          setIsBookingOpen(true);
+        }}
       />
 
       <PromoBenefitsSection 
@@ -286,6 +290,7 @@ export default function Retargeting() {
         isOpen={isBookingOpen} 
         onClose={() => setIsBookingOpen(false)}
         source="промо (скидка 5%)"
+        selectedTour={selectedTour}
       />
       
       <CallbackButton />
