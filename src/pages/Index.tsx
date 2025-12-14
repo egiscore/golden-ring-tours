@@ -284,9 +284,7 @@ export default function Index() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl shadow-xl p-8 border-0 relative">
-                <div className="absolute -top-4 -right-4 bg-gradient-to-br from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
-                  Скидка -30%!
-                </div>
+                <div className="absolute -top-4 -right-4 bg-gradient-to-br from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">Скидка -5%!</div>
                 <form className="space-y-6" onSubmit={handleContactSubmit}>
                   <div>
                     <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Ваше имя *</label>
