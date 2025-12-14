@@ -108,7 +108,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                     <Icon name="TrendingUp" className="text-white" size={24} />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold font-playfair mb-1">-30%</div>
+                    <div className="text-2xl font-bold font-playfair mb-1">до -30%</div>
                     <div className="text-sm text-white/90">При бронировании до конца месяца</div>
                   </div>
                 </div>
