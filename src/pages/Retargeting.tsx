@@ -116,7 +116,7 @@ export default function Retargeting() {
       });
 
       if (typeof window !== 'undefined' && (window as any).ym) {
-        (window as any).ym(98765432, 'hit', window.location.href, {
+        (window as any).ym(105829530, 'hit', window.location.href, {
           params: {
             city: cityParam || 'unknown',
             utm_source: urlParams.get('utm_source') || 'direct',
@@ -242,7 +242,7 @@ export default function Retargeting() {
               className="text-lg px-12 py-6 h-auto shadow-xl hover:scale-105 transition-transform"
               onClick={() => {
                 if (typeof window !== 'undefined' && (window as any).ym) {
-                  (window as any).ym(98765432, 'reachGoal', 'click_get_discount', {
+                  (window as any).ym(105829530, 'reachGoal', 'click_get_discount', {
                     city: userCity,
                     utm_source: utmParams.source || 'direct',
                     utm_campaign: utmParams.campaign || 'none'
@@ -319,7 +319,7 @@ export default function Retargeting() {
                   className="w-full"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).ym) {
-                      (window as any).ym(98765432, 'reachGoal', 'click_book_tour', {
+                      (window as any).ym(105829530, 'reachGoal', 'click_book_tour', {
                         city: userCity,
                         tour: tour.title,
                         price: tour.discountPrice,
