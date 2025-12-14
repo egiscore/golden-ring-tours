@@ -112,17 +112,19 @@ export default function CallbackButton() {
       {/* Модальное окно */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-[380px]">
-          <div className="text-center mb-3">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-[#D4AF37]/10 rounded-full mb-2">
-              <Icon name="PhoneCall" size={24} className="text-[#D4AF37]" />
-            </div>
-            <h2 className="text-lg font-bold mb-1 font-playfair text-[#1A1F2C]">
-              Обратный звонок
-            </h2>
-            <p className="text-sm text-gray-600">
+          <DialogHeader>
+            <DialogTitle className="text-center">
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-[#D4AF37]/10 rounded-full mb-2 mx-auto">
+                <Icon name="PhoneCall" size={24} className="text-[#D4AF37]" />
+              </div>
+              <div className="text-lg font-bold mb-1 font-playfair text-[#1A1F2C]">
+                Обратный звонок
+              </div>
+            </DialogTitle>
+            <DialogDescription className="text-center text-sm text-gray-600">
               Перезвоним за <span className="font-bold text-[#D4AF37]">5 минут</span>
-            </p>
-          </div>
+            </DialogDescription>
+          </DialogHeader>
 
           <form className="space-y-3" onSubmit={handleSubmit}>
             <div>
