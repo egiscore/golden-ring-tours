@@ -110,6 +110,30 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
               </Button>
             </CardContent>
           </Card>
+
+          <div className="bg-gradient-to-r from-[#D4AF37]/5 via-white to-[#D4AF37]/5 rounded-3xl p-8 mt-12 border-2 border-[#D4AF37]/20">
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Icon name="Sparkles" size={24} className="text-[#D4AF37]" />
+                <h3 className="text-2xl font-bold text-[#1A1F2C] font-playfair">Не подходит ни один маршрут?</h3>
+              </div>
+              <p className="text-gray-600 mb-6 text-lg">
+                Создадим <strong>индивидуальный маршрут</strong> специально под ваши интересы и пожелания. 
+                Больше храмов? Или музеев? Гастрономия? Природа? Скажите — и мы составим уникальную программу.
+              </p>
+              <Button 
+                onClick={() => scrollToSection('contact')} 
+                size="lg"
+                className="bg-[#1A1F2C] hover:bg-[#1A1F2C]/90 text-white px-8 py-6 h-auto text-lg"
+              >
+                <Icon name="Compass" size={22} className="mr-2" />
+                Заказать индивидуальный маршрут
+              </Button>
+              <p className="text-sm text-gray-500 mt-4">
+                📞 Перезвоним за 15 минут и обсудим детали
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
