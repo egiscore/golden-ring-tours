@@ -265,7 +265,7 @@ export default function Index() {
               <div className="bg-white rounded-2xl p-6">
                 <div className="flex items-center justify-center gap-8 flex-wrap">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">-30%</div>
+                    <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">до -30%</div>
                     <div className="text-sm text-gray-600">При бронировании<br />до 31 декабря</div>
                   </div>
                   <div className="h-12 w-px bg-gray-200"></div>
