@@ -89,9 +89,9 @@ export default function Index() {
     <div className="min-h-screen bg-white font-inter">
       <Header scrollToSection={scrollToSection} />
       <HeroSection scrollToSection={scrollToSection} />
+      <RoutesSection scrollToSection={scrollToSection} />
       <BenefitsSection />
       <ToursSection scrollToSection={scrollToSection} />
-      <RoutesSection scrollToSection={scrollToSection} />
       <SocialProofSection />
 
       {/* Gallery Section */}
