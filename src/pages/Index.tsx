@@ -11,7 +11,6 @@ import ToursSection from '@/components/sections/ToursSection';
 import RoutesSection from '@/components/sections/RoutesSection';
 import BenefitsSection from '@/components/sections/BenefitsSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
-import WhatsAppButton from '@/components/WhatsAppButton';
 import { useToast } from '@/hooks/use-toast';
 
 export default function Index() {
@@ -306,29 +305,6 @@ export default function Index() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl shadow-xl p-8 border-2 border-green-500">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Icon name="MessageCircle" className="text-white" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 text-[#1A1F2C]">💬 Быстрая связь</h3>
-                      <p className="text-gray-700 text-sm mb-3">Напишите нам в WhatsApp - ответим за 2 минуты!</p>
-                    </div>
-                  </div>
-                  <a 
-                    href="https://wa.me/74951797444?text=Здравствуйте!%20Интересуют%20туры%20по%20Золотому%20Кольцу" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full"
-                  >
-                    <Button className="w-full bg-green-500 hover:bg-green-600 text-white h-12 text-base font-semibold">
-                      <Icon name="MessageCircle" size={20} className="mr-2" />
-                      Написать в WhatsApp
-                    </Button>
-                  </a>
-                </div>
-
                 <div className="bg-white rounded-2xl shadow-xl p-8 border-0">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -406,8 +382,6 @@ export default function Index() {
           </div>
         </div>
       </footer>
-
-      <WhatsAppButton />
     </div>
   );
 }
