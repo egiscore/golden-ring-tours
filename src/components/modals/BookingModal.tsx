@@ -8,9 +8,10 @@ interface BookingModalProps {
   onClose: () => void;
   source?: string;
   onSubmit?: () => void;
+  selectedTour?: string;
 }
 
-export default function BookingModal({ isOpen, onClose, source = 'главная', onSubmit }: BookingModalProps) {
+export default function BookingModal({ isOpen, onClose, source = 'главная', onSubmit, selectedTour }: BookingModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -91,7 +92,7 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
             Оставьте заявку, и мы свяжемся с вами в течение часа
           </DialogDescription>
         </DialogHeader>
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-4" onSubmit={handleSubmit} key={selectedTour}>
           <div>
             <label className="text-sm font-medium mb-2 block">Ваше имя</label>
             <input 
@@ -125,6 +126,7 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
             <label className="text-sm font-medium mb-2 block">Интересующий тур</label>
             <select 
               name="tour"
+              defaultValue={selectedTour || 'Автобусный тур'}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
               <option>Автобусный тур</option>

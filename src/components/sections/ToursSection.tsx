@@ -190,6 +190,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
         onClose={() => setIsBookingOpen(false)}
         source={`главная - ${selectedTour}`}
         onSubmit={() => trackEvent('form_submit', selectedTour)}
+        selectedTour={selectedTour}
       />
     </section>
   );
