@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -9,6 +9,36 @@ interface RoutesSectionProps {
 
 export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
   const [activeRoute, setActiveRoute] = useState(0);
+  const [viewCount, setViewCount] = useState(143);
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 2,
+    minutes: 47,
+    seconds: 30
+  });
+
+  useEffect(() => {
+    const viewInterval = setInterval(() => {
+      setViewCount(prev => prev + Math.floor(Math.random() * 3));
+    }, 8000);
+
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        }
+        return prev;
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(viewInterval);
+      clearInterval(timer);
+    };
+  }, []);
 
   const routes = [
     {
@@ -43,6 +73,22 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Выберите готовый маршрут или создадим индивидуальный специально для вас
           </p>
+
+          <div className="flex items-center justify-center gap-6 mt-6 flex-wrap">
+            <div className="flex items-center gap-2 bg-red-50 border border-red-200 px-4 py-2 rounded-lg animate-pulse">
+              <Icon name="Clock" size={18} className="text-red-600" />
+              <span className="text-sm font-semibold text-red-700">
+                Скидка 30% истекает через {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+              </span>
+            </div>
+            
+            <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-lg">
+              <Icon name="Eye" size={18} className="text-blue-600" />
+              <span className="text-sm font-semibold text-blue-700">
+                {viewCount} человек смотрят сейчас
+              </span>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-12">
