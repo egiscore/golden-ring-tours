@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Icon from '@/components/ui/icon';
 
 interface HeaderProps {
@@ -5,6 +6,24 @@ interface HeaderProps {
 }
 
 export default function Header({ scrollToSection }: HeaderProps) {
+  const [city, setCity] = useState<string>('');
+
+  useEffect(() => {
+    const detectCity = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        if (data.city) {
+          setCity(data.city);
+        }
+      } catch (error) {
+        console.error('Ошибка определения города:', error);
+      }
+    };
+
+    detectCity();
+  }, []);
+
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -14,7 +33,10 @@ export default function Header({ scrollToSection }: HeaderProps) {
           </div>
           <div className="flex flex-col">
             <span className="md:text-2xl text-[#1A1F2C] font-playfair leading-tight text-2xl font-semibold">Ви Эф Эс Глобал</span>
-            <span className="text-xs text-gray-600 font-medium">Туристический оператор</span>
+            <span className="text-xs text-gray-600 font-medium">
+              {city && <span className="text-[#D4AF37] font-semibold">{city} · </span>}
+              Туристический оператор
+            </span>
           </div>
         </div>
         <div className="hidden md:flex gap-8 items-center">
