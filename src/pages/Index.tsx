@@ -434,9 +434,7 @@ export default function Index() {
                       <a
                         href="tel:88007003498"
                         className="text-[#D4AF37] hover:text-[#B8941F] font-semibold text-xl block mb-1"
-                      >
-                        8 (800) 700-34-98
-                      </a>
+                      >8 (495) 179-74-44</a>
                       <p className="text-gray-600 text-sm">
                         Без выходных, 9:00-21:00
                       </p>
