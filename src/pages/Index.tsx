@@ -376,7 +376,7 @@ export default function Index() {
             </div>
             
             <div className="text-center md:text-left">
-              <p className="text-gray-400">© 2024 Золотое Кольцо. Все права защищены.</p>
+              <p className="text-gray-400">© 2025 Ви Эф Эс. Реестровый номер туроператора РТО 024501. № 16/24-73-0006521 от 09.12.2024. Все права защищены.</p>
             </div>
 
             <div className="flex gap-4">
