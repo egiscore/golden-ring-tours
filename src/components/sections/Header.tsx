@@ -25,7 +25,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
         </div>
         <a href="tel:+74951797444" className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold">
           <Icon name="Phone" size={18} />
-          <span className="hidden lg:inline">+7 (495) 179-74-44</span>
+          <span className="hidden lg:inline">8 (800) 700-34-98</span>
         </a>
       </nav>
     </header>
