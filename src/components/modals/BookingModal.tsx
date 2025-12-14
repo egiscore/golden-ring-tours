@@ -34,10 +34,12 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
     if (keyword) sourceInfo += `\n🔑 Ключевое слово: ${keyword}`;
     if (!keyword) sourceInfo += `\n🔑 Ключевое слово: не указано`;
     
+    const emailValue = formData.get('email') as string;
+    
     const data = {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
-      email: formData.get('email') as string,
+      email: emailValue && emailValue.trim() !== '' ? emailValue : null,
       message: `${sourceInfo}\n\n🎫 Тур: ${formData.get('tour')}\n\n💬 Комментарий: ${formData.get('comment') || 'Не указан'}`
     };
 
@@ -125,10 +127,14 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
               name="tour"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
-              <option>Индивидуальный VIP тур</option>
-              <option>Гастрономический тур</option>
-              <option>Фототур для профессионалов</option>
+              <option>Автобусный тур</option>
+              <option>Круиз на лайнере</option>
+              <option>Экскурсионный тур</option>
+              <option>Тур на поезде</option>
               <option>Духовное путешествие</option>
+              <option>Гастрономический тур</option>
+              <option>Индивидуальный VIP тур</option>
+              <option>Фототур для профессионалов</option>
             </select>
           </div>
           <div>
