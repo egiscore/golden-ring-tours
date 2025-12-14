@@ -101,12 +101,47 @@ export default function Retargeting() {
   });
 
   useEffect(() => {
-    const detectCity = () => {
+    const detectCity = async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const cityParam = urlParams.get('city')?.toLowerCase();
       
       if (cityParam && cityTargeting[cityParam]) {
         setUserCity(cityParam);
+      } else {
+        try {
+          const response = await fetch('https://functions.poehali.dev/d28ecf67-6d03-4d65-94c9-3019a8f77bd3');
+          const data = await response.json();
+          
+          const cityMap: Record<string, string> = {
+            'Moscow': 'moscow',
+            'Москва': 'moscow',
+            'Saint Petersburg': 'spb',
+            'Санкт-Петербург': 'spb',
+            'Kazan': 'kazan',
+            'Казань': 'kazan',
+            'Nizhny Novgorod': 'nn',
+            'Нижний Новгород': 'nn',
+            'Yekaterinburg': 'ekb',
+            'Екатеринбург': 'ekb',
+            'Novosibirsk': 'nsk',
+            'Новосибирск': 'nsk',
+            'Krasnodar': 'krasnodar',
+            'Краснодар': 'krasnodar',
+            'Chelyabinsk': 'chelyabinsk',
+            'Челябинск': 'chelyabinsk',
+            'Samara': 'samara',
+            'Самара': 'samara',
+            'Perm': 'perm',
+            'Пермь': 'perm'
+          };
+          
+          const detectedCity = cityMap[data.city];
+          if (detectedCity && cityTargeting[detectedCity]) {
+            setUserCity(detectedCity);
+          }
+        } catch (error) {
+          console.log('Geolocation detection failed, using default city');
+        }
       }
 
       setUtmParams({
@@ -120,7 +155,7 @@ export default function Retargeting() {
       if (typeof window !== 'undefined' && (window as any).ym) {
         (window as any).ym(105829530, 'hit', window.location.href, {
           params: {
-            city: cityParam || 'unknown',
+            city: cityParam || 'auto-detected',
             utm_source: urlParams.get('utm_source') || 'direct',
             utm_medium: urlParams.get('utm_medium') || 'none',
             utm_campaign: urlParams.get('utm_campaign') || 'none'
