@@ -16,9 +16,7 @@ import ToursSection from "@/components/sections/ToursSection";
 import RoutesSection from "@/components/sections/RoutesSection";
 import BenefitsSection from "@/components/sections/BenefitsSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
-import PopupOffer from "@/components/PopupOffer";
 import CallbackButton from "@/components/CallbackButton";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Index() {
@@ -193,9 +191,7 @@ export default function Index() {
       <SocialProofSection />
 
       {/* Conversion optimization components */}
-      <PopupOffer />
       <CallbackButton />
-      <ExitIntentPopup />
 
       {/* Gallery Section */}
       <section
