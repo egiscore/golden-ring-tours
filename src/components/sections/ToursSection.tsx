@@ -166,7 +166,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-sm text-gray-500 mb-1">Цена</div>
-                    <div className="text-2xl font-bold text-[#D4AF37] font-playfair">{tour.price}</div>
+                    <div className="text-xl font-bold text-[#D4AF37] font-playfair">{tour.price}</div>
                   </div>
                   <Button 
                     className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
