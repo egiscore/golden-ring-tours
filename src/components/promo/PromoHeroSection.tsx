@@ -22,7 +22,7 @@ interface PromoHeroSectionProps {
     content: string;
     term: string;
   };
-  onBookingClick: () => void;
+  onBookingClick: (tourTitle?: string) => void;
 }
 
 export default function PromoHeroSection({
@@ -99,7 +99,7 @@ export default function PromoHeroSection({
                   utm_campaign: utmParams.campaign || 'none'
                 });
               }
-              onBookingClick();
+              onBookingClick('');
             }}
           >
             <Icon name="Percent" className="mr-2" size={24} />

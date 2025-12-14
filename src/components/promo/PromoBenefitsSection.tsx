@@ -15,7 +15,7 @@ interface PromoBenefitsSectionProps {
     minutes: number;
     seconds: number;
   };
-  onBookingClick: () => void;
+  onBookingClick: (tourTitle?: string) => void;
 }
 
 export default function PromoBenefitsSection({
@@ -120,7 +120,7 @@ export default function PromoBenefitsSection({
             size="lg" 
             variant="secondary"
             className="text-lg px-12 py-6 h-auto shadow-xl hover:scale-105 transition-transform"
-            onClick={onBookingClick}
+            onClick={() => onBookingClick('')}
           >
             <Icon name="Gift" className="mr-2" size={24} />
             Забронировать со скидкой

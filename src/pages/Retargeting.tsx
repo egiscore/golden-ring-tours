@@ -265,7 +265,10 @@ export default function Retargeting() {
         cityTargeting={cityTargeting}
         timeLeft={timeLeft}
         utmParams={utmParams}
-        onBookingClick={() => setIsBookingOpen(true)}
+        onBookingClick={(tourTitle?: string) => {
+          setSelectedTour(tourTitle || '');
+          setIsBookingOpen(true);
+        }}
       />
 
       <PromoToursGrid 
@@ -283,7 +286,10 @@ export default function Retargeting() {
         userCity={userCity}
         cityTargeting={cityTargeting}
         timeLeft={timeLeft}
-        onBookingClick={() => setIsBookingOpen(true)}
+        onBookingClick={(tourTitle?: string) => {
+          setSelectedTour(tourTitle || '');
+          setIsBookingOpen(true);
+        }}
       />
 
       <BookingModal 
