@@ -457,7 +457,6 @@ export default function Retargeting() {
       
       {/* Conversion optimization components */}
       <CallbackButton />
-      <ExitIntentPopup />
     </div>
   );
 }
