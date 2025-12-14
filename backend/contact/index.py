@@ -44,6 +44,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         }
     
     body_data = json.loads(event.get('body', '{}'))
+    
+    # Преобразуем пустую строку email в None
+    if 'email' in body_data and body_data['email'] == '':
+        body_data['email'] = None
+    
     contact_request = ContactRequest(**body_data)
     
     smtp_email = os.environ.get('SMTP_EMAIL')
