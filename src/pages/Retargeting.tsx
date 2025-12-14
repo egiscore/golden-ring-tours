@@ -85,6 +85,13 @@ const cityTargeting: Record<string, {
 export default function Retargeting() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [userCity, setUserCity] = useState<string>('moscow');
+  const [utmParams, setUtmParams] = useState({
+    source: '',
+    medium: '',
+    campaign: '',
+    content: '',
+    term: ''
+  });
   const [timeLeft, setTimeLeft] = useState({
     hours: 23,
     minutes: 59,
@@ -98,6 +105,25 @@ export default function Retargeting() {
       
       if (cityParam && cityTargeting[cityParam]) {
         setUserCity(cityParam);
+      }
+
+      setUtmParams({
+        source: urlParams.get('utm_source') || '',
+        medium: urlParams.get('utm_medium') || '',
+        campaign: urlParams.get('utm_campaign') || '',
+        content: urlParams.get('utm_content') || '',
+        term: urlParams.get('utm_term') || ''
+      });
+
+      if (typeof window !== 'undefined' && (window as any).ym) {
+        (window as any).ym(98765432, 'hit', window.location.href, {
+          params: {
+            city: cityParam || 'unknown',
+            utm_source: urlParams.get('utm_source') || 'direct',
+            utm_medium: urlParams.get('utm_medium') || 'none',
+            utm_campaign: urlParams.get('utm_campaign') || 'none'
+          }
+        });
       }
     };
 
@@ -214,7 +240,16 @@ export default function Retargeting() {
             <Button 
               size="lg" 
               className="text-lg px-12 py-6 h-auto shadow-xl hover:scale-105 transition-transform"
-              onClick={() => setIsBookingOpen(true)}
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).ym) {
+                  (window as any).ym(98765432, 'reachGoal', 'click_get_discount', {
+                    city: userCity,
+                    utm_source: utmParams.source || 'direct',
+                    utm_campaign: utmParams.campaign || 'none'
+                  });
+                }
+                setIsBookingOpen(true);
+              }}
             >
               <Icon name="Percent" className="mr-2" size={24} />
               Получить скидку 5%
@@ -282,7 +317,18 @@ export default function Retargeting() {
 
                 <Button 
                   className="w-full"
-                  onClick={() => setIsBookingOpen(true)}
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).ym) {
+                      (window as any).ym(98765432, 'reachGoal', 'click_book_tour', {
+                        city: userCity,
+                        tour: tour.title,
+                        price: tour.discountPrice,
+                        utm_source: utmParams.source || 'direct',
+                        utm_campaign: utmParams.campaign || 'none'
+                      });
+                    }
+                    setIsBookingOpen(true);
+                  }}
                 >
                   Забронировать со скидкой
                 </Button>
