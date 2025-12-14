@@ -98,54 +98,45 @@ export default function PopupOffer() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[400px] max-h-[90vh] overflow-y-auto p-0 border-4 border-[#D4AF37]">
+      <DialogContent className="sm:max-w-[380px] p-0 border-2 border-[#D4AF37]">
         <div className="relative">
           {/* Заголовок с градиентом */}
-          <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white p-4 pb-6">
-            <div className="absolute -top-2 -right-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg rotate-12 animate-pulse">
-              -30%!
+          <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white p-3 pb-4">
+            <div className="flex items-center justify-center mb-2">
+              <Icon name="Gift" size={32} />
             </div>
-            <div className="flex items-center justify-center mb-3">
-              <Icon name="Gift" size={40} />
-            </div>
-            <h2 className="text-2xl font-bold text-center mb-2 font-playfair">
-              Стойте! Не уходите!
+            <h2 className="text-xl font-bold text-center mb-1 font-playfair">
+              Специальное предложение
             </h2>
-            <p className="text-center text-white/90">
-              Успейте получить <span className="font-bold">скидку 30%</span> на любой тур
+            <p className="text-center text-white/95 text-sm">
+              Скидка <span className="font-bold">30%</span> на любой тур
             </p>
           </div>
 
           {/* Форма */}
           <div className="p-4 bg-white">
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-400 rounded-xl p-3 mb-4">
-              <div className="flex items-start gap-3">
-                <Icon name="Clock" size={24} className="text-green-600 flex-shrink-0" />
-                <div className="text-sm">
-                  <p className="font-bold text-green-900 mb-1">Предложение действует:</p>
-                  <p className="text-green-700">Только сегодня! Оставьте заявку прямо сейчас и получите максимальную скидку</p>
-                </div>
-              </div>
+            <div className="bg-green-50 border border-green-400 rounded-lg p-2 mb-3">
+              <p className="text-xs text-green-900 font-semibold">⌛ Предложение действует только сегодня</p>
             </div>
 
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-3" onSubmit={handleSubmit}>
               <div>
-                <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Ваше имя</label>
+                <label className="text-xs font-semibold mb-1 block text-[#1A1F2C]">Ваше имя</label>
                 <Input 
                   name="name" 
                   type="text" 
-                  placeholder="Иван Иванов" 
-                  className="h-12 border-gray-300 focus:border-[#D4AF37]" 
+                  placeholder="Иван" 
+                  className="h-10 text-sm border-gray-300 focus:border-[#D4AF37]" 
                   required 
                 />
               </div>
               <div>
-                <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Телефон</label>
+                <label className="text-xs font-semibold mb-1 block text-[#1A1F2C]">Телефон</label>
                 <Input 
                   name="phone" 
                   type="tel" 
                   placeholder="+7 (999) 123-45-67" 
-                  className="h-12 border-gray-300 focus:border-[#D4AF37]" 
+                  className="h-10 text-sm border-gray-300 focus:border-[#D4AF37]" 
                   required 
                 />
               </div>
@@ -153,27 +144,13 @@ export default function PopupOffer() {
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-12 text-base font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-10 text-sm font-semibold transition-all disabled:opacity-50"
               >
-                {isSubmitting ? 'Отправка...' : 'Получить скидку 30%'}
-                <Icon name="ArrowRight" size={20} className="ml-2" />
+                {isSubmitting ? 'Отправка...' : 'Получить скидку'}
               </Button>
-              
-              <p className="text-xs text-gray-500 text-center">
-                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-              </p>
             </form>
 
-            <div className="mt-6 flex items-center justify-center gap-4 text-sm text-gray-600">
-              <div className="flex items-center gap-1">
-                <Icon name="Check" size={16} className="text-[#D4AF37]" />
-                <span>Без спама</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Icon name="Check" size={16} className="text-[#D4AF37]" />
-                <span>Перезвоним за 15 минут</span>
-              </div>
-            </div>
+
           </div>
         </div>
       </DialogContent>

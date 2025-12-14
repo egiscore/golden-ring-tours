@@ -107,67 +107,50 @@ export default function ExitIntentPopup() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[420px] max-h-[90vh] overflow-y-auto p-0 border-4 border-red-500">
+      <DialogContent className="sm:max-w-[380px] p-0 border-2 border-red-500">
         <div className="relative">
           {/* Яркий заголовок */}
-          <div className="bg-gradient-to-r from-red-600 to-red-500 text-white p-4 pb-6">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-red-600 px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
-              ⚡ ПОСЛЕДНИЙ ШАНС!
+          <div className="bg-gradient-to-r from-red-600 to-red-500 text-white p-3 pb-4">
+            <div className="flex items-center justify-center mb-2">
+              <Icon name="AlertCircle" size={32} />
             </div>
-            <div className="flex items-center justify-center mb-3 mt-4">
-              <Icon name="AlertCircle" size={48} />
-            </div>
-            <h2 className="text-2xl font-bold text-center mb-2 font-playfair">
+            <h2 className="text-xl font-bold text-center mb-1 font-playfair">
               Стоп! Не уходите!
             </h2>
-            <p className="text-center text-white/95 text-base">
-              Только для вас — <span className="font-bold text-yellow-300">эксклюзивная скидка 30%</span>
+            <p className="text-center text-white/95 text-sm">
+              Скидка <span className="font-bold text-yellow-300">30%</span> только сегодня
             </p>
           </div>
 
           {/* Форма */}
           <div className="p-4 bg-white">
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-400 rounded-xl p-3 mb-4">
-              <div className="flex items-start gap-3">
-                <Icon name="Zap" size={28} className="text-yellow-600 flex-shrink-0" />
-                <div>
-                  <p className="font-bold text-yellow-900 mb-2">Что вы получите прямо сейчас:</p>
-                  <ul className="text-sm text-yellow-800 space-y-1">
-                    <li className="flex items-center gap-2">
-                      <Icon name="Check" size={16} className="text-yellow-600" />
-                      <span>Скидка 30% на любой тур</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="Check" size={16} className="text-yellow-600" />
-                      <span>Бесплатная консультация эксперта</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="Check" size={16} className="text-yellow-600" />
-                      <span>Персональная программа тура в подарок</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div className="bg-yellow-50 border border-yellow-400 rounded-lg p-2 mb-3">
+              <p className="text-xs text-yellow-900 font-semibold mb-1">✨ Что вы получите:</p>
+              <ul className="text-xs text-yellow-800 space-y-0.5">
+                <li>• Скидка 30% на любой тур</li>
+                <li>• Бесплатная консультация</li>
+                <li>• Персональная программа</li>
+              </ul>
             </div>
 
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-3" onSubmit={handleSubmit}>
               <div>
-                <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Ваше имя</label>
+                <label className="text-xs font-semibold mb-1 block text-[#1A1F2C]">Ваше имя</label>
                 <Input 
                   name="name" 
                   type="text" 
-                  placeholder="Иван Иванов" 
-                  className="h-12 border-gray-300 focus:border-red-500" 
+                  placeholder="Иван" 
+                  className="h-10 text-sm border-gray-300 focus:border-red-500" 
                   required 
                 />
               </div>
               <div>
-                <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Телефон</label>
+                <label className="text-xs font-semibold mb-1 block text-[#1A1F2C]">Телефон</label>
                 <Input 
                   name="phone" 
                   type="tel" 
                   placeholder="+7 (999) 123-45-67" 
-                  className="h-12 border-gray-300 focus:border-red-500" 
+                  className="h-10 text-sm border-gray-300 focus:border-red-500" 
                   required 
                 />
               </div>
@@ -175,22 +158,13 @@ export default function ExitIntentPopup() {
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white h-12 text-base font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white h-10 text-sm font-semibold transition-all disabled:opacity-50"
               >
-                {isSubmitting ? 'Отправка...' : '🔥 Забрать скидку 30% сейчас!'}
+                {isSubmitting ? 'Отправка...' : '🔥 Забрать скидку'}
               </Button>
-              
-              <p className="text-xs text-gray-500 text-center">
-                Предложение действует только сегодня
-              </p>
             </form>
 
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
-                <Icon name="Users" size={16} className="text-[#D4AF37]" />
-                <span><span className="font-bold text-red-600">47 человек</span> воспользовались предложением сегодня</span>
-              </p>
-            </div>
+
           </div>
         </div>
       </DialogContent>

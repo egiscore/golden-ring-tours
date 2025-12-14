@@ -85,49 +85,49 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[420px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[400px]">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-playfair">Забронировать тур со скидкой 5%</DialogTitle>
-          <DialogDescription>
-            Оставьте заявку, и мы свяжемся с вами в течение часа
+          <DialogTitle className="text-xl font-playfair">Забронировать тур</DialogTitle>
+          <DialogDescription className="text-sm">
+            Свяжемся с вами в течение часа
           </DialogDescription>
         </DialogHeader>
-        <form className="space-y-4" onSubmit={handleSubmit} key={selectedTour}>
+        <form className="space-y-3" onSubmit={handleSubmit} key={selectedTour}>
           <div>
-            <label className="text-sm font-medium mb-2 block">Ваше имя</label>
+            <label className="text-xs font-medium mb-1 block">Ваше имя</label>
             <input 
               type="text"
               name="name"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" 
-              placeholder="Иван Иванов" 
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" 
+              placeholder="Иван" 
             />
           </div>
           <div>
-            <label className="text-sm font-medium mb-2 block">Телефон</label>
+            <label className="text-xs font-medium mb-1 block">Телефон</label>
             <input 
               type="tel"
               name="phone"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" 
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" 
               placeholder="+7 (999) 123-45-67" 
             />
           </div>
           <div>
-            <label className="text-sm font-medium mb-2 block">Email (необязательно)</label>
+            <label className="text-xs font-medium mb-1 block">Email (необязательно)</label>
             <input 
               type="email"
               name="email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" 
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" 
               placeholder="email@example.com" 
             />
           </div>
           <div>
-            <label className="text-sm font-medium mb-2 block">Интересующий тур</label>
+            <label className="text-xs font-medium mb-1 block">Тур</label>
             <select 
               name="tour"
               defaultValue={selectedTour || 'Автобусный тур'}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
               <option>Автобусный тур</option>
               <option>Круиз на лайнере</option>
@@ -140,24 +140,20 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
             </select>
           </div>
           <div>
-            <label className="text-sm font-medium mb-2 block">Комментарий</label>
+            <label className="text-xs font-medium mb-1 block">Комментарий</label>
             <textarea 
               name="comment"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] min-h-[100px]" 
-              placeholder="Расскажите о ваших пожеланиях..." 
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] min-h-[70px]" 
+              placeholder="Ваши пожелания..." 
             />
           </div>
-          <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-lg p-3">
-            <p className="text-sm text-center font-medium">
-              🎉 Ваша персональная скидка <span className="text-[#D4AF37] font-bold">5%</span> будет применена автоматически
-            </p>
-          </div>
+
           <Button 
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-11"
+            className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-10 text-sm"
           >
-            {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
+            {isSubmitting ? 'Отправка...' : 'Отправить'}
           </Button>
         </form>
       </DialogContent>
