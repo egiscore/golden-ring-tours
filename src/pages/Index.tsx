@@ -47,10 +47,12 @@ export default function Index() {
     if (utmMedium) sourceInfo += ` / ${utmMedium}`;
     if (utmCampaign) sourceInfo += `\n📢 Кампания: ${utmCampaign}`;
     
+    const emailValue = formData.get('email') as string;
+    
     const data = {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
-      email: formData.get('email') as string,
+      email: emailValue && emailValue.trim() !== '' ? emailValue : null,
       message: `${sourceInfo}\n\n💬 Сообщение: ${formData.get('message') || 'Не указано'}`
     };
 
