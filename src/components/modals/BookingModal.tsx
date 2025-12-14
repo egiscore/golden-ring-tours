@@ -111,11 +111,10 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
             />
           </div>
           <div>
-            <label className="text-sm font-medium mb-2 block">Email</label>
+            <label className="text-sm font-medium mb-2 block">Email (необязательно)</label>
             <input 
               type="email"
               name="email"
-              required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]" 
               placeholder="email@example.com" 
             />

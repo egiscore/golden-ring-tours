@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import BookingModal from '@/components/modals/BookingModal';
+import CallbackButton from '@/components/CallbackButton';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 
 const cityTargeting: Record<string, {
   city: string;
@@ -452,6 +454,10 @@ export default function Retargeting() {
         onClose={() => setIsBookingOpen(false)}
         source="промо (скидка 5%)"
       />
+      
+      {/* Conversion optimization components */}
+      <CallbackButton />
+      <ExitIntentPopup />
     </div>
   );
 }

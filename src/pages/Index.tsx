@@ -11,6 +11,9 @@ import ToursSection from '@/components/sections/ToursSection';
 import RoutesSection from '@/components/sections/RoutesSection';
 import BenefitsSection from '@/components/sections/BenefitsSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
+import PopupOffer from '@/components/PopupOffer';
+import CallbackButton from '@/components/CallbackButton';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 import { useToast } from '@/hooks/use-toast';
 
 export default function Index() {
@@ -169,6 +172,11 @@ export default function Index() {
       <BenefitsSection />
       <ToursSection scrollToSection={scrollToSection} />
       <SocialProofSection />
+      
+      {/* Conversion optimization components */}
+      <PopupOffer />
+      <CallbackButton />
+      <ExitIntentPopup />
 
       {/* Gallery Section */}
       <section id="gallery" className="py-24 bg-gradient-to-b from-[#F5F1E8] to-white">
@@ -287,7 +295,7 @@ export default function Index() {
                     <Input name="phone" type="tel" placeholder="+7 (999) 123-45-67" className="h-12 border-gray-300 focus:border-[#D4AF37]" required />
                   </div>
                   <div>
-                    <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Email</label>
+                    <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">Email (необязательно)</label>
                     <Input name="email" type="email" placeholder="email@example.com" className="h-12 border-gray-300 focus:border-[#D4AF37]" />
                   </div>
                   <div>
