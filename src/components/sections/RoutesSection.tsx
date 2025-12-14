@@ -214,10 +214,10 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
               <Button 
                 onClick={() => scrollToSection('contact')} 
                 size="lg"
-                className="bg-[#1A1F2C] hover:bg-[#1A1F2C]/90 text-white px-8 py-6 h-auto text-lg"
+                className="bg-[#1A1F2C] hover:bg-[#1A1F2C]/90 text-white px-6 py-6 h-auto text-base md:text-lg max-w-full"
               >
-                <Icon name="Compass" size={22} className="mr-2" />
-                Заказать индивидуальный маршрут
+                <Icon name="Compass" size={22} className="mr-2 shrink-0" />
+                <span className="whitespace-normal leading-tight">Заказать индивидуальный маршрут</span>
               </Button>
               <p className="text-sm text-gray-500 mt-4">
                 📞 Перезвоним за 15 минут и обсудим детали
