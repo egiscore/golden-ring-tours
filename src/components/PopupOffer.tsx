@@ -98,10 +98,10 @@ export default function PopupOffer() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[480px] p-0 overflow-hidden border-4 border-[#D4AF37]">
+      <DialogContent className="sm:max-w-[400px] max-h-[90vh] overflow-y-auto p-0 border-4 border-[#D4AF37]">
         <div className="relative">
           {/* Заголовок с градиентом */}
-          <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white p-6 pb-8">
+          <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white p-4 pb-6">
             <div className="absolute -top-2 -right-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg rotate-12 animate-pulse">
               -30%!
             </div>
@@ -117,8 +117,8 @@ export default function PopupOffer() {
           </div>
 
           {/* Форма */}
-          <div className="p-6 bg-white">
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-400 rounded-xl p-4 mb-6">
+          <div className="p-4 bg-white">
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-400 rounded-xl p-3 mb-4">
               <div className="flex items-start gap-3">
                 <Icon name="Clock" size={24} className="text-green-600 flex-shrink-0" />
                 <div className="text-sm">
@@ -153,7 +153,7 @@ export default function PopupOffer() {
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-12 text-base font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
               >
                 {isSubmitting ? 'Отправка...' : 'Получить скидку 30%'}
                 <Icon name="ArrowRight" size={20} className="ml-2" />

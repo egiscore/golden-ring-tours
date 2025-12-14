@@ -107,27 +107,27 @@ export default function ExitIntentPopup() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[520px] p-0 overflow-hidden border-4 border-red-500">
+      <DialogContent className="sm:max-w-[420px] max-h-[90vh] overflow-y-auto p-0 border-4 border-red-500">
         <div className="relative">
           {/* Яркий заголовок */}
-          <div className="bg-gradient-to-r from-red-600 to-red-500 text-white p-6 pb-8">
+          <div className="bg-gradient-to-r from-red-600 to-red-500 text-white p-4 pb-6">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-red-600 px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
               ⚡ ПОСЛЕДНИЙ ШАНС!
             </div>
             <div className="flex items-center justify-center mb-3 mt-4">
               <Icon name="AlertCircle" size={48} />
             </div>
-            <h2 className="text-3xl font-bold text-center mb-2 font-playfair">
+            <h2 className="text-2xl font-bold text-center mb-2 font-playfair">
               Стоп! Не уходите!
             </h2>
-            <p className="text-center text-white/95 text-lg">
+            <p className="text-center text-white/95 text-base">
               Только для вас — <span className="font-bold text-yellow-300">эксклюзивная скидка 30%</span>
             </p>
           </div>
 
           {/* Форма */}
-          <div className="p-6 bg-white">
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-400 rounded-xl p-4 mb-6">
+          <div className="p-4 bg-white">
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-400 rounded-xl p-3 mb-4">
               <div className="flex items-start gap-3">
                 <Icon name="Zap" size={28} className="text-yellow-600 flex-shrink-0" />
                 <div>
@@ -175,7 +175,7 @@ export default function ExitIntentPopup() {
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white h-12 text-base font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
               >
                 {isSubmitting ? 'Отправка...' : '🔥 Забрать скидку 30% сейчас!'}
               </Button>

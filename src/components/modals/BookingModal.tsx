@@ -85,7 +85,7 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="sm:max-w-[420px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-playfair">Забронировать тур со скидкой 5%</DialogTitle>
           <DialogDescription>
@@ -147,7 +147,7 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
               placeholder="Расскажите о ваших пожеланиях..." 
             />
           </div>
-          <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-lg p-4">
+          <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-lg p-3">
             <p className="text-sm text-center font-medium">
               🎉 Ваша персональная скидка <span className="text-[#D4AF37] font-bold">5%</span> будет применена автоматически
             </p>
@@ -155,7 +155,7 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
           <Button 
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-12"
+            className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white h-11"
           >
             {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
           </Button>
