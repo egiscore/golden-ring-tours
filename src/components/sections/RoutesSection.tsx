@@ -15,6 +15,18 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
     minutes: 47,
     seconds: 30
   });
+  const [notification, setNotification] = useState<{ name: string; city: string; tour: string } | null>(null);
+
+  const bookingNotifications = [
+    { name: 'Екатерина', city: 'Москва', tour: 'Классический маршрут' },
+    { name: 'Дмитрий', city: 'Санкт-Петербург', tour: 'VIP тур' },
+    { name: 'Анна', city: 'Казань', tour: 'Экспресс-маршрут' },
+    { name: 'Сергей', city: 'Новосибирск', tour: 'Расширенный маршрут' },
+    { name: 'Мария', city: 'Екатеринбург', tour: 'Гастрономический тур' },
+    { name: 'Алексей', city: 'Нижний Новгород', tour: 'Классический маршрут' },
+    { name: 'Ольга', city: 'Краснодар', tour: 'VIP тур' },
+    { name: 'Иван', city: 'Уфа', tour: 'Фототур' }
+  ];
 
   useEffect(() => {
     const viewInterval = setInterval(() => {
@@ -34,9 +46,22 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
       });
     }, 1000);
 
+    const showNotification = () => {
+      const randomBooking = bookingNotifications[Math.floor(Math.random() * bookingNotifications.length)];
+      setNotification(randomBooking);
+      setTimeout(() => setNotification(null), 5000);
+    };
+
+    const initialDelay = setTimeout(() => {
+      showNotification();
+      const notificationInterval = setInterval(showNotification, 20000);
+      return () => clearInterval(notificationInterval);
+    }, 5000);
+
     return () => {
       clearInterval(viewInterval);
       clearInterval(timer);
+      clearTimeout(initialDelay);
     };
   }, []);
 
@@ -62,7 +87,26 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
   ];
 
   return (
-    <section id="routes" className="py-24 bg-white">
+    <section id="routes" className="py-24 bg-white relative">
+      {notification && (
+        <div className="fixed bottom-6 left-6 z-50 animate-in slide-in-from-left duration-500">
+          <div className="bg-white border-2 border-green-500 rounded-xl shadow-2xl p-4 max-w-sm">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0">
+                <Icon name="CheckCircle" size={20} className="text-green-600" />
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-gray-900 mb-1">Только что забронировали!</p>
+                <p className="text-sm text-gray-600">
+                  <strong>{notification.name}</strong> из {notification.city}
+                </p>
+                <p className="text-xs text-gray-500 mt-1">{notification.tour}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-4">
