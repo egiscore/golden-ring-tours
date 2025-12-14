@@ -9,12 +9,17 @@ export default function Header({ scrollToSection }: HeaderProps) {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shrink-0">
             <Icon name="Crown" className="text-white" size={20} />
           </div>
-          <span className="text-2xl font-bold text-[#1A1F2C] font-playfair">
-            Золотое Кольцо
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl md:text-2xl font-bold text-[#1A1F2C] font-playfair leading-tight">
+              ВФС
+            </span>
+            <span className="text-xs text-gray-600 font-medium">
+              Туроператор
+            </span>
+          </div>
         </div>
         <div className="hidden md:flex gap-8 items-center">
           <button onClick={() => scrollToSection('tours')} className="text-gray-700 hover:text-[#D4AF37] transition-colors font-medium">Туры</button>
