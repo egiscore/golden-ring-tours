@@ -3,8 +3,88 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import BookingModal from '@/components/modals/BookingModal';
 
+const cityTargeting: Record<string, {
+  city: string;
+  offer: string;
+  benefit: string;
+  transport: string;
+  icon: string;
+}> = {
+  'moscow': {
+    city: 'Москвы',
+    offer: 'Выезд от вашего дома на Mercedes',
+    benefit: 'Без пробок — выезд в 6:00',
+    transport: 'Комфортный трансфер',
+    icon: 'Car'
+  },
+  'spb': {
+    city: 'Санкт-Петербурга',
+    offer: 'Прямой поезд + трансфер в подарок',
+    benefit: 'Встретим на вокзале',
+    transport: 'Сапсан до Владимира',
+    icon: 'Train'
+  },
+  'kazan': {
+    city: 'Казани',
+    offer: 'Авиаперелет включен в стоимость',
+    benefit: 'Летим вместе',
+    transport: 'Прямой рейс',
+    icon: 'Plane'
+  },
+  'nn': {
+    city: 'Нижнего Новгорода',
+    offer: 'Всего 2 часа в пути на авто',
+    benefit: 'Самый близкий маршрут',
+    transport: 'Комфортный автобус',
+    icon: 'Bus'
+  },
+  'ekb': {
+    city: 'Екатеринбурга',
+    offer: 'Перелет + 2 ночи в отеле в подарок',
+    benefit: 'Максимум комфорта',
+    transport: 'Прямой рейс 2ч',
+    icon: 'Plane'
+  },
+  'nsk': {
+    city: 'Новосибирска',
+    offer: 'Перелет туда-обратно включен',
+    benefit: 'Летим бизнес-классом',
+    transport: 'Удобный рейс',
+    icon: 'Plane'
+  },
+  'krasnodar': {
+    city: 'Краснодара',
+    offer: 'Авиаперелет + встреча в аэропорту',
+    benefit: 'VIP-зал в подарок',
+    transport: 'Прямой рейс',
+    icon: 'Plane'
+  },
+  'chelyabinsk': {
+    city: 'Челябинска',
+    offer: 'Перелет включен + экскурсия в подарок',
+    benefit: 'Летим с комфортом',
+    transport: 'Удобный рейс',
+    icon: 'Plane'
+  },
+  'samara': {
+    city: 'Самары',
+    offer: 'Скоростной поезд + трансфер',
+    benefit: 'Близко и удобно',
+    transport: 'Ласточка 4ч',
+    icon: 'Train'
+  },
+  'perm': {
+    city: 'Перми',
+    offer: 'Авиабилеты туда-обратно в подарок',
+    benefit: 'Полный пакет',
+    transport: 'Прямой рейс',
+    icon: 'Plane'
+  }
+};
+
 export default function Retargeting() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [userCity, setUserCity] = useState<string>('moscow');
   const [timeLeft, setTimeLeft] = useState({
     hours: 23,
     minutes: 59,
@@ -12,6 +92,17 @@ export default function Retargeting() {
   });
 
   useEffect(() => {
+    const detectCity = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cityParam = urlParams.get('city')?.toLowerCase();
+      
+      if (cityParam && cityTargeting[cityParam]) {
+        setUserCity(cityParam);
+      }
+    };
+
+    detectCity();
+
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev.seconds > 0) {
@@ -73,10 +164,19 @@ export default function Retargeting() {
               <h2 className="text-3xl font-bold text-[#1A1F2C]">Золотое Кольцо</h2>
             </div>
 
-            {/* Специальное предложение баннер */}
-            <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border-2 border-[#D4AF37] px-6 py-3 rounded-full mb-8 animate-pulse">
-              <Icon name="Sparkles" size={20} className="text-[#D4AF37]" />
-              <span className="font-semibold text-[#1A1F2C]">Специальное предложение только для вас</span>
+            {/* Специальное предложение баннер с геотаргетингом */}
+            <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border-2 border-[#D4AF37] px-6 py-3 rounded-full mb-6 animate-pulse">
+              <Icon name="MapPin" size={20} className="text-[#D4AF37]" />
+              <span className="font-semibold text-[#1A1F2C]">Специально для жителей {cityTargeting[userCity].city}</span>
+            </div>
+
+            {/* Персональное преимущество */}
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-500 px-6 py-4 rounded-2xl mb-8 shadow-lg">
+              <Icon name={cityTargeting[userCity].icon} size={24} className="text-green-600" />
+              <div className="text-left">
+                <p className="font-bold text-green-900">{cityTargeting[userCity].offer}</p>
+                <p className="text-sm text-green-700">{cityTargeting[userCity].benefit}</p>
+              </div>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#D4AF37] via-[#B8941F] to-[#D4AF37] bg-clip-text text-transparent">
@@ -84,7 +184,7 @@ export default function Retargeting() {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-700 mb-4 max-w-2xl mx-auto">
-              Откройте для себя древние города России с комфортом премиум-класса
+              Откройте для себя древние города России с комфортом премиум-класса из {cityTargeting[userCity].city}
             </p>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Владимир • Суздаль • Ярославль • Ростов Великий • Кострома • Иваново • Сергиев Посад • Переславль-Залесский
@@ -149,7 +249,13 @@ export default function Retargeting() {
 
                 <h3 className="text-2xl font-bold mb-2">{tour.title}</h3>
                 <p className="text-sm text-[#D4AF37] font-medium mb-3">{tour.subtitle}</p>
-                <p className="text-muted-foreground mb-4">{tour.duration}</p>
+                <p className="text-muted-foreground mb-2">{tour.duration}</p>
+                
+                {/* Транспорт из города */}
+                <div className="flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-3 py-2 mb-4">
+                  <Icon name={cityTargeting[userCity].icon} size={16} className="text-green-600" />
+                  <span className="text-xs text-green-700 font-medium">{cityTargeting[userCity].transport}</span>
+                </div>
 
                 {/* Цена со скидкой */}
                 <div className="mb-6">
@@ -201,9 +307,9 @@ export default function Retargeting() {
                 description: 'Скидка 5% действует только 24 часа'
               },
               {
-                icon: 'Users',
-                title: 'Мало мест',
-                description: 'На ближайшие даты осталось всего 3 места'
+                icon: cityTargeting[userCity].icon,
+                title: cityTargeting[userCity].offer,
+                description: cityTargeting[userCity].benefit
               },
               {
                 icon: 'Shield',
