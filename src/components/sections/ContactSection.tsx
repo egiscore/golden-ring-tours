@@ -280,9 +280,7 @@ export default function ContactSection() {
                     <h3 className="font-bold text-lg mb-2 text-[#1A1F2C]">
                       Офис
                     </h3>
-                    <p className="text-gray-700">
-                      г. Москва, Пресненская наб, д. 6с2
-                    </p>
+                    <p className="text-gray-700">г. Москва, Пресненская наб. 6с2</p>
                     <p className="text-gray-600 text-sm mt-1">
                       Пн-Пт: 10:00-19:00
                     </p>
