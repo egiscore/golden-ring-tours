@@ -128,22 +128,22 @@ export default function CallbackButton() {
 
           <form className="space-y-3" onSubmit={handleSubmit}>
             <div>
-              <label className="text-sm font-semibold mb-1 block text-[#1A1F2C]">Ваше имя</label>
+              <label className="text-xs font-semibold mb-1 block text-[#1A1F2C]">Ваше имя</label>
               <Input 
                 name="name" 
                 type="text" 
                 placeholder="Иван" 
-                className="h-12 text-base border-gray-300 focus:border-[#D4AF37]" 
+                className="h-10 text-sm border-gray-300 focus:border-[#D4AF37]" 
                 required 
               />
             </div>
             <div>
-              <label className="text-sm font-semibold mb-1 block text-[#1A1F2C]">Телефон</label>
+              <label className="text-xs font-semibold mb-1 block text-[#1A1F2C]">Телефон</label>
               <Input 
                 name="phone" 
                 type="tel" 
                 placeholder="+7 (999) 123-45-67" 
-                className="h-12 text-base border-gray-300 focus:border-[#D4AF37]" 
+                className="h-10 text-sm border-gray-300 focus:border-[#D4AF37]" 
                 required 
               />
             </div>
@@ -153,7 +153,7 @@ export default function CallbackButton() {
             <Button 
               type="submit" 
               disabled={isSubmitting} 
-              className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-12 text-base font-semibold transition-all disabled:opacity-50"
+              className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-10 text-sm font-semibold transition-all disabled:opacity-50"
             >
               {isSubmitting ? 'Отправка...' : 'Перезвоните мне'}
             </Button>
