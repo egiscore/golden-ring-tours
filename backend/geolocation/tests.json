@@ -1,0 +1,15 @@
+{
+  "tests": [
+    {
+      "name": "Get geolocation",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "city": "string",
+        "country": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
