@@ -122,7 +122,7 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
             <div className="flex items-center gap-2 bg-red-50 border border-red-200 px-4 py-2 rounded-lg animate-pulse">
               <Icon name="Clock" size={18} className="text-red-600" />
               <span className="text-sm font-semibold text-red-700">
-                Скидка 30% истекает через {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+                Скидка до 30% истекает через {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
               </span>
             </div>
             
