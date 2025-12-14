@@ -54,9 +54,9 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
 
     const initialDelay = setTimeout(() => {
       showNotification();
-      const notificationInterval = setInterval(showNotification, 20000);
+      const notificationInterval = setInterval(showNotification, 60000);
       return () => clearInterval(notificationInterval);
-    }, 5000);
+    }, 10000);
 
     return () => {
       clearInterval(viewInterval);
