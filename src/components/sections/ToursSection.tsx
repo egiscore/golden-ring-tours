@@ -35,42 +35,6 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
 
   const tours = [
     {
-      title: 'Индивидуальный VIP тур',
-      description: 'Максимальный комфорт и полное погружение в историю',
-      price: 'от 42 000 ₽',
-      duration: '2-7 дней',
-      icon: 'Crown',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/cd2d6549-1f39-42b9-a01d-b1f2c1b08c8c.jpg',
-      features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Трансферы включены']
-    },
-    {
-      title: 'Гастрономический тур',
-      description: 'Авторские блюда и лучшие вина региона',
-      price: 'от 52 000 ₽',
-      duration: '3-5 дней',
-      icon: 'ChefHat',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8d3d5500-3428-4cd0-b7db-19e5836a3c42.jpg',
-      features: ['Мастер-классы от шефа', 'Дегустации вин', 'Посещение ферм', 'Эксклюзивные рестораны']
-    },
-    {
-      title: 'Фототур для профессионалов',
-      description: 'Секретные локации и профессиональный опыт',
-      price: 'от 38 000 ₽',
-      duration: '4-6 дней',
-      icon: 'Camera',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/137ede6c-dc37-4b47-b2cd-d84877bec21e.jpg',
-      features: ['Фотограф-эксперт', 'Секретные локации', 'Индивидуальный маршрут', 'Обработка фото']
-    },
-    {
-      title: 'Духовное путешествие',
-      description: 'Паломничество с духовным наставником',
-      price: 'от 35 000 ₽',
-      duration: '3-7 дней',
-      icon: 'Church',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/9d51a5f3-1205-477e-9ac8-1bc43b02701c.jpg',
-      features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места']
-    },
-    {
       title: 'Автобусный тур',
       description: 'Комфортное групповое путешествие с экскурсоводом',
       price: 'от 18 000 ₽',
@@ -105,6 +69,42 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       icon: 'Train',
       image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/699f480c-aa9b-427a-a4eb-a910c87d3ec1.jpg',
       features: ['Билеты на поезд включены', 'Трансфер на вокзалы', 'Гид в каждом городе', 'Проживание в отелях 3-4★']
+    },
+    {
+      title: 'Духовное путешествие',
+      description: 'Паломничество с духовным наставником',
+      price: 'от 35 000 ₽',
+      duration: '3-7 дней',
+      icon: 'Church',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/9d51a5f3-1205-477e-9ac8-1bc43b02701c.jpg',
+      features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места']
+    },
+    {
+      title: 'Гастрономический тур',
+      description: 'Авторские блюда и лучшие вина региона',
+      price: 'от 52 000 ₽',
+      duration: '3-5 дней',
+      icon: 'ChefHat',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8d3d5500-3428-4cd0-b7db-19e5836a3c42.jpg',
+      features: ['Мастер-классы от шефа', 'Дегустации вин', 'Посещение ферм', 'Эксклюзивные рестораны']
+    },
+    {
+      title: 'Индивидуальный VIP тур',
+      description: 'Максимальный комфорт и полное погружение в историю',
+      price: 'от 42 000 ₽',
+      duration: '2-7 дней',
+      icon: 'Crown',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/cd2d6549-1f39-42b9-a01d-b1f2c1b08c8c.jpg',
+      features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Трансферы включены']
+    },
+    {
+      title: 'Фототур для профессионалов',
+      description: 'Секретные локации и профессиональный опыт',
+      price: 'от 38 000 ₽',
+      duration: '4-6 дней',
+      icon: 'Camera',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/137ede6c-dc37-4b47-b2cd-d84877bec21e.jpg',
+      features: ['Фотограф-эксперт', 'Секретные локации', 'Индивидуальный маршрут', 'Обработка фото']
     }
   ];
 

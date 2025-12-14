@@ -169,8 +169,8 @@ export default function Index() {
       <Header scrollToSection={scrollToSection} />
       <HeroSection scrollToSection={scrollToSection} />
       <RoutesSection scrollToSection={scrollToSection} />
-      <BenefitsSection />
       <ToursSection scrollToSection={scrollToSection} />
+      <BenefitsSection />
       <SocialProofSection />
       
       {/* Conversion optimization components */}
