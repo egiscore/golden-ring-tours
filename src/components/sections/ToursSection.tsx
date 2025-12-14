@@ -120,6 +120,12 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             <strong>Каждый тур — это уникальный опыт.</strong> Мы создадим программу специально под вас, учитывая все пожелания
           </p>
+          <div className="mt-6 inline-flex items-center gap-3 bg-blue-50 border border-blue-200 px-6 py-3 rounded-xl">
+            <Icon name="MapPin" size={20} className="text-blue-600" />
+            <span className="text-sm font-semibold text-blue-700">
+              Бронирование тура возможно из любого города России
+            </span>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -170,7 +176,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                       setIsBookingOpen(true);
                     }}
                   >
-                    Забронировать
+                    Подобрать тур
                   </Button>
                 </div>
               </CardContent>
