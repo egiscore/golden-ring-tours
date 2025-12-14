@@ -69,6 +69,42 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       icon: 'Church',
       image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/9d51a5f3-1205-477e-9ac8-1bc43b02701c.jpg',
       features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места']
+    },
+    {
+      title: 'Автобусный тур',
+      description: 'Комфортное групповое путешествие с экскурсоводом',
+      price: 'от 18 000 ₽',
+      duration: '3-5 дней',
+      icon: 'Bus',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/5426bb0f-2fbb-490d-ba13-d544d41cce6a.jpg',
+      features: ['Комфортабельный автобус', 'Группа до 30 человек', 'Профессиональный гид', 'Все экскурсии включены']
+    },
+    {
+      title: 'Круиз на лайнере',
+      description: 'Путешествие по рекам с комфортом плавучего отеля',
+      price: 'от 45 000 ₽',
+      duration: '5-7 дней',
+      icon: 'Ship',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/1b97c2c0-0ad1-437b-9db1-3cd5463aaa87.jpg',
+      features: ['Комфортабельная каюта', 'Трёхразовое питание', 'Береговые экскурсии', 'Развлекательная программа']
+    },
+    {
+      title: 'Экскурсионный тур',
+      description: 'Насыщенная программа по всем достопримечательностям',
+      price: 'от 25 000 ₽',
+      duration: '3-7 дней',
+      icon: 'Landmark',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ccdac298-26df-4d81-81b5-44b72f445867.jpg',
+      features: ['Опытный экскурсовод', 'Входные билеты включены', 'Удобный трансфер', 'Посещение музеев и храмов']
+    },
+    {
+      title: 'Тур на поезде',
+      description: 'Путешествие на комфортабельном поезде между городами',
+      price: 'от 22 000 ₽',
+      duration: '4-6 дней',
+      icon: 'Train',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/699f480c-aa9b-427a-a4eb-a910c87d3ec1.jpg',
+      features: ['Билеты на поезд включены', 'Трансфер на вокзалы', 'Гид в каждом городе', 'Проживание в отелях 3-4★']
     }
   ];
 
@@ -86,7 +122,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {tours.map((tour, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden border-0 bg-white">
               <div className="relative h-56 overflow-hidden">
