@@ -162,7 +162,7 @@ export default function RoutesSection({ scrollToSection }: RoutesSectionProps) {
                   </div>
                   <div className="flex items-center gap-2">
                     <Icon name="MapPin" size={20} />
-                    <span className="font-semibold">3 города</span>
+                    <span className="font-semibold">{routes[activeRoute].cities.length} городов</span>
                   </div>
                 </div>
               </div>
