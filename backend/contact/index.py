@@ -4,13 +4,13 @@ import smtplib
 import requests
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field, EmailStr
 
 class ContactRequest(BaseModel):
     name: str = Field(..., min_length=1)
     phone: str = Field(..., min_length=5)
-    email: EmailStr
+    email: Optional[EmailStr] = None
     message: str = Field(..., min_length=1)
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
@@ -59,6 +59,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     message_html = contact_request.message.replace('\n', '<br>')
     
+    email_line = f"<p><strong>Email:</strong> {contact_request.email}</p>" if contact_request.email else ""
+    
     html_body = f"""
     <html>
       <body style="font-family: Arial, sans-serif; padding: 20px;">
@@ -66,7 +68,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-top: 20px;">
           <p><strong>Имя:</strong> {contact_request.name}</p>
           <p><strong>Телефон:</strong> {contact_request.phone}</p>
-          <p><strong>Email:</strong> {contact_request.email}</p>
+          {email_line}
           <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
           <div style="background: white; padding: 15px; border-radius: 4px;">
             {message_html}
@@ -93,11 +95,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     # Отправка в Telegram
     telegram_sent = False
     if telegram_bot_token and telegram_chat_id:
+        email_info = f"\n📧 Email: {contact_request.email}" if contact_request.email else ""
         telegram_message = f"""🔔 Новая заявка с сайта
 
 👤 Имя: {contact_request.name}
-📱 Телефон: {contact_request.phone}
-📧 Email: {contact_request.email}
+📱 Телефон: {contact_request.phone}{email_info}
 
 {contact_request.message}"""
         

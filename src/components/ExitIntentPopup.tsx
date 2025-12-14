@@ -50,7 +50,7 @@ export default function ExitIntentPopup() {
     const data = {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
-      email: '',
+      email: null,
       message: `${sourceInfo}\n\n💬 Сообщение: Заявка из Exit Intent окна (последний шанс)`
     };
 
