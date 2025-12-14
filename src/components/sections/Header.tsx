@@ -30,8 +30,12 @@ export default function Header({ scrollToSection }: HeaderProps) {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shrink-0">
-            <Icon name="Building2" className="text-white" size={20} />
+          <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shrink-0 overflow-hidden">
+            <img 
+              src="https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/03a411a1-d3d8-4d4f-809c-4a608dfa0d2d.jpg" 
+              alt="Золотое кольцо" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex flex-col">
             <span className="md:text-2xl text-[#1A1F2C] font-playfair leading-tight text-2xl font-semibold">
