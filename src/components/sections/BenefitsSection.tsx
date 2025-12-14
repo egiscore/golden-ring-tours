@@ -84,7 +84,7 @@ export default function BenefitsSection() {
               <span className="text-sm font-semibold text-[#D4AF37]">Специальное предложение</span>
             </div>
             
-            <h3 className="text-3xl md:text-4xl font-bold mb-4 font-playfair">Скидка 30% при бронировании до конца месяца</h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 font-playfair">Скидка до 30% при бронировании до конца месяца</h3>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Успейте забронировать тур по специальной цене. Количество мест ограничено!
             </p>
