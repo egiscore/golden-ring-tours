@@ -91,8 +91,8 @@ export default function Index() {
       <HeroSection scrollToSection={scrollToSection} />
       <BenefitsSection />
       <ToursSection scrollToSection={scrollToSection} />
-      <SocialProofSection />
       <RoutesSection scrollToSection={scrollToSection} />
+      <SocialProofSection />
 
       {/* Gallery Section */}
       <section id="gallery" className="py-24 bg-gradient-to-b from-[#F5F1E8] to-white">
