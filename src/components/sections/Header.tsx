@@ -31,7 +31,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shrink-0">
-            <Icon name="Castle" className="text-white" size={22} />
+            <Icon name="Crown" className="text-white" size={20} />
           </div>
           <div className="flex flex-col">
             <span className="md:text-2xl text-[#1A1F2C] font-playfair leading-tight text-2xl font-semibold">
