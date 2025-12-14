@@ -6,6 +6,26 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ scrollToSection }: HeroSectionProps) {
+  const trackClick = (action: string) => {
+    const eventData = {
+      timestamp: Date.now(),
+      event: 'click_hero_button',
+      city: 'unknown',
+      action,
+      utm_source: 'direct',
+      utm_campaign: 'main_page',
+      utm_medium: 'website'
+    };
+
+    const saved = localStorage.getItem('retargeting_conversions');
+    const conversions = saved ? JSON.parse(saved) : [];
+    conversions.push(eventData);
+    localStorage.setItem('retargeting_conversions', JSON.stringify(conversions));
+
+    if (typeof window !== 'undefined' && (window as any).ym) {
+      (window as any).ym(105829530, 'reachGoal', 'click_hero_button', eventData);
+    }
+  };
   return (
     <>
       <section className="relative pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden bg-gradient-to-br from-[#F5F1E8] via-white to-[#F5F1E8]">
@@ -26,11 +46,11 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Button onClick={() => scrollToSection('tours')} size="lg" className="bg-[#D4AF37] hover:bg-[#B8941F] text-white text-lg px-8 h-14 font-semibold shadow-lg hover:shadow-xl transition-all">
+                <Button onClick={() => { trackClick('select_tour'); scrollToSection('tours'); }} size="lg" className="bg-[#D4AF37] hover:bg-[#B8941F] text-white text-lg px-8 h-14 font-semibold shadow-lg hover:shadow-xl transition-all">
                   Подобрать тур
                   <Icon name="ArrowRight" size={20} className="ml-2" />
                 </Button>
-                <Button onClick={() => scrollToSection('contact')} size="lg" variant="outline" className="border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white text-lg px-8 h-14 font-semibold">
+                <Button onClick={() => { trackClick('contact_us'); scrollToSection('contact'); }} size="lg" variant="outline" className="border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white text-lg px-8 h-14 font-semibold">
                   <Icon name="Phone" size={20} className="mr-2" />
                   Связаться с нами
                 </Button>

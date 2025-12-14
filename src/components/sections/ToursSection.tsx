@@ -10,6 +10,28 @@ interface ToursSectionProps {
 
 export default function ToursSection({ scrollToSection }: ToursSectionProps) {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedTour, setSelectedTour] = useState('');
+
+  const trackEvent = (event: string, tourTitle?: string) => {
+    const eventData = {
+      timestamp: Date.now(),
+      event,
+      city: 'unknown',
+      tour: tourTitle,
+      utm_source: 'direct',
+      utm_campaign: 'main_page',
+      utm_medium: 'website'
+    };
+
+    const saved = localStorage.getItem('retargeting_conversions');
+    const conversions = saved ? JSON.parse(saved) : [];
+    conversions.push(eventData);
+    localStorage.setItem('retargeting_conversions', JSON.stringify(conversions));
+
+    if (typeof window !== 'undefined' && (window as any).ym) {
+      (window as any).ym(105829530, 'reachGoal', event, eventData);
+    }
+  };
 
   const tours = [
     {
@@ -106,7 +128,11 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                   </div>
                   <Button 
                     className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
-                    onClick={() => setIsBookingOpen(true)}
+                    onClick={() => {
+                      setSelectedTour(tour.title);
+                      trackEvent('click_book_tour', tour.title);
+                      setIsBookingOpen(true);
+                    }}
                   >
                     Забронировать
                   </Button>
@@ -120,7 +146,8 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       <BookingModal 
         isOpen={isBookingOpen} 
         onClose={() => setIsBookingOpen(false)}
-        source="главная"
+        source={`главная - ${selectedTour}`}
+        onSubmit={() => trackEvent('form_submit', selectedTour)}
       />
     </section>
   );

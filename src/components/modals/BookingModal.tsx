@@ -7,9 +7,10 @@ interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
   source?: string;
+  onSubmit?: () => void;
 }
 
-export default function BookingModal({ isOpen, onClose, source = 'главная' }: BookingModalProps) {
+export default function BookingModal({ isOpen, onClose, source = 'главная', onSubmit }: BookingModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -59,6 +60,10 @@ export default function BookingModal({ isOpen, onClose, source = 'главная
         description: 'Менеджер свяжется с вами в ближайшее время',
         duration: 5000,
       });
+
+      if (onSubmit) {
+        onSubmit();
+      }
 
       onClose();
       (e.target as HTMLFormElement).reset();
