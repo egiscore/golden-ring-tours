@@ -45,6 +45,18 @@ export default function CallbackButton() {
         throw new Error('Ошибка отправки');
       }
 
+      if (typeof window !== 'undefined' && (window as any).ym) {
+        (window as any).ym(105829530, 'reachGoal', 'booking_click', {
+          timestamp: Date.now(),
+          event: 'booking_click',
+          city: 'unknown',
+          tour: 'callback_request',
+          utm_source: utmSource,
+          utm_campaign: utmCampaign || 'none',
+          utm_medium: utmMedium || 'website'
+        });
+      }
+
       toast({
         title: '✅ Заявка принята!',
         description: 'Перезвоним вам в течение 5 минут',
