@@ -49,6 +49,17 @@ export default function ContactSection() {
         throw new Error("Ошибка отправки");
       }
 
+      if (typeof window !== "undefined" && (window as any).ym) {
+        (window as any).ym(105829530, "reachGoal", "contact_form_submit", {
+          timestamp: Date.now(),
+          event: "contact_form_submit",
+          city: "unknown",
+          utm_source: utmSource,
+          utm_campaign: utmCampaign || "none",
+          utm_medium: utmMedium || "website",
+        });
+      }
+
       toast({
         title: "✅ Заявка отправлена!",
         description: "Мы перезвоним вам в течение 15 минут",
