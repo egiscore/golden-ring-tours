@@ -152,18 +152,18 @@ export default function BookingModal({
             <label className="text-xs font-medium mb-1 block">Тур</label>
             <select
               name="tour"
-              defaultValue={selectedTour || "Автобусный тур"}
+              defaultValue={selectedTour || "Автобусный тур по Золотому кольцу"}
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
-              <option value="Новогодний тур">Новогодний тур</option>
-              <option value="Автобусный тур">Автобусный тур</option>
-              <option value="Круиз на лайнере">Круиз на лайнере</option>
-              <option value="Экскурсионный тур">Экскурсионный тур</option>
-              <option value="Тур на поезде">Тур на поезде</option>
-              <option value="Духовное путешествие">Духовное путешествие</option>
-              <option value="Гастрономический тур">Гастрономический тур</option>
-              <option value="Индивидуальный VIP тур">Индивидуальный VIP тур</option>
-              <option value="Фототур для профессионалов">Фототур для профессионалов</option>
+              <option value="Новогодний тур по Золотому кольцу">Новогодний тур по Золотому кольцу</option>
+              <option value="Автобусный тур по Золотому кольцу">Автобусный тур по Золотому кольцу</option>
+              <option value="Круиз на лайнере по Золотому кольцу">Круиз на лайнере по Золотому кольцу</option>
+              <option value="Экскурсионный тур по Золотому кольцу">Экскурсионный тур по Золотому кольцу</option>
+              <option value="Тур на поезде по Золотому кольцу">Тур на поезде по Золотому кольцу</option>
+              <option value="Духовное путешествие по Золотому кольцу">Духовное путешествие по Золотому кольцу</option>
+              <option value="Гастрономический тур по Золотому кольцу">Гастрономический тур по Золотому кольцу</option>
+              <option value="Индивидуальный VIP тур по Золотому кольцу">Индивидуальный VIP тур по Золотому кольцу</option>
+              <option value="Фототур для профессионалов по Золотому кольцу">Фототур для профессионалов по Золотому кольцу</option>
             </select>
           </div>
           <div>
