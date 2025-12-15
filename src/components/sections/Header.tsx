@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -9,25 +8,6 @@ interface HeaderProps {
 export default function Header({ scrollToSection }: HeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [city, setCity] = useState<string>("");
-
-  useEffect(() => {
-    const detectCity = async () => {
-      try {
-        const response = await fetch(
-          "https://functions.poehali.dev/d28ecf67-6d03-4d65-94c9-3019a8f77bd3",
-        );
-        const data = await response.json();
-        if (data.city && data.city !== "XX") {
-          setCity(data.city);
-        }
-      } catch (error) {
-        console.error("Ошибка определения города:", error);
-      }
-    };
-
-    detectCity();
-  }, []);
 
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
