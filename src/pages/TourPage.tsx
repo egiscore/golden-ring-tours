@@ -367,6 +367,74 @@ export default function TourPage() {
                   </div>
                 </section>
               )}
+
+              <section>
+                <h2 className="text-3xl font-bold mb-6 font-playfair text-[#1A1F2C] flex items-center gap-3">
+                  <Icon name="Quote" className="text-[#D4AF37]" size={32} />
+                  Отзывы туристов
+                </h2>
+                <div className="space-y-6">
+                  <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-6 rounded-xl border-2 border-[#D4AF37]/20">
+                    <div className="flex items-center gap-1 mb-4">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Icon key={star} name="Star" className="text-[#D4AF37] fill-[#D4AF37]" size={18} />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      "Потрясающий тур! Всё было организовано идеально. Гид очень знающий и увлечённый. Увидели столько красивых мест! Отели комфортные, питание отличное. Спасибо за незабываемые впечатления!"
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-[#D4AF37]/20 rounded-full flex items-center justify-center">
+                        <Icon name="User" className="text-[#D4AF37]" size={24} />
+                      </div>
+                      <div>
+                        <p className="font-semibold">Елена Михайловна</p>
+                        <p className="text-sm text-gray-500">Москва • Сентябрь 2024</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-6 rounded-xl border-2 border-[#D4AF37]/20">
+                    <div className="flex items-center gap-1 mb-4">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Icon key={star} name="Star" className="text-[#D4AF37] fill-[#D4AF37]" size={18} />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      "Спасибо за незабываемое путешествие! Особенно понравилось внимание к деталям и комфорт. Всё продумано до мелочей. Рекомендую всем друзьям!"
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-[#D4AF37]/20 rounded-full flex items-center justify-center">
+                        <Icon name="User" className="text-[#D4AF37]" size={24} />
+                      </div>
+                      <div>
+                        <p className="font-semibold">Дмитрий Козлов</p>
+                        <p className="text-sm text-gray-500">Санкт-Петербург • Октябрь 2024</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-6 rounded-xl border-2 border-[#D4AF37]/20">
+                    <div className="flex items-center gap-1 mb-4">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Icon key={star} name="Star" className="text-[#D4AF37] fill-[#D4AF37]" size={18} />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      "Ездили всей семьёй — все в восторге! Детям особенно понравились интерактивные экскурсии. Гид умел увлечь и взрослых, и детей. Уже планируем следующую поездку с вами!"
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-[#D4AF37]/20 rounded-full flex items-center justify-center">
+                        <Icon name="User" className="text-[#D4AF37]" size={24} />
+                      </div>
+                      <div>
+                        <p className="font-semibold">Ольга Соколова</p>
+                        <p className="text-sm text-gray-500">Екатеринбург • Ноябрь 2024</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
 
             <div className="space-y-6">
