@@ -266,6 +266,17 @@ export default function Retargeting() {
         timeLeft={timeLeft}
         utmParams={utmParams}
         onBookingClick={(tourTitle?: string) => {
+          if (typeof window !== 'undefined' && (window as any).ym) {
+            (window as any).ym(105829530, 'reachGoal', 'booking_click', {
+              timestamp: Date.now(),
+              event: 'booking_click',
+              city: userCity,
+              tour: tourTitle || 'not_selected',
+              utm_source: utmParams.source || 'direct',
+              utm_campaign: utmParams.campaign || 'retargeting',
+              utm_medium: utmParams.medium || 'website'
+            });
+          }
           setSelectedTour(tourTitle || '');
           setIsBookingOpen(true);
         }}
@@ -277,6 +288,17 @@ export default function Retargeting() {
         cityTargeting={cityTargeting}
         utmParams={utmParams}
         onBookingClick={(tourTitle: string) => {
+          if (typeof window !== 'undefined' && (window as any).ym) {
+            (window as any).ym(105829530, 'reachGoal', 'booking_click', {
+              timestamp: Date.now(),
+              event: 'booking_click',
+              city: userCity,
+              tour: tourTitle,
+              utm_source: utmParams.source || 'direct',
+              utm_campaign: utmParams.campaign || 'retargeting',
+              utm_medium: utmParams.medium || 'website'
+            });
+          }
           setSelectedTour(tourTitle);
           setIsBookingOpen(true);
         }}
