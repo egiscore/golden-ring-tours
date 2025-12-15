@@ -1,6 +1,5 @@
 import Header from "@/components/sections/Header";
 import HeroSection from "@/components/sections/HeroSection";
-import NewYearBanner from "@/components/sections/NewYearBanner";
 import ToursSection from "@/components/sections/ToursSection";
 import RoutesSection from "@/components/sections/RoutesSection";
 import BenefitsSection from "@/components/sections/BenefitsSection";
@@ -29,7 +28,6 @@ export default function Index() {
     <div className="min-h-screen bg-white font-inter">
       <Header scrollToSection={scrollToSection} />
       <HeroSection scrollToSection={scrollToSection} />
-      <NewYearBanner />
       <RoutesSection scrollToSection={scrollToSection} />
       <ToursSection scrollToSection={scrollToSection} />
       <BenefitsSection />
