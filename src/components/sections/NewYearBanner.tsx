@@ -6,13 +6,13 @@ export default function NewYearBanner() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-12 bg-gradient-to-r from-red-600 via-green-600 to-red-600 relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-r from-red-600 via-green-600 to-red-600 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border-4 border-[#D4AF37]">
-            <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-10 md:p-16 border-4 border-[#D4AF37]">
+            <div className="flex flex-col md:flex-row items-center gap-10 md:gap-12">
               <div className="flex-shrink-0">
                 <div className="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-red-500 to-green-600 rounded-full flex items-center justify-center animate-pulse shadow-xl">
                   <Icon name="Sparkles" size={48} className="text-white" />
@@ -25,15 +25,15 @@ export default function NewYearBanner() {
                   <span className="text-sm font-bold text-red-600 uppercase">Специальное предложение</span>
                 </div>
                 
-                <h2 className="text-3xl md:text-4xl font-bold mb-3 font-playfair text-[#1A1F2C]">
+                <h2 className="text-3xl md:text-4xl font-bold mb-5 font-playfair text-[#1A1F2C]">
                   🎄 Новогодний тур по Золотому кольцу
                 </h2>
                 
-                <p className="text-lg text-gray-700 mb-6">
+                <p className="text-lg text-gray-700 mb-8">
                   Встретьте <strong>Новый 2025 год</strong> в древних русских городах! Праздничный банкет, развлекательная программа и незабываемые впечатления.
                 </p>
                 
-                <div className="flex flex-wrap items-center gap-4 mb-6">
+                <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-8">
                   <div className="flex items-center gap-2 text-gray-700">
                     <Icon name="Calendar" size={20} className="text-green-600" />
                     <span className="font-semibold">30 дек - 2 янв</span>
@@ -56,7 +56,7 @@ export default function NewYearBanner() {
                   Забронировать новогодний тур
                 </Button>
                 
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-gray-500 mt-6">
                   ⚡ Осталось мест: <span className="font-bold text-red-600">всего 8</span>
                 </p>
               </div>
