@@ -152,9 +152,10 @@ export default function BookingModal({
             <label className="text-xs font-medium mb-1 block">Тур</label>
             <select
               name="tour"
-              defaultValue={selectedTour || "Автобусный тур"}
+              defaultValue={selectedTour || "Новогодний тур"}
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             >
+              <option>Новогодний тур по Золотому кольцу</option>
               <option>Автобусный тур</option>
               <option>Круиз на лайнере</option>
               <option>Экскурсионный тур</option>

@@ -44,6 +44,16 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
 
   const tours: Tour[] = [
     {
+      id: 'new-year',
+      title: 'Новогодний тур',
+      description: 'Встретьте Новый год в древних русских городах',
+      price: 'от 35 000 ₽',
+      duration: '3-4 дня',
+      icon: 'Sparkles',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/15e3304b-db9a-480b-a61e-6ee77149ce73.jpg',
+      features: ['Новогодний банкет', 'Праздничная программа', 'Экскурсии по заснеженным городам', 'Подарки от Деда Мороза']
+    },
+    {
       id: 'bus-tour',
       title: 'Автобусный тур',
       description: 'Комфортное групповое путешествие с экскурсоводом',
