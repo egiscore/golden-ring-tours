@@ -50,10 +50,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
               Ви Эф Эс Глобал
             </span>
             <span className="text-xs text-gray-600 font-medium">
-              {city && (
-                <span className="text-[#D4AF37] font-semibold">{city} · </span>
-              )}
-              Туроператор
+              Туристический оператор
             </span>
           </div>
         </div>
