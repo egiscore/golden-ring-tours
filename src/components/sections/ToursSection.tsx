@@ -2,15 +2,25 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
-import BookingModal from '@/components/modals/BookingModal';
+import TourDetailsModal from '@/components/modals/TourDetailsModal';
 
 interface ToursSectionProps {
   scrollToSection: (id: string) => void;
 }
 
+interface Tour {
+  title: string;
+  description: string;
+  price: string;
+  duration: string;
+  icon: string;
+  image: string;
+  features: string[];
+}
+
 export default function ToursSection({ scrollToSection }: ToursSectionProps) {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedTour, setSelectedTour] = useState('');
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
 
   const trackEvent = (event: string, tourTitle?: string) => {
     const eventData = {
@@ -163,20 +173,23 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                   ))}
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm text-gray-500 mb-1">Цена</div>
-                    <div className="text-lg font-bold text-[#D4AF37] font-playfair">{tour.price}</div>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm text-gray-500 mb-1">Цена</div>
+                      <div className="text-lg font-bold text-[#D4AF37] font-playfair">{tour.price}</div>
+                    </div>
                   </div>
                   <Button 
-                    className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
+                    className="w-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all"
                     onClick={() => {
-                      setSelectedTour(tour.title);
-                      trackEvent('click_book_tour', tour.title);
-                      setIsBookingOpen(true);
+                      setSelectedTour(tour);
+                      trackEvent('view_tour_details', tour.title);
+                      setIsDetailsOpen(true);
                     }}
                   >
-                    Подобрать тур
+                    <Icon name="Eye" size={18} className="mr-2" />
+                    Узнать подробнее
                   </Button>
                 </div>
               </CardContent>
@@ -185,12 +198,13 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
         </div>
       </div>
 
-      <BookingModal 
-        isOpen={isBookingOpen} 
-        onClose={() => setIsBookingOpen(false)}
-        source={`главная - ${selectedTour}`}
-        onSubmit={() => trackEvent('form_submit', selectedTour)}
-        selectedTour={selectedTour}
+      <TourDetailsModal
+        isOpen={isDetailsOpen}
+        onClose={() => {
+          setIsDetailsOpen(false);
+          setSelectedTour(null);
+        }}
+        tour={selectedTour}
       />
     </section>
   );
