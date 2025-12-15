@@ -8,7 +8,6 @@ import GallerySection from "@/components/sections/GallerySection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/sections/Footer";
-import CallbackButton from "@/components/CallbackButton";
 
 export default function Index() {
   const scrollToSection = (id: string) => {
@@ -32,7 +31,6 @@ export default function Index() {
       <ToursSection scrollToSection={scrollToSection} />
       <BenefitsSection />
       <SocialProofSection />
-      <CallbackButton />
       <GallerySection />
       <FAQSection />
       <ContactSection />
