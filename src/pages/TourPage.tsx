@@ -304,6 +304,22 @@ export default function TourPage() {
               {tour.title}
             </h1>
             <p className="text-xl text-white/90 mb-6">{tour.description}</p>
+            
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-green-500/90 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
+                <Icon name="Users" size={18} className="text-white" />
+                <span className="text-sm font-semibold text-white">
+                  {Math.floor(Math.random() * 15) + 12} человек забронировали за последний месяц
+                </span>
+              </div>
+              <div className="bg-orange-500/90 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
+                <Icon name="Flame" size={18} className="text-white" />
+                <span className="text-sm font-semibold text-white">
+                  Популярный тур
+                </span>
+              </div>
+            </div>
+
             <div className="flex items-center gap-6">
               <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
                 <p className="text-sm text-white/80 mb-1">Цена тура</p>
