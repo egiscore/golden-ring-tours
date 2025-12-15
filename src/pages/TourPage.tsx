@@ -459,7 +459,7 @@ export default function TourPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#F5F1E8] p-6 rounded-xl sticky top-24">
+              <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#F5F1E8] p-6 rounded-xl">
                 <h3 className="text-xl font-bold mb-4 font-playfair text-[#1A1F2C] flex items-center gap-2">
                   <Icon name="Check" className="text-[#D4AF37]" size={24} />
                   Что включено
