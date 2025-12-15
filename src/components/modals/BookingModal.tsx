@@ -102,8 +102,12 @@ export default function BookingModal({
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[400px]">
+    <Dialog open={isOpen} onOpenChange={onClose} modal>
+      <DialogContent 
+        className="sm:max-w-[400px]"
+        onInteractOutside={(e) => e.preventDefault()}
+        onEscapeKeyDown={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle className="text-xl font-playfair">
             Подберите мне тур
