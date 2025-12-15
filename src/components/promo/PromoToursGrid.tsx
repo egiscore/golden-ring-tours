@@ -92,15 +92,6 @@ export default function PromoToursGrid({
               <Button 
                 className="w-full"
                 onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).ym) {
-                    (window as any).ym(105829530, 'reachGoal', 'click_book_tour', {
-                      city: userCity,
-                      tour: tour.title,
-                      price: tour.discountPrice,
-                      utm_source: utmParams.source || 'direct',
-                      utm_campaign: utmParams.campaign || 'none'
-                    });
-                  }
                   onBookingClick(tour.title);
                 }}
               >

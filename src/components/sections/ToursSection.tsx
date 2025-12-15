@@ -21,27 +21,6 @@ interface Tour {
 export default function ToursSection({ scrollToSection }: ToursSectionProps) {
   const navigate = useNavigate();
 
-  const trackEvent = (event: string, tourTitle?: string) => {
-    const eventData = {
-      timestamp: Date.now(),
-      event,
-      city: 'unknown',
-      tour: tourTitle,
-      utm_source: 'direct',
-      utm_campaign: 'main_page',
-      utm_medium: 'website'
-    };
-
-    const saved = localStorage.getItem('retargeting_conversions');
-    const conversions = saved ? JSON.parse(saved) : [];
-    conversions.push(eventData);
-    localStorage.setItem('retargeting_conversions', JSON.stringify(conversions));
-
-    if (typeof window !== 'undefined' && (window as any).ym) {
-      (window as any).ym(105829530, 'reachGoal', event, eventData);
-    }
-  };
-
   const tours: Tour[] = [
     {
       id: 'new-year',

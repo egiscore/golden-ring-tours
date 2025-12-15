@@ -92,13 +92,6 @@ export default function PromoHeroSection({
             size="lg" 
             className="text-lg px-12 py-6 h-auto shadow-xl hover:scale-105 transition-transform"
             onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).ym) {
-                (window as any).ym(105829530, 'reachGoal', 'click_get_discount', {
-                  city: userCity,
-                  utm_source: utmParams.source || 'direct',
-                  utm_campaign: utmParams.campaign || 'none'
-                });
-              }
               onBookingClick('');
             }}
           >
