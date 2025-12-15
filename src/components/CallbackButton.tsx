@@ -46,11 +46,10 @@ export default function CallbackButton() {
       }
 
       if (typeof window !== 'undefined' && (window as any).ym) {
-        (window as any).ym(105829530, 'reachGoal', 'booking_click', {
+        (window as any).ym(105829530, 'reachGoal', 'callback_form_submit', {
           timestamp: Date.now(),
-          event: 'booking_click',
+          event: 'callback_form_submit',
           city: 'unknown',
-          tour: 'callback_request',
           utm_source: utmSource,
           utm_campaign: utmCampaign || 'none',
           utm_medium: utmMedium || 'website'
