@@ -1,9 +1,11 @@
 import json
+import urllib.request
+import urllib.error
 from typing import Dict, Any
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     """
-    Определяет город посетителя по IP через заголовки запроса
+    Определяет город посетителя по IP через API ipapi.co
     """
     method: str = event.get('httpMethod', 'GET')
     
@@ -31,13 +33,25 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False
         }
     
-    headers = event.get('headers', {})
     request_context = event.get('requestContext', {})
     identity = request_context.get('identity', {})
-    
-    city = headers.get('cf-ipcity') or headers.get('x-vercel-ip-city') or 'Москва'
-    country = headers.get('cf-ipcountry') or headers.get('x-vercel-ip-country') or 'RU'
     ip = identity.get('sourceIp', 'unknown')
+    
+    city = 'Москва'
+    country = 'RU'
+    
+    if ip != 'unknown':
+        try:
+            req = urllib.request.Request(
+                f'https://ipapi.co/{ip}/json/',
+                headers={'User-Agent': 'Mozilla/5.0'}
+            )
+            with urllib.request.urlopen(req, timeout=2) as response:
+                data = json.loads(response.read().decode('utf-8'))
+                city = data.get('city', 'Москва')
+                country = data.get('country_code', 'RU')
+        except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError, TimeoutError):
+            pass
     
     return {
         'statusCode': 200,
