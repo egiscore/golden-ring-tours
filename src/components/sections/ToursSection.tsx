@@ -178,10 +178,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                   </div>
                   <Button 
                     className="w-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all"
-                    onClick={() => {
-                      trackEvent('view_tour_details', tour.title);
-                      navigate(`/tours/${tour.id}`);
-                    }}
+                    onClick={() => navigate(`/tours/${tour.id}`)}
                   >
                     <Icon name="Eye" size={18} className="mr-2" />
                     Узнать подробнее
