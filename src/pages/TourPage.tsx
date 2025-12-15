@@ -500,10 +500,10 @@ export default function TourPage() {
                       Позвоните нам, и мы ответим на все вопросы о туре
                     </p>
                     <a
-                      href="tel:+74951797444"
+                      href="tel:+78007003498"
                       className="text-blue-600 font-semibold hover:underline"
                     >
-                      +7 (495) 179-74-44
+                      8 (800) 700-34-98
                     </a>
                   </div>
                 </div>
