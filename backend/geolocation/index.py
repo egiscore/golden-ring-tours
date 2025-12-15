@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     """
-    Определяет город посетителя по IP через API ipapi.co
+    Определяет город посетителя по IP через API ip-api.com
     """
     method: str = event.get('httpMethod', 'GET')
     
@@ -40,18 +40,23 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     city = 'Москва'
     country = 'RU'
     
-    if ip != 'unknown':
+    if ip != 'unknown' and ip:
         try:
             req = urllib.request.Request(
-                f'https://ipapi.co/{ip}/json/',
+                f'http://ip-api.com/json/{ip}?lang=ru&fields=status,country,countryCode,city',
                 headers={'User-Agent': 'Mozilla/5.0'}
             )
-            with urllib.request.urlopen(req, timeout=2) as response:
+            with urllib.request.urlopen(req, timeout=3) as response:
                 data = json.loads(response.read().decode('utf-8'))
-                city = data.get('city', 'Москва')
-                country = data.get('country_code', 'RU')
-        except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError, TimeoutError):
-            pass
+                print(f"IP: {ip}, API Response: {data}")
+                
+                if data.get('status') == 'success':
+                    if 'city' in data and data['city']:
+                        city = data['city']
+                    if 'countryCode' in data and data['countryCode']:
+                        country = data['countryCode']
+        except Exception as e:
+            print(f"Geolocation error for IP {ip}: {str(e)}")
     
     return {
         'statusCode': 200,
