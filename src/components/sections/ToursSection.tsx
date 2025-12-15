@@ -1,14 +1,14 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
-import TourDetailsModal from '@/components/modals/TourDetailsModal';
+import { useNavigate } from 'react-router-dom';
 
 interface ToursSectionProps {
   scrollToSection: (id: string) => void;
 }
 
 interface Tour {
+  id: string;
   title: string;
   description: string;
   price: string;
@@ -19,8 +19,7 @@ interface Tour {
 }
 
 export default function ToursSection({ scrollToSection }: ToursSectionProps) {
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+  const navigate = useNavigate();
 
   const trackEvent = (event: string, tourTitle?: string) => {
     const eventData = {
@@ -43,8 +42,9 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
     }
   };
 
-  const tours = [
+  const tours: Tour[] = [
     {
+      id: 'bus-tour',
       title: 'Автобусный тур',
       description: 'Комфортное групповое путешествие с экскурсоводом',
       price: 'от 18 000 ₽',
@@ -54,6 +54,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       features: ['Комфортабельный автобус', 'Группа до 30 человек', 'Профессиональный гид', 'Все экскурсии включены']
     },
     {
+      id: 'cruise',
       title: 'Круиз на лайнере',
       description: 'Путешествие по рекам с комфортом плавучего отеля',
       price: 'от 45 000 ₽',
@@ -63,6 +64,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       features: ['Комфортабельная каюта', 'Трёхразовое питание', 'Береговые экскурсии', 'Развлекательная программа']
     },
     {
+      id: 'excursion',
       title: 'Экскурсионный тур',
       description: 'Насыщенная программа по всем достопримечательностям',
       price: 'от 25 000 ₽',
@@ -72,6 +74,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       features: ['Опытный экскурсовод', 'Входные билеты включены', 'Удобный трансфер', 'Посещение музеев и храмов']
     },
     {
+      id: 'train',
       title: 'Тур на поезде',
       description: 'Путешествие на комфортабельном поезде между городами',
       price: 'от 22 000 ₽',
@@ -81,6 +84,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       features: ['Билеты на поезд включены', 'Трансфер на вокзалы', 'Гид в каждом городе', 'Проживание в отелях 3-4★']
     },
     {
+      id: 'spiritual',
       title: 'Духовное путешествие',
       description: 'Паломничество с духовным наставником',
       price: 'от 35 000 ₽',
@@ -90,6 +94,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места']
     },
     {
+      id: 'gastro',
       title: 'Гастрономический тур',
       description: 'Авторские блюда и лучшие вина региона',
       price: 'от 52 000 ₽',
@@ -99,6 +104,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       features: ['Мастер-классы от шефа', 'Дегустации вин', 'Посещение ферм', 'Эксклюзивные рестораны']
     },
     {
+      id: 'vip',
       title: 'Индивидуальный VIP тур',
       description: 'Максимальный комфорт и полное погружение в историю',
       price: 'от 42 000 ₽',
@@ -108,6 +114,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Трансферы включены']
     },
     {
+      id: 'photo',
       title: 'Фототур для профессионалов',
       description: 'Секретные локации и профессиональный опыт',
       price: 'от 38 000 ₽',
@@ -183,9 +190,8 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                   <Button 
                     className="w-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all"
                     onClick={() => {
-                      setSelectedTour(tour);
                       trackEvent('view_tour_details', tour.title);
-                      setIsDetailsOpen(true);
+                      navigate(`/tours/${tour.id}`);
                     }}
                   >
                     <Icon name="Eye" size={18} className="mr-2" />
@@ -198,14 +204,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
         </div>
       </div>
 
-      <TourDetailsModal
-        isOpen={isDetailsOpen}
-        onClose={() => {
-          setIsDetailsOpen(false);
-          setSelectedTour(null);
-        }}
-        tour={selectedTour}
-      />
+
     </section>
   );
 }
