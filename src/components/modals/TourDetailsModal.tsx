@@ -36,6 +36,27 @@ export default function TourDetailsModal({
 }: TourDetailsModalProps) {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
+  const trackEvent = (event: string, tourTitle?: string) => {
+    const eventData = {
+      timestamp: Date.now(),
+      event,
+      city: 'unknown',
+      tour: tourTitle,
+      utm_source: 'direct',
+      utm_campaign: 'tour_detail',
+      utm_medium: 'website'
+    };
+
+    const saved = localStorage.getItem('retargeting_conversions');
+    const conversions = saved ? JSON.parse(saved) : [];
+    conversions.push(eventData);
+    localStorage.setItem('retargeting_conversions', JSON.stringify(conversions));
+
+    if (typeof window !== 'undefined' && (window as any).ym) {
+      (window as any).ym(105829530, 'reachGoal', event, eventData);
+    }
+  };
+
   if (!tour) return null;
 
   const defaultProgram = [
@@ -122,6 +143,7 @@ export default function TourDetailsModal({
                   size="lg"
                   className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
                   onClick={() => {
+                    trackEvent('booking_click', tour.title);
                     setIsBookingOpen(true);
                   }}
                 >
