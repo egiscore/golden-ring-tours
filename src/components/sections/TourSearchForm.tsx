@@ -44,7 +44,7 @@ export default function TourSearchForm() {
     }
 
     if (selectedTour) {
-      navigate(`/booking/${selectedTour}${selectedDate ? `?date=${selectedDate}` : ''}`);
+      navigate(`/tours/${selectedTour}${selectedDate ? `?date=${selectedDate}` : ''}`);
     } else {
       navigate('/#tours');
     }
