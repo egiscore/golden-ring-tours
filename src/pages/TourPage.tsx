@@ -177,9 +177,7 @@ export default function TourPage() {
               bookingForm={
                 <section className="w-full">
                   <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-[#D4AF37]/20">
-                    <h3 className="text-2xl font-bold font-playfair text-[#1A1F2C] mb-6">
-                      Забронировать тур
-                    </h3>
+                    <h3 className="text-2xl font-bold font-playfair text-[#1A1F2C] mb-6">Бесплатный предзаказ</h3>
                     
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-2 gap-4">
