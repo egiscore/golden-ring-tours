@@ -29,26 +29,28 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
         </h2>
         
         {tour.options && tour.options.length > 0 && tour.options.some(opt => opt.program) ? (
-          <div className="space-y-8 sm:space-y-10">
+          <div className="space-y-8 sm:space-y-12">
             {tour.options.filter(opt => opt.program).map((option, optIndex) => (
-              <div key={optIndex} className="space-y-4 pb-8 border-b-2 border-gray-200 last:border-b-0">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 py-2 rounded-full">
-                    <span className="font-bold text-sm">{option.days} {option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}</span>
+              <div key={optIndex} className="space-y-4 pb-8 sm:pb-10 border-b-2 border-gray-200 last:border-b-0">
+                <div className="flex items-start sm:items-center justify-between gap-3 mb-4 flex-wrap">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 py-2 rounded-full flex-shrink-0">
+                      <span className="font-bold text-sm whitespace-nowrap">{option.days} {option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}</span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#1A1F2C] font-playfair">
+                      {option.description}
+                    </h3>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#1A1F2C] font-playfair">
-                    {option.description}
-                  </h3>
-                  <div className="ml-auto text-right">
-                    <span className="text-2xl font-bold text-[#D4AF37]">{option.price.toLocaleString('ru-RU')} ₽</span>
+                  <div className="text-right">
+                    <span className="text-xl sm:text-2xl font-bold text-[#D4AF37] whitespace-nowrap">{option.price.toLocaleString('ru-RU')} ₽</span>
                   </div>
                 </div>
                 
                 {option.cities && option.cities.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {option.cities.map((city, cityIndex) => (
-                      <div key={cityIndex} className="bg-white border-2 border-[#D4AF37] px-3 py-1 rounded-full">
-                        <span className="text-xs sm:text-sm text-[#1A1F2C] font-medium">{city}</span>
+                      <div key={cityIndex} className="bg-white border border-[#D4AF37] px-2.5 py-1 rounded-full">
+                        <span className="text-xs text-[#1A1F2C] font-medium">{city}</span>
                       </div>
                     ))}
                   </div>
@@ -65,32 +67,37 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                   ))}
                 </div>
 
-                <div className="mt-6 bg-white border-2 border-[#D4AF37]/30 rounded-xl p-4 sm:p-6">
-                  <h4 className="text-lg font-bold text-[#1A1F2C] mb-4 flex items-center gap-2">
-                    <Icon name="CheckCircle2" className="text-[#D4AF37]" size={20} />
-                    Что включено в стоимость
-                  </h4>
-                  <div className="grid sm:grid-cols-2 gap-3 mb-4">
-                    {(option.included || tour.included).map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex items-start gap-2">
-                        <Icon name="Check" className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
-                        <span className="text-sm text-gray-700">{item}</span>
+                <div className="mt-6 bg-gradient-to-br from-[#F5F1E8] to-white rounded-xl p-4 sm:p-5 border border-gray-200">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div className="flex-1">
+                      <h4 className="text-base font-bold text-[#1A1F2C] mb-3 flex items-center gap-2">
+                        <Icon name="CheckCircle2" className="text-[#D4AF37]" size={18} />
+                        Что включено
+                      </h4>
+                      <div className="space-y-1.5">
+                        {(option.included || tour.included).map((item, itemIndex) => (
+                          <div key={itemIndex} className="flex items-start gap-2">
+                            <Icon name="Check" className="text-green-600 flex-shrink-0 mt-0.5" size={14} />
+                            <span className="text-xs sm:text-sm text-gray-700 leading-snug">{item}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+                    <button
+                      onClick={() => {
+                        const bookingSection = document.getElementById('booking-form');
+                        if (bookingSection) {
+                          bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                        onBookingClick(option.price);
+                      }}
+                      className="flex-shrink-0 bg-[#D4AF37] hover:bg-[#B8941F] text-white font-bold py-3 px-5 rounded-lg transition-colors flex items-center gap-2 shadow-md hover:shadow-lg"
+                    >
+                      <Icon name="Calendar" size={18} />
+                      <span className="hidden sm:inline">Бесплатный предзаказ</span>
+                      <span className="sm:hidden">Заказать</span>
+                    </button>
                   </div>
-                  <button
-                    onClick={() => {
-                      const bookingSection = document.getElementById('booking-form');
-                      if (bookingSection) {
-                        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                      onBookingClick(option.price);
-                    }}
-                    className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
-                  >
-                    <Icon name="Calendar" size={20} />
-                    Бесплатный предзаказ
-                  </button>
                 </div>
               </div>
             ))}
