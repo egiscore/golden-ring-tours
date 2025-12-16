@@ -50,7 +50,11 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/30e268dd-0545-460d-9268-507a25bcbe7b.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/15e3304b-db9a-480b-a61e-6ee77149ce73.jpg'
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/15e3304b-db9a-480b-a61e-6ee77149ce73.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/bcf1e869-b820-47ac-b567-3dd1a406ab49.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/81ccb69c-77d6-49d6-ba13-5e755970cd28.jpg'
     ],
     options: [
       { days: 3, price: 35000, description: 'Суздаль + Владимир' },
@@ -86,7 +90,13 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/77ecd5dd-0bba-4cdf-9891-c20d8146e60c.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/5426bb0f-2fbb-490d-ba13-d544d41cce6a.jpg'
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/5426bb0f-2fbb-490d-ba13-d544d41cce6a.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/76c0c55d-54f3-45c0-9136-94ddfc93efc0.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/81ccb69c-77d6-49d6-ba13-5e755970cd28.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/bcf1e869-b820-47ac-b567-3dd1a406ab49.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/0fc43796-9f6d-470c-8a36-2e374fcccdfe.jpg'
     ],
     options: [
       { days: 3, price: 18000, description: 'Экспресс-тур: Сергиев Посад + Ярославль + Ростов' },
@@ -123,7 +133,10 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/315c4129-2360-41af-bea0-05c9da8fa230.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/1b97c2c0-0ad1-437b-9db1-3cd5463aaa87.jpg'
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/1b97c2c0-0ad1-437b-9db1-3cd5463aaa87.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/81ccb69c-77d6-49d6-ba13-5e755970cd28.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/0fc43796-9f6d-470c-8a36-2e374fcccdfe.jpg'
     ],
     options: [
       { days: 5, price: 45000, description: 'Стандартная каюта' },
@@ -157,7 +170,11 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/43e44425-e22c-451c-bc26-4e38a65293c6.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ccdac298-26df-4d81-81b5-44b72f445867.jpg'
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ccdac298-26df-4d81-81b5-44b72f445867.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/76c0c55d-54f3-45c0-9136-94ddfc93efc0.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/bcf1e869-b820-47ac-b567-3dd1a406ab49.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg'
     ],
     options: [
       { days: 3, price: 25000, description: 'Экспресс: Владимир + Суздаль' },
@@ -192,7 +209,10 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8b97e9d1-8e7d-4a8b-be32-0c8f92f17025.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/699f480c-aa9b-427a-a4eb-a910c87d3ec1.jpg'
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/699f480c-aa9b-427a-a4eb-a910c87d3ec1.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/bcf1e869-b820-47ac-b567-3dd1a406ab49.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg'
     ],
     options: [
       { days: 4, price: 22000, description: 'Плацкарт: Владимир + Суздаль + Ярославль' },
@@ -226,7 +246,10 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/e98a7b40-ff09-4740-b0c1-6cfa7e9044c9.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/9d51a5f3-1205-477e-9ac8-1bc43b02701c.jpg'
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/9d51a5f3-1205-477e-9ac8-1bc43b02701c.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/76c0c55d-54f3-45c0-9136-94ddfc93efc0.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/bcf1e869-b820-47ac-b567-3dd1a406ab49.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg'
     ],
     options: [
       { days: 3, price: 35000, description: 'Сергиев Посад + Суздаль' },
