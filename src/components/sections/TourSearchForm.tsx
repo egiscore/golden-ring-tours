@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { tours } from '@/data/tours';
-import { useToast } from '@/hooks/use-toast';
+import { toast } from '@/hooks/use-toast';
 
 export default function TourSearchForm() {
   const navigate = useNavigate();
-  const { toast } = useToast();
   const [selectedTour, setSelectedTour] = useState<string>('');
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedDuration, setSelectedDuration] = useState<string>('');
