@@ -17,7 +17,7 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
     const dates: TourDate[] = [];
     const today = new Date();
     
-    const tourPrices = [10990, 20390, 21390];
+    const tourPrices = [10990, 12790, 20390, 21390, 23590, 28990, 35990];
     
     for (let i = 0; i < 90; i++) {
       const date = new Date(today);
