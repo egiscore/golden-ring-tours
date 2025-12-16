@@ -20,17 +20,15 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
     const dates: TourDate[] = [];
     const today = new Date();
     
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < 90; i += 2) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       
-      if (date.getDay() === 5 || date.getDay() === 6) {
-        dates.push({
-          date: date.toISOString().split('T')[0],
-          availableSeats: Math.floor(Math.random() * 20) + 5,
-          price: 18000 + Math.floor(Math.random() * 10000)
-        });
-      }
+      dates.push({
+        date: date.toISOString().split('T')[0],
+        availableSeats: Math.floor(Math.random() * 20) + 5,
+        price: 18000 + Math.floor(Math.random() * 10000)
+      });
     }
     
     return dates;
@@ -182,11 +180,25 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
           </div>
         )}
 
-        <div className="mt-4 pt-3 border-t border-gray-200">
+        <div className="mt-4 pt-3 border-t border-gray-200 space-y-3">
+          <div className="flex items-center gap-3 text-xs">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded bg-[#F5F1E8]"></div>
+              <span className="text-gray-600">Доступно</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded bg-[#D4AF37]"></div>
+              <span className="text-gray-600">Выбрано</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+              <span className="text-gray-600">Мало мест</span>
+            </div>
+          </div>
           <div className="flex items-start gap-2 text-xs text-gray-600">
             <Icon name="Info" size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
             <p>
-              Отправление по пятницам и субботам. Даты выделены цветом.
+              Отправление каждые 2 дня. Выберите удобную дату.
             </p>
           </div>
         </div>
