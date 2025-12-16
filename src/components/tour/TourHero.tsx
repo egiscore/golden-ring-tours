@@ -61,7 +61,7 @@ export default function TourHero({ tour, onBookingClick }: TourHeroProps) {
             <div className="flex items-center gap-2 bg-white px-3 sm:px-4 py-2 rounded-full shadow-sm">
               <Icon name="Users" size={18} className="text-green-600" />
               <span className="text-xs sm:text-sm font-semibold text-gray-700">
-                {Math.floor(Math.random() * 15) + 12} бронирований
+                {Math.floor(Math.random() * 45) + 36} бронирований
               </span>
             </div>
             <div className="flex items-center gap-2 bg-white px-3 sm:px-4 py-2 rounded-full shadow-sm">
