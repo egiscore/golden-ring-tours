@@ -84,10 +84,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
                     <Button
                       onClick={onBookingClick}
                       className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
-                    >
-                      <Icon name="Calendar" size={18} className="mr-2" />
-                      Забронировать
-                    </Button>
+                    >Получить бронь</Button>
                   </td>
                 </tr>
               ))}
