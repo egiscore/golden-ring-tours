@@ -60,12 +60,7 @@ export default function PromoToursGrid({
 
               <h3 className="text-2xl font-bold mb-2">{tour.title}</h3>
               <p className="text-sm text-[#D4AF37] font-medium mb-3">{tour.subtitle}</p>
-              <p className="text-muted-foreground mb-2">{tour.duration}</p>
-              
-              <div className="flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-3 py-2 mb-4">
-                <Icon name={cityTargeting[userCity].icon} size={16} className="text-green-600" />
-                <span className="text-xs text-green-700 font-medium">{cityTargeting[userCity].transport}</span>
-              </div>
+              <p className="text-muted-foreground mb-4">{tour.duration}</p>
 
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-2">

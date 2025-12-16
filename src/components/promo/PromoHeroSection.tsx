@@ -45,16 +45,8 @@ export default function PromoHeroSection({
           </div>
 
           <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border-2 border-[#D4AF37] px-6 py-3 rounded-full mb-6 animate-pulse">
-            <Icon name="MapPin" size={20} className="text-[#D4AF37]" />
-            <span className="font-semibold text-[#1A1F2C]">Специально для жителей {cityTargeting[userCity].city}</span>
-          </div>
-
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-500 px-6 py-4 rounded-2xl mb-8 shadow-lg">
-            <Icon name={cityTargeting[userCity].icon} size={24} className="text-green-600" />
-            <div className="text-left">
-              <p className="font-bold text-green-900">{cityTargeting[userCity].offer}</p>
-              <p className="text-sm text-green-700">{cityTargeting[userCity].benefit}</p>
-            </div>
+            <Icon name="Sparkles" size={20} className="text-[#D4AF37]" />
+            <span className="font-semibold text-[#1A1F2C]">Специальное предложение</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#D4AF37] via-[#B8941F] to-[#D4AF37] bg-clip-text text-transparent">
@@ -62,7 +54,7 @@ export default function PromoHeroSection({
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-700 mb-4 max-w-2xl mx-auto">
-            Откройте для себя древние города России с комфортом премиум-класса из {cityTargeting[userCity].city}
+            Откройте для себя древние города России с комфортом премиум-класса
           </p>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Владимир • Суздаль • Ярославль • Ростов Великий • Кострома • Иваново • Сергиев Посад • Переславль-Залесский

@@ -8,6 +8,7 @@ import PromoBenefitsSection from '@/components/promo/PromoBenefitsSection';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import TourCalendar from '@/components/tour/TourCalendar';
 
 const cityTargeting: Record<string, {
   city: string;
@@ -108,6 +109,8 @@ export default function Retargeting() {
     name: '',
     phone: ''
   });
+
+  const [selectedPrice, setSelectedPrice] = useState<number>(25000);
 
   const [timeLeft, setTimeLeft] = useState({
     hours: 23,
@@ -211,8 +214,7 @@ export default function Retargeting() {
   };
 
   const childDiscount = 0.7;
-  const basePrice = 25000;
-  const totalPrice = (formData.adults * basePrice) + (formData.children * basePrice * childDiscount);
+  const totalPrice = (formData.adults * selectedPrice) + (formData.children * selectedPrice * childDiscount);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -393,18 +395,10 @@ export default function Retargeting() {
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Дата поездки
-                  </label>
-                  <input
-                    type="date"
-                    value={formData.date}
-                    onChange={(e) => handleInputChange('date', e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none transition-colors"
-                    min={new Date().toISOString().split('T')[0]}
-                  />
-                </div>
+                <TourCalendar onDateSelect={(date, price) => {
+                  handleInputChange('date', date);
+                  setSelectedPrice(price);
+                }} />
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">

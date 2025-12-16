@@ -40,9 +40,9 @@ export default function PromoBenefitsSection({
                 description: 'Скидка 5% действует только 24 часа'
               },
               {
-                icon: cityTargeting[userCity].icon,
-                title: cityTargeting[userCity].offer,
-                description: cityTargeting[userCity].benefit
+                icon: 'Crown',
+                title: 'Премиум сервис',
+                description: 'Индивидуальные туры премиум-класса'
               },
               {
                 icon: 'Shield',
@@ -63,46 +63,6 @@ export default function PromoBenefitsSection({
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12">
-              Что говорят наши клиенты
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  name: 'Екатерина Волкова',
-                  tour: 'VIP тур по Золотому Кольцу',
-                  text: 'Увидела рекламу и решила воспользоваться скидкой. Суздаль и Владимир поразили красотой! Организация на высшем уровне.',
-                  rating: 5
-                },
-                {
-                  name: 'Дмитрий Соколов',
-                  tour: 'Гастрономический тур',
-                  text: 'Скидка была приятным бонусом, но главное — узнал настоящую русскую кухню! Впечатления от древних городов незабываемы.',
-                  rating: 5
-                }
-              ].map((review, index) => (
-                <div key={index} className="bg-card border rounded-2xl p-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4 italic">"{review.text}"</p>
-                  <div>
-                    <div className="font-semibold">{review.name}</div>
-                    <div className="text-sm text-muted-foreground">{review.tour}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
