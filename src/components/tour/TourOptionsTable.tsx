@@ -58,7 +58,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
               className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
             >
               <Icon name="Calendar" size={18} className="mr-2" />
-              Забронировать
+              Бесплатный предзаказ
             </Button>
           </div>
         ))}
@@ -116,7 +116,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
                       className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
                     >
                       <Icon name="Calendar" size={18} className="mr-2" />
-                      Получить бронь
+                      Бесплатный предзаказ
                     </Button>
                   </td>
                 </tr>

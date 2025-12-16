@@ -30,8 +30,8 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
         
         {tour.options && tour.options.length > 0 && tour.options.some(opt => opt.program) ? (
           <div className="space-y-8 sm:space-y-10">
-            {tour.options.filter(opt => opt.program).slice(0, 3).map((option, optIndex) => (
-              <div key={optIndex} className="space-y-4">
+            {tour.options.filter(opt => opt.program).map((option, optIndex) => (
+              <div key={optIndex} className="space-y-4 pb-8 border-b-2 border-gray-200 last:border-b-0">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 py-2 rounded-full">
                     <span className="font-bold text-sm">{option.days} {option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}</span>
@@ -39,6 +39,9 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                   <h3 className="text-xl sm:text-2xl font-bold text-[#1A1F2C] font-playfair">
                     {option.description}
                   </h3>
+                  <div className="ml-auto text-right">
+                    <span className="text-2xl font-bold text-[#D4AF37]">{option.price.toLocaleString('ru-RU')} ₽</span>
+                  </div>
                 </div>
                 
                 {option.cities && option.cities.length > 0 && (
@@ -60,6 +63,21 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                       <p className="text-sm sm:text-base text-gray-700 flex-1">{day}</p>
                     </div>
                   ))}
+                </div>
+
+                <div className="mt-6 bg-white border-2 border-[#D4AF37]/30 rounded-xl p-4 sm:p-6">
+                  <h4 className="text-lg font-bold text-[#1A1F2C] mb-4 flex items-center gap-2">
+                    <Icon name="CheckCircle2" className="text-[#D4AF37]" size={20} />
+                    Что включено в стоимость
+                  </h4>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {tour.included.map((item, itemIndex) => (
+                      <div key={itemIndex} className="flex items-start gap-2">
+                        <Icon name="Check" className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                        <span className="text-sm text-gray-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
