@@ -26,7 +26,7 @@ export default function NewYearBanner() {
                 </div>
                 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-playfair text-[#1A1F2C]">
-                  🎄 Новогодний тур по Золотому кольцу
+                  🎄 Новогодний тур
                 </h2>
                 
                 <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
