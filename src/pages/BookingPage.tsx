@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import { tours } from '@/data/tours';
-import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingHeader from '@/components/booking/BookingHeader';
 import BookingTourInfo from '@/components/booking/BookingTourInfo';
 import BookingDetailsForm from '@/components/booking/BookingDetailsForm';
@@ -185,7 +184,6 @@ export default function BookingPage() {
           )}
         </div>
       </div>
-      <WhatsAppButton />
     </div>
   );
 }

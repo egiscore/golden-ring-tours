@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import BookingModal from '@/components/modals/BookingModal';
 import CallbackButton from '@/components/CallbackButton';
-import WhatsAppButton from '@/components/WhatsAppButton';
 import PromoHeroSection from '@/components/promo/PromoHeroSection';
 import PromoToursGrid from '@/components/promo/PromoToursGrid';
 import PromoBenefitsSection from '@/components/promo/PromoBenefitsSection';
@@ -323,7 +322,6 @@ export default function Retargeting() {
       />
       
       <CallbackButton />
-      <WhatsAppButton />
     </div>
   );
 }
