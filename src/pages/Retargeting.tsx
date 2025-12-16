@@ -109,6 +109,29 @@ export default function Retargeting() {
     phone: ''
   });
 
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 23,
+    minutes: 59,
+    seconds: 59
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        }
+        return prev;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     const detectCity = async () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -326,14 +349,31 @@ export default function Retargeting() {
     <div className="min-h-screen bg-white font-inter overflow-x-hidden">
       <Header scrollToSection={scrollToSection} />
       
-      <PromoHeroSection cityInfo={cityTargeting[userCity]} />
+      <PromoHeroSection 
+        userCity={userCity}
+        cityTargeting={cityTargeting}
+        timeLeft={timeLeft}
+        utmParams={utmParams}
+        onBookingClick={() => scrollToSection('booking-form')}
+      />
 
-      <PromoToursGrid tours={tours} onTourSelect={(tour) => {
-        setSelectedTour(tour);
-        scrollToSection('booking-form');
-      }} />
+      <PromoToursGrid 
+        tours={tours} 
+        userCity={userCity}
+        cityTargeting={cityTargeting}
+        utmParams={utmParams}
+        onBookingClick={(tour) => {
+          setSelectedTour(tour);
+          scrollToSection('booking-form');
+        }} 
+      />
 
-      <PromoBenefitsSection />
+      <PromoBenefitsSection 
+        userCity={userCity}
+        cityTargeting={cityTargeting}
+        timeLeft={timeLeft}
+        onBookingClick={() => scrollToSection('booking-form')}
+      />
 
       <section id="booking-form" className="py-16 bg-gradient-to-br from-[#F5F1E8] via-white to-[#F5F1E8]">
         <div className="container mx-auto px-6">
