@@ -1,7 +1,7 @@
 import Icon from '@/components/ui/icon';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '74951797444';
+  const phoneNumber = '79099322226';
   const message = encodeURIComponent('Здравствуйте! Интересуют туры по Золотому Кольцу');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

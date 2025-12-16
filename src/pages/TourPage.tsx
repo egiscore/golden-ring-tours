@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import TourHero from '@/components/tour/TourHero';
 import TourContent from '@/components/tour/TourContent';
 import TourSidebar from '@/components/tour/TourSidebar';
@@ -55,6 +56,7 @@ export default function TourPage() {
       </div>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
