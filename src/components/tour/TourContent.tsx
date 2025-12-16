@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Tour } from '@/data/tours';
 import TourOptionsTable from './TourOptionsTable';
@@ -11,6 +12,19 @@ interface TourContentProps {
 }
 
 export default function TourContent({ tour, onBookingClick, onDateSelect, bookingForm, sidebarContent }: TourContentProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState('');
+
+  const openLightbox = (image: string) => {
+    setLightboxImage(image);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setLightboxImage('');
+  };
+
   return (
     <div className="lg:col-span-2 space-y-8 sm:space-y-12 w-full max-w-full overflow-hidden">
       <section>
@@ -75,6 +89,30 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                     </div>
                   ))}
                 </div>
+
+                {tour.gallery.length > 1 && (
+                  <div className="mt-4">
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                      <Icon name="Image" className="text-[#D4AF37]" size={16} />
+                      Фотографии маршрута
+                    </h4>
+                    <div className="flex gap-2 overflow-x-auto pb-2">
+                      {tour.gallery.slice(0, 6).map((photo, photoIndex) => (
+                        <button
+                          key={photoIndex}
+                          onClick={() => openLightbox(photo)}
+                          className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#D4AF37] transition-all hover:scale-105"
+                        >
+                          <img 
+                            src={photo} 
+                            alt={`Фото ${photoIndex + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div className="mt-6 bg-gradient-to-br from-[#F5F1E8] to-white rounded-xl p-4 sm:p-5 border border-gray-200">
                   <h4 className="text-base font-bold text-[#1A1F2C] mb-3 flex items-center gap-2">
@@ -168,6 +206,26 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
             ))}
           </div>
         </section>
+      )}
+
+      {lightboxOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={closeLightbox}
+        >
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white hover:text-[#D4AF37] transition-colors"
+          >
+            <Icon name="X" size={32} />
+          </button>
+          <img 
+            src={lightboxImage} 
+            alt="Увеличенное фото"
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
       )}
     </div>
   );
