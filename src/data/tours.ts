@@ -1,3 +1,9 @@
+export interface TourOption {
+  days: number;
+  price: number;
+  description: string;
+}
+
 export interface Tour {
   id: string;
   title: string;
@@ -12,6 +18,7 @@ export interface Tour {
   program: string[];
   included: string[];
   gallery: string[];
+  options: TourOption[];
 }
 
 export const tours: Record<string, Tour> = {
@@ -42,7 +49,13 @@ export const tours: Record<string, Tour> = {
       'Входные билеты в музеи и храмы'
     ],
     gallery: [
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/30e268dd-0545-460d-9268-507a25bcbe7b.jpg',
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/15e3304b-db9a-480b-a61e-6ee77149ce73.jpg'
+    ],
+    options: [
+      { days: 3, price: 35000, description: 'Суздаль + Владимир' },
+      { days: 4, price: 42000, description: 'Расширенный тур с Ярославлем' },
+      { days: 5, price: 49000, description: 'Полный тур + Кострома' }
     ]
   },
   'bus-tour': {
@@ -53,7 +66,7 @@ export const tours: Record<string, Tour> = {
     price: 'от 18 000 ₽',
     duration: '3-5 дней',
     icon: 'Bus',
-    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/5426bb0f-2fbb-490d-ba13-d544d41cce6a.jpg',
+    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/77ecd5dd-0bba-4cdf-9891-c20d8146e60c.jpg',
     features: ['Комфортабельный автобус', 'Группа до 30 человек', 'Профессиональный гид', 'Все экскурсии включены'],
     cities: ['Сергиев Посад', 'Переславль-Залесский', 'Ростов Великий', 'Ярославль', 'Кострома', 'Суздаль', 'Владимир'],
     program: [
@@ -72,7 +85,13 @@ export const tours: Record<string, Tour> = {
       'Страховка'
     ],
     gallery: [
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/77ecd5dd-0bba-4cdf-9891-c20d8146e60c.jpg',
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/5426bb0f-2fbb-490d-ba13-d544d41cce6a.jpg'
+    ],
+    options: [
+      { days: 3, price: 18000, description: 'Экспресс-тур: Сергиев Посад + Ярославль + Ростов' },
+      { days: 4, price: 23000, description: 'Классический: + Кострома + Суздаль' },
+      { days: 5, price: 28000, description: 'Полный тур всех городов Золотого кольца' }
     ]
   },
   'cruise': {
@@ -83,7 +102,7 @@ export const tours: Record<string, Tour> = {
     price: 'от 45 000 ₽',
     duration: '5-7 дней',
     icon: 'Ship',
-    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/1b97c2c0-0ad1-437b-9db1-3cd5463aaa87.jpg',
+    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/315c4129-2360-41af-bea0-05c9da8fa230.jpg',
     features: ['Комфортабельная каюта', 'Трёхразовое питание', 'Береговые экскурсии', 'Развлекательная программа'],
     cities: ['Москва', 'Углич', 'Ярославль', 'Кострома', 'Плёс', 'Нижний Новгород'],
     program: [
@@ -103,7 +122,13 @@ export const tours: Record<string, Tour> = {
       'Страховка'
     ],
     gallery: [
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/315c4129-2360-41af-bea0-05c9da8fa230.jpg',
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/1b97c2c0-0ad1-437b-9db1-3cd5463aaa87.jpg'
+    ],
+    options: [
+      { days: 5, price: 45000, description: 'Стандартная каюта' },
+      { days: 6, price: 62000, description: 'Комфорт-каюта с окном' },
+      { days: 7, price: 85000, description: 'Люкс-каюта с балконом' }
     ]
   },
   'excursion': {
@@ -114,7 +139,7 @@ export const tours: Record<string, Tour> = {
     price: 'от 25 000 ₽',
     duration: '3-7 дней',
     icon: 'Landmark',
-    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ccdac298-26df-4d81-81b5-44b72f445867.jpg',
+    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/43e44425-e22c-451c-bc26-4e38a65293c6.jpg',
     features: ['Опытный экскурсовод', 'Входные билеты включены', 'Удобный трансфер', 'Посещение музеев и храмов'],
     cities: ['Все города Золотого кольца'],
     program: [
@@ -131,7 +156,13 @@ export const tours: Record<string, Tour> = {
       'Входные билеты в музеи'
     ],
     gallery: [
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/43e44425-e22c-451c-bc26-4e38a65293c6.jpg',
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ccdac298-26df-4d81-81b5-44b72f445867.jpg'
+    ],
+    options: [
+      { days: 3, price: 25000, description: 'Экспресс: Владимир + Суздаль' },
+      { days: 5, price: 38000, description: 'Классический: + Ярославль + Кострома' },
+      { days: 7, price: 52000, description: 'Расширенный: все города + мастер-классы' }
     ]
   },
   'train': {
@@ -142,7 +173,7 @@ export const tours: Record<string, Tour> = {
     price: 'от 22 000 ₽',
     duration: '4-6 дней',
     icon: 'Train',
-    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/699f480c-aa9b-427a-a4eb-a910c87d3ec1.jpg',
+    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8b97e9d1-8e7d-4a8b-be32-0c8f92f17025.jpg',
     features: ['Билеты на поезд включены', 'Трансфер на вокзалы', 'Гид в каждом городе', 'Проживание в отелях 3-4★'],
     cities: ['Владимир', 'Суздаль', 'Ярославль', 'Кострома'],
     program: [
@@ -160,7 +191,13 @@ export const tours: Record<string, Tour> = {
       'Экскурсии с гидом'
     ],
     gallery: [
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8b97e9d1-8e7d-4a8b-be32-0c8f92f17025.jpg',
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/699f480c-aa9b-427a-a4eb-a910c87d3ec1.jpg'
+    ],
+    options: [
+      { days: 4, price: 22000, description: 'Плацкарт: Владимир + Суздаль + Ярославль' },
+      { days: 5, price: 29000, description: 'Купе: + Кострома' },
+      { days: 6, price: 38000, description: 'СВ (люкс): полный маршрут' }
     ]
   },
   'spiritual': {
@@ -171,7 +208,7 @@ export const tours: Record<string, Tour> = {
     price: 'от 35 000 ₽',
     duration: '3-7 дней',
     icon: 'Church',
-    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/9d51a5f3-1205-477e-9ac8-1bc43b02701c.jpg',
+    image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/e98a7b40-ff09-4740-b0c1-6cfa7e9044c9.jpg',
     features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места'],
     cities: ['Сергиев Посад', 'Суздаль', 'Владимир', 'Дивеево'],
     program: [
@@ -188,7 +225,13 @@ export const tours: Record<string, Tour> = {
       'Свечи и требы'
     ],
     gallery: [
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/e98a7b40-ff09-4740-b0c1-6cfa7e9044c9.jpg',
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/9d51a5f3-1205-477e-9ac8-1bc43b02701c.jpg'
+    ],
+    options: [
+      { days: 3, price: 35000, description: 'Сергиев Посад + Суздаль' },
+      { days: 5, price: 48000, description: '+ Владимир + Дивеево' },
+      { days: 7, price: 62000, description: 'Расширенное паломничество с беседами' }
     ]
   },
   'gastro': {
@@ -217,6 +260,11 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8d3d5500-3428-4cd0-b7db-19e5836a3c42.jpg'
+    ],
+    options: [
+      { days: 3, price: 52000, description: 'Суздаль + Ростов: дегустации и мастер-классы' },
+      { days: 4, price: 68000, description: '+ Ярославль: расширенная программа' },
+      { days: 5, price: 85000, description: 'Полный гастротур с сомелье' }
     ]
   },
   'vip': {
@@ -245,6 +293,11 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/cd2d6549-1f39-42b9-a01d-b1f2c1b08c8c.jpg'
+    ],
+    options: [
+      { days: 2, price: 42000, description: 'Экспресс-тур: 1-2 города' },
+      { days: 4, price: 78000, description: 'Классический VIP: 3-4 города' },
+      { days: 7, price: 145000, description: 'Премиум: полный маршрут с эксклюзивами' }
     ]
   },
   'photo': {
@@ -273,6 +326,11 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/137ede6c-dc37-4b47-b2cd-d84877bec21e.jpg'
+    ],
+    options: [
+      { days: 4, price: 38000, description: 'Базовый: Суздаль + Владимир' },
+      { days: 5, price: 52000, description: 'Расширенный: + Плёс + рассветы/закаты' },
+      { days: 6, price: 68000, description: 'Премиум: все локации + обработка фото' }
     ]
   }
 };

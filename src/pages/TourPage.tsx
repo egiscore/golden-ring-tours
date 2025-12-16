@@ -46,7 +46,7 @@ export default function TourPage() {
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12">
-            <TourContent tour={tour} />
+            <TourContent tour={tour} onBookingClick={() => setIsBookingOpen(true)} />
             <TourSidebar tour={tour} onBookingClick={() => setIsBookingOpen(true)} />
           </div>
         </div>

@@ -1,11 +1,13 @@
 import Icon from '@/components/ui/icon';
 import { Tour } from '@/data/tours';
+import TourOptionsTable from './TourOptionsTable';
 
 interface TourContentProps {
   tour: Tour;
+  onBookingClick: () => void;
 }
 
-export default function TourContent({ tour }: TourContentProps) {
+export default function TourContent({ tour, onBookingClick }: TourContentProps) {
   return (
     <div className="lg:col-span-2 space-y-12">
       <section>
@@ -16,6 +18,31 @@ export default function TourContent({ tour }: TourContentProps) {
           {tour.fullDescription}
         </p>
       </section>
+
+      {tour.gallery.length > 1 && (
+        <section>
+          <h2 className="text-3xl font-bold mb-6 font-playfair text-[#1A1F2C] flex items-center gap-3">
+            <Icon name="Image" className="text-[#D4AF37]" size={32} />
+            Фотогалерея
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {tour.gallery.map((photo, index) => (
+              <div key={index} className="relative aspect-[4/3] rounded-xl overflow-hidden group">
+                <img 
+                  src={photo} 
+                  alt={`${tour.title} - фото ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {tour.options && tour.options.length > 0 && (
+        <TourOptionsTable options={tour.options} onBookingClick={onBookingClick} />
+      )}
 
       <section>
         <h2 className="text-3xl font-bold mb-6 font-playfair text-[#1A1F2C] flex items-center gap-3">
