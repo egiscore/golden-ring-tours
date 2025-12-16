@@ -343,8 +343,8 @@ export default function BookingPage() {
                 type="submit"
                 className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white text-xl py-8 rounded-xl shadow-lg hover:shadow-xl transition-all"
               >
-                Перейти к оплате
-                <Icon name="ArrowRight" size={24} className="ml-3" />
+                Отправить
+                <Icon name="Send" size={24} className="ml-3" />
               </Button>
             </form>
           )}
