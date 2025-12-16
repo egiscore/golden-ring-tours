@@ -280,6 +280,7 @@ export default function Retargeting() {
       discountPrice: 'от 14 000 ₽',
       duration: '2-5 дней',
       icon: 'Bus',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/77ecd5dd-0bba-4cdf-9891-c20d8146e60c.jpg',
       features: ['Комфортабельный автобус', 'Группа до 30 человек', 'Профессиональный гид', 'Все экскурсии включены']
     },
     {
@@ -289,6 +290,7 @@ export default function Retargeting() {
       discountPrice: 'от 28 000 ₽',
       duration: '2-7 дней',
       icon: 'Ship',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8e68bbc5-7f96-4c41-b6ec-8ac9f0fa5e6f.jpg',
       features: ['Комфортабельная каюта', 'Трёхразовое питание', 'Береговые экскурсии', 'Развлекательная программа']
     },
     {
@@ -298,6 +300,7 @@ export default function Retargeting() {
       discountPrice: 'от 18 000 ₽',
       duration: '2-7 дней',
       icon: 'Landmark',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d76c9079-d4f3-492d-81f2-a1d21a0969fd.jpg',
       features: ['Опытный экскурсовод', 'Входные билеты включены', 'Удобный трансфер', 'Посещение музеев и храмов']
     },
     {
@@ -307,6 +310,7 @@ export default function Retargeting() {
       discountPrice: 'от 16 000 ₽',
       duration: '2-6 дней',
       icon: 'Train',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/dc11c82c-f1f7-4790-a687-b4eded4a846e.jpg',
       features: ['Билеты на поезд включены', 'Трансфер на вокзалы', 'Гид в каждом городе', 'Проживание в отелях 3-4★']
     },
     {
@@ -316,6 +320,7 @@ export default function Retargeting() {
       discountPrice: 'от 28 000 ₽',
       duration: '2-7 дней',
       icon: 'Church',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/c5e3e6c0-5fd8-4d88-a42c-9d86e96cc3e0.jpg',
       features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места']
     },
     {
@@ -325,6 +330,7 @@ export default function Retargeting() {
       discountPrice: 'от 42 000 ₽',
       duration: '2-5 дней',
       icon: 'ChefHat',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/c9d45f13-78c7-4e55-9d43-efd3f32f0d77.jpg',
       features: ['Мастер-классы от шефа', 'Дегустации вин', 'Посещение ферм', 'Эксклюзивные рестораны']
     },
     {
@@ -334,6 +340,7 @@ export default function Retargeting() {
       discountPrice: 'от 42 000 ₽',
       duration: '2-7 дней',
       icon: 'Crown',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7c52ac05-edf1-4eb2-84be-41cb33bf10c5.jpg',
       features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Трансферы включены']
     },
     {
@@ -343,6 +350,7 @@ export default function Retargeting() {
       discountPrice: 'от 28 000 ₽',
       duration: '2-6 дней',
       icon: 'Camera',
+      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/30e268dd-0545-460d-9268-507a25bcbe7b.jpg',
       features: ['Фотограф-эксперт', 'Секретные локации', 'Индивидуальный маршрут', 'Обработка фото']
     }
   ];
