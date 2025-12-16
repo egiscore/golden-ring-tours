@@ -54,7 +54,7 @@ export default function PromoHeroSection({
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-700 mb-4 max-w-2xl mx-auto">
-            Откройте для себя древние города России с комфортом премиум-класса
+            Откройте для себя древние города России в комфортабельном туре
           </p>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Владимир • Суздаль • Ярославль • Ростов Великий • Кострома • Иваново • Сергиев Посад • Переславль-Залесский

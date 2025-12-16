@@ -41,8 +41,8 @@ export default function PromoBenefitsSection({
               },
               {
                 icon: 'Crown',
-                title: 'Премиум сервис',
-                description: 'Индивидуальные туры премиум-класса'
+                title: 'Качественный сервис',
+                description: 'Комфортабельные индивидуальные туры'
               },
               {
                 icon: 'Shield',
