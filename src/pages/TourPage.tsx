@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -7,10 +7,23 @@ import TourHero from '@/components/tour/TourHero';
 import TourContent from '@/components/tour/TourContent';
 import TourSidebar from '@/components/tour/TourSidebar';
 import { tours } from '@/data/tours';
+import DateCalendar from '@/components/booking/DateCalendar';
+import { Button } from '@/components/ui/button';
+import Icon from '@/components/ui/icon';
+import { useToast } from '@/hooks/use-toast';
 
 export default function TourPage() {
   const { tourId } = useParams<{ tourId: string }>();
   const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const [formData, setFormData] = useState({
+    date: '',
+    adults: 2,
+    children: 0,
+    name: '',
+    phone: ''
+  });
 
   const tour = tourId ? tours[tourId] : null;
 
@@ -36,6 +49,70 @@ export default function TourPage() {
     }, 100);
   };
 
+  const basePrice = tour?.options?.[0]?.price || 18000;
+  const childDiscount = 0.7;
+  const totalPrice = (formData.adults * basePrice) + (formData.children * basePrice * childDiscount);
+
+  const handleInputChange = (field: string, value: string | number) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.date || !formData.name || !formData.phone) {
+      toast({
+        title: 'Заполните все поля',
+        description: 'Пожалуйста, укажите все обязательные данные',
+        variant: 'destructive'
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/5f3c4163-de98-4711-91ae-4c7424870c2f', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tourId: tourId,
+          tourTitle: tour?.title,
+          date: formData.date,
+          adults: formData.adults,
+          children: formData.children,
+          name: formData.name,
+          phone: formData.phone,
+          totalPrice: totalPrice
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        toast({
+          title: 'Заявка отправлена!',
+          description: 'Мы свяжемся с вами в ближайшее время'
+        });
+        setFormData({
+          date: '',
+          adults: 2,
+          children: 0,
+          name: '',
+          phone: ''
+        });
+      } else {
+        throw new Error(data.error || 'Ошибка при отправке заявки');
+      }
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: error instanceof Error ? error.message : 'Не удалось отправить заявку',
+        variant: 'destructive'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white font-inter overflow-x-hidden">
       <Header scrollToSection={scrollToSection} />
@@ -50,7 +127,138 @@ export default function TourPage() {
               onBookingClick={() => navigate(`/booking/${tourId}`)}
               onDateSelect={(date) => navigate(`/booking/${tourId}?date=${date}`)}
             />
-            <TourSidebar tour={tour} onBookingClick={() => navigate(`/booking/${tourId}`)} />
+            <div className="space-y-8">
+              <TourSidebar tour={tour} onBookingClick={() => navigate(`/booking/${tourId}`)} />
+              
+              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-[#D4AF37]/20">
+                <h3 className="text-2xl font-bold font-playfair text-[#1A1F2C] mb-6">
+                  Забронировать тур
+                </h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <DateCalendar 
+                    selectedDate={formData.date}
+                    onDateSelect={(date) => handleInputChange('date', date)}
+                  />
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Взрослые
+                      </label>
+                      <div className="flex items-center justify-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => handleInputChange('adults', Math.max(1, formData.adults - 1))}
+                          className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                        >
+                          −
+                        </button>
+                        <span className="text-2xl font-bold text-[#1A1F2C] w-10 text-center">
+                          {formData.adults}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleInputChange('adults', Math.min(10, formData.adults + 1))}
+                          className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Дети
+                      </label>
+                      <div className="flex items-center justify-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => handleInputChange('children', Math.max(0, formData.children - 1))}
+                          className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                        >
+                          −
+                        </button>
+                        <span className="text-2xl font-bold text-[#1A1F2C] w-10 text-center">
+                          {formData.children}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleInputChange('children', Math.min(10, formData.children + 1))}
+                          className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#D4AF37]/10 border-2 border-[#D4AF37] rounded-xl p-3">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-700 font-medium">Детские билеты:</span>
+                      <span className="text-[#D4AF37] font-bold">-30%</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Имя *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none transition-colors"
+                      placeholder="Иван Иванов"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Телефон *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none transition-colors"
+                      placeholder="+7 (999) 123-45-67"
+                    />
+                  </div>
+
+                  <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-gray-600 text-sm">Базовая стоимость:</span>
+                      <span className="font-semibold">{totalPrice.toLocaleString('ru-RU')} ₽</span>
+                    </div>
+                    <div className="border-t-2 border-gray-200 pt-3 mt-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-lg font-bold text-[#1A1F2C]">Итого:</span>
+                        <span className="text-2xl font-bold text-[#D4AF37]">
+                          {totalPrice.toLocaleString('ru-RU')} ₽
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button 
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white py-6 rounded-xl text-lg font-bold hover:shadow-xl transition-all"
+                  >
+                    Отправить заявку
+                  </Button>
+
+                  <div className="flex items-start gap-2 text-xs text-gray-600">
+                    <Icon name="Shield" size={16} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
+                    <p>
+                      Нажимая кнопку, вы соглашаетесь с условиями бронирования
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
