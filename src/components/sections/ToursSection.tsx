@@ -137,7 +137,10 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {tours.map((tour, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden border-0 bg-white">
-              <div className="relative h-56 overflow-hidden">
+              <div 
+                className="relative h-56 overflow-hidden cursor-pointer"
+                onClick={() => navigate(`/tours/${tour.id}`)}
+              >
                 <img 
                   src={tour.image} 
                   alt={tour.title}
