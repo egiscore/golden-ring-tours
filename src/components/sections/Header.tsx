@@ -61,13 +61,21 @@ export default function Header({ scrollToSection }: HeaderProps) {
         <div className="flex items-center gap-3">
           <a
             href="tel:+74951797444"
-            className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold"
+            className="hidden lg:flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold"
           >
             <Icon name="Phone" size={18} />
-            <span className="hidden lg:inline">8 (800) 700-34-98</span>
+            <span>8 (800) 700-34-98</span>
           </a>
           
           <div className="flex items-center gap-2">
+            <a
+              href="tel:+74951797444"
+              className="lg:hidden w-9 h-9 flex items-center justify-center bg-[#D4AF37] hover:bg-[#B8941F] text-white rounded-full transition-all shadow-sm hover:shadow-md"
+              title="Позвонить"
+            >
+              <Icon name="Phone" size={18} />
+            </a>
+            
             <a
               href={`https://wa.me/79099322226`}
               target="_blank"
