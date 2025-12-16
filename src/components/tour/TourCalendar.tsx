@@ -14,18 +14,16 @@ interface TourCalendarProps {
 
 export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
 
-  // Генерируем даты на ближайшие 3 месяца
-  const generateDates = (): TourDate[] => {
+  const generateDates = (month: Date): TourDate[] => {
     const dates: TourDate[] = [];
     const today = new Date();
     
-    // Даты отправления по выходным
     for (let i = 0; i < 90; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       
-      // Только пятницы и субботы
       if (date.getDay() === 5 || date.getDay() === 6) {
         dates.push({
           date: date.toISOString().split('T')[0],
@@ -35,100 +33,164 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
       }
     }
     
-    return dates.slice(0, 12); // Показываем 12 ближайших дат
+    return dates;
   };
 
-  const [dates] = useState<TourDate[]>(generateDates());
+  const [allDates] = useState<TourDate[]>(generateDates(new Date()));
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.toLocaleDateString('ru-RU', { month: 'long' });
-    const weekday = date.toLocaleDateString('ru-RU', { weekday: 'short' });
-    return { day, month, weekday };
+  const getDaysInMonth = (date: Date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    const startDayOfWeek = firstDay.getDay();
+    
+    return { daysInMonth, startDayOfWeek, year, month };
   };
 
-  const handleDateClick = (date: string) => {
-    setSelectedDate(date);
-    onDateSelect(date);
+  const { daysInMonth, startDayOfWeek, year, month } = getDaysInMonth(currentMonth);
+
+  const getTourDateInfo = (day: number): TourDate | null => {
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    return allDates.find(td => td.date === dateStr) || null;
   };
+
+  const handleDateClick = (day: number, tourDate: TourDate | null) => {
+    if (!tourDate) return;
+    setSelectedDate(tourDate.date);
+    onDateSelect(tourDate.date);
+  };
+
+  const changeMonth = (delta: number) => {
+    const newMonth = new Date(currentMonth);
+    newMonth.setMonth(currentMonth.getMonth() + delta);
+    setCurrentMonth(newMonth);
+  };
+
+  const monthName = currentMonth.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' });
+  const weekDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+
+  const emptyDays = Array.from({ length: startDayOfWeek }, (_, i) => i);
+  const monthDays = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   return (
-    <section className="my-8 sm:my-12 w-full">
-      <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-playfair text-[#1A1F2C] flex items-center gap-2 sm:gap-3">
-        <Icon name="Calendar" className="text-[#D4AF37]" size={24} />
-        Даты отправления
-      </h2>
+    <div className="w-full">
+      <label className="block text-sm font-semibold text-gray-700 mb-3">
+        Дата отправления *
+      </label>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-        {dates.map((tourDate) => {
-          const { day, month, weekday } = formatDate(tourDate.date);
-          const isSelected = selectedDate === tourDate.date;
-          const isLowSeats = tourDate.availableSeats < 10;
+      <div className="bg-white border-2 border-gray-200 rounded-xl p-4">
+        <div className="flex items-center justify-between mb-4">
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => changeMonth(-1)}
+            className="h-8 w-8 p-0"
+          >
+            <Icon name="ChevronLeft" size={16} />
+          </Button>
+          
+          <h3 className="text-base font-bold capitalize">{monthName}</h3>
+          
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => changeMonth(1)}
+            className="h-8 w-8 p-0"
+          >
+            <Icon name="ChevronRight" size={16} />
+          </Button>
+        </div>
 
-          return (
-            <button
-              key={tourDate.date}
-              onClick={() => handleDateClick(tourDate.date)}
-              className={`
-                relative p-4 rounded-xl border-2 transition-all text-left
-                ${isSelected 
-                  ? 'border-[#D4AF37] bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 shadow-lg' 
-                  : 'border-gray-200 bg-white hover:border-[#D4AF37]/50 hover:shadow-md'
-                }
-              `}
-            >
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <div className="text-3xl font-bold text-[#1A1F2C]">{day}</div>
-                  <div className="text-sm text-gray-600 capitalize">{month}</div>
-                  <div className="text-xs text-gray-500 capitalize">{weekday}</div>
-                </div>
-                {isSelected && (
-                  <div className="w-6 h-6 bg-[#D4AF37] rounded-full flex items-center justify-center">
-                    <Icon name="Check" size={16} className="text-white" />
-                  </div>
+        <div className="grid grid-cols-7 gap-1 mb-2">
+          {weekDays.map(day => (
+            <div key={day} className="text-xs font-semibold text-gray-500 text-center py-1">
+              {day}
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-7 gap-1">
+          {emptyDays.map(i => (
+            <div key={`empty-${i}`} className="aspect-square" />
+          ))}
+          
+          {monthDays.map(day => {
+            const tourDate = getTourDateInfo(day);
+            const isSelected = selectedDate === tourDate?.date;
+            const isAvailable = tourDate !== null;
+            const isLowSeats = tourDate && tourDate.availableSeats < 10;
+
+            return (
+              <button
+                key={day}
+                type="button"
+                onClick={() => handleDateClick(day, tourDate)}
+                disabled={!isAvailable}
+                className={`
+                  aspect-square rounded-lg text-sm transition-all relative
+                  ${!isAvailable 
+                    ? 'text-gray-300 cursor-not-allowed' 
+                    : isSelected
+                      ? 'bg-[#D4AF37] text-white font-bold shadow-md'
+                      : 'bg-[#F5F1E8] hover:bg-[#D4AF37]/20 text-gray-900 font-medium'
+                  }
+                `}
+              >
+                <span>{day}</span>
+                {isAvailable && isLowSeats && (
+                  <span className="absolute top-0 right-0 w-2 h-2 bg-orange-500 rounded-full" />
                 )}
-              </div>
+              </button>
+            );
+          })}
+        </div>
 
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Мест:</span>
-                  <span className={`text-sm font-semibold ${isLowSeats ? 'text-orange-600' : 'text-green-600'}`}>
-                    {tourDate.availableSeats}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Цена:</span>
-                  <span className="text-lg font-bold text-[#D4AF37]">
-                    от {tourDate.price.toLocaleString('ru-RU')} ₽
-                  </span>
-                </div>
-              </div>
+        {selectedDate && (
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            {allDates.filter(td => td.date === selectedDate).map(tourDate => {
+              const date = new Date(tourDate.date);
+              const formattedDate = date.toLocaleDateString('ru-RU', { 
+                day: 'numeric', 
+                month: 'long',
+                weekday: 'short'
+              });
 
-              {isLowSeats && (
-                <div className="mt-3 px-2 py-1 bg-orange-100 border border-orange-300 rounded text-xs text-orange-700 text-center">
-                  Осталось мало мест!
+              return (
+                <div key={tourDate.date} className="space-y-2">
+                  <p className="text-sm font-semibold text-gray-700 capitalize">
+                    {formattedDate}
+                  </p>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-600">Свободных мест:</span>
+                    <span className={`font-bold ${tourDate.availableSeats < 10 ? 'text-orange-600' : 'text-green-600'}`}>
+                      {tourDate.availableSeats}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-600">Цена:</span>
+                    <span className="text-lg font-bold text-[#D4AF37]">
+                      от {tourDate.price.toLocaleString('ru-RU')} ₽
+                    </span>
+                  </div>
                 </div>
-              )}
-            </button>
-          );
-        })}
-      </div>
+              );
+            })}
+          </div>
+        )}
 
-      <div className="mt-6 px-4 py-3 bg-blue-50 border-2 border-blue-200 rounded-lg">
-        <div className="flex items-start gap-2 sm:gap-3">
-          <Icon name="Info" className="text-blue-600 flex-shrink-0 mt-0.5" size={18} />
-          <div className="text-xs sm:text-sm text-blue-700">
-            <p className="mb-2">
-              <strong>Отправление по расписанию:</strong> Пятница и суббота каждую неделю
-            </p>
+        <div className="mt-4 pt-3 border-t border-gray-200">
+          <div className="flex items-start gap-2 text-xs text-gray-600">
+            <Icon name="Info" size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
             <p>
-              Выберите удобную дату, и мы свяжемся с вами для подтверждения бронирования
+              Отправление по пятницам и субботам. Даты выделены цветом.
             </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
