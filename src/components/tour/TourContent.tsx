@@ -68,36 +68,31 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                 </div>
 
                 <div className="mt-6 bg-gradient-to-br from-[#F5F1E8] to-white rounded-xl p-4 sm:p-5 border border-gray-200">
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                    <div className="flex-1">
-                      <h4 className="text-base font-bold text-[#1A1F2C] mb-3 flex items-center gap-2">
-                        <Icon name="CheckCircle2" className="text-[#D4AF37]" size={18} />
-                        Что включено
-                      </h4>
-                      <div className="space-y-1.5">
-                        {(option.included || tour.included).map((item, itemIndex) => (
-                          <div key={itemIndex} className="flex items-start gap-2">
-                            <Icon name="Check" className="text-green-600 flex-shrink-0 mt-0.5" size={14} />
-                            <span className="text-xs sm:text-sm text-gray-700 leading-snug">{item}</span>
-                          </div>
-                        ))}
+                  <h4 className="text-base font-bold text-[#1A1F2C] mb-3 flex items-center gap-2">
+                    <Icon name="CheckCircle2" className="text-[#D4AF37]" size={18} />
+                    Что включено
+                  </h4>
+                  <div className="space-y-1.5 mb-4">
+                    {(option.included || tour.included).map((item, itemIndex) => (
+                      <div key={itemIndex} className="flex items-start gap-2">
+                        <Icon name="Check" className="text-green-600 flex-shrink-0 mt-0.5" size={14} />
+                        <span className="text-xs sm:text-sm text-gray-700 leading-snug">{item}</span>
                       </div>
-                    </div>
-                    <button
-                      onClick={() => {
-                        const bookingSection = document.getElementById('booking-form');
-                        if (bookingSection) {
-                          bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                        onBookingClick(option.price);
-                      }}
-                      className="flex-shrink-0 bg-[#D4AF37] hover:bg-[#B8941F] text-white font-bold py-3 px-5 rounded-lg transition-colors flex items-center gap-2 shadow-md hover:shadow-lg"
-                    >
-                      <Icon name="Calendar" size={18} />
-                      <span className="hidden sm:inline">Бесплатный предзаказ</span>
-                      <span className="sm:hidden">Заказать</span>
-                    </button>
+                    ))}
                   </div>
+                  <button
+                    onClick={() => {
+                      const bookingSection = document.getElementById('booking-form');
+                      if (bookingSection) {
+                        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                      onBookingClick(option.price);
+                    }}
+                    className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white font-bold py-3 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                  >
+                    <Icon name="Calendar" size={18} />
+                    Бесплатный предзаказ
+                  </button>
                 </div>
               </div>
             ))}
