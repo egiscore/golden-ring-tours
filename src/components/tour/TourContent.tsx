@@ -46,7 +46,7 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                     <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full flex-shrink-0">
                       <span className="font-bold text-xs sm:text-sm whitespace-nowrap">{option.days} {option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}</span>
                     </div>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1A1F2C] font-playfair leading-tight">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A1F2C] font-playfair leading-tight">
                       {option.description}
                     </h3>
                   </div>
