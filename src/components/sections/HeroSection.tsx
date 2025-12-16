@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import TourSearchForm from './TourSearchForm';
 
 interface HeroSectionProps {
   scrollToSection: (id: string) => void;
@@ -21,20 +21,9 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                 Путешествие,<br />о котором <span className="text-[#D4AF37]">мечтали</span>
               </h1>
               
-              <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
+              <p className="text-lg md:text-xl mb-10 text-gray-700 leading-relaxed">
                 <strong>Забудьте о массовых турах.</strong> Персональный автомобиль премиум-класса, личный гид-эксперт и программа только для вас — это Золотое кольцо без компромиссов
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Button onClick={() => scrollToSection('tours')} size="lg" className="bg-[#D4AF37] hover:bg-[#B8941F] text-white text-lg px-8 h-14 font-semibold shadow-lg hover:shadow-xl transition-all">
-                  Подобрать тур
-                  <Icon name="ArrowRight" size={20} className="ml-2" />
-                </Button>
-                <Button onClick={() => scrollToSection('contact')} size="lg" variant="outline" className="border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white text-lg px-8 h-14 font-semibold">
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  Связаться с нами
-                </Button>
-              </div>
 
               <div className="bg-white/80 backdrop-blur-sm border border-[#D4AF37]/20 rounded-2xl p-6 mb-8">
                 <div className="flex items-start gap-3 mb-4">
@@ -95,6 +84,11 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Форма поиска тура */}
+        <div className="container mx-auto px-6">
+          <TourSearchForm />
         </div>
       </section>
 
