@@ -43,18 +43,6 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
-              
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-2xl shadow-2xl p-6 max-w-xs text-white">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Icon name="TrendingUp" className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold font-playfair mb-1">до -30%</div>
-                    <div className="text-sm text-white/90">При бронировании до конца месяца</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
