@@ -26,9 +26,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
             <Icon name="Crown" className="text-white" size={20} />
           </div>
           <div className="flex flex-col">
-            <span className="md:text-2xl text-[#1A1F2C] font-playfair leading-tight text-2xl font-semibold">
-              Ви Эф Эс Глобал
-            </span>
+            <span className="md:text-2xl text-[#1A1F2C] font-playfair leading-tight text-2xl font-semibold">Ви Эф Эс</span>
             <span className="text-xs text-gray-600 font-medium">
               Туристический оператор
             </span>
