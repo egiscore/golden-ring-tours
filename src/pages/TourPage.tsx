@@ -133,41 +133,6 @@ export default function TourPage() {
               onDateSelect={(date) => navigate(`/booking/${tourId}?date=${date}`)}
               sidebarContent={
                 <div className="space-y-6">
-                  <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#F5F1E8] p-6 rounded-xl">
-                    <h3 className="text-xl font-bold mb-4 font-playfair text-[#1A1F2C] flex items-center gap-2">
-                      <Icon name="Check" className="text-[#D4AF37]" size={24} />
-                      Что включено
-                    </h3>
-                    <ul className="space-y-3 mb-6">
-                      {tour.included.map((item, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                          <Icon name="Dot" className="text-[#D4AF37] flex-shrink-0 mt-0.5" size={20} />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      size="lg"
-                      className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
-                      onClick={() => {
-                        const bookingSection = document.getElementById('booking-form');
-                        if (bookingSection) {
-                          bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }}
-                    >
-                      <Icon name="Calendar" size={20} className="mr-2" />
-                      Получить бронь
-                    </Button>
-
-                    <div className="mt-4 pt-4 border-t border-gray-300">
-                      <p className="text-xs text-gray-600 text-center">
-                        Программа может быть адаптирована под ваши пожелания
-                      </p>
-                    </div>
-                  </div>
-
                   <div className="bg-blue-50 border-2 border-blue-200 p-6 rounded-xl">
                     <div className="flex items-start gap-3">
                       <Icon name="Info" className="text-blue-600 flex-shrink-0 mt-1" size={24} />
