@@ -44,6 +44,15 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
               </div>
             </div>
             <p className="text-sm text-gray-700 mb-3">{option.description}</p>
+            {option.cities && option.cities.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mb-3">
+                {option.cities.map((city, cityIndex) => (
+                  <span key={cityIndex} className="text-xs bg-white border border-[#D4AF37] text-[#1A1F2C] px-2 py-0.5 rounded-full">
+                    {city}
+                  </span>
+                ))}
+              </div>
+            )}
             <Button
               onClick={handleBookingClick}
               className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
@@ -82,7 +91,18 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
                     </div>
                   </td>
                   <td className="px-6 py-5 text-gray-700">
-                    {option.description}
+                    <div className="space-y-2">
+                      <p>{option.description}</p>
+                      {option.cities && option.cities.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {option.cities.map((city, cityIndex) => (
+                            <span key={cityIndex} className="text-xs bg-white border border-[#D4AF37] text-[#1A1F2C] px-2 py-0.5 rounded-full">
+                              {city}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </td>
                   <td className="px-6 py-5 text-right">
                     <span className="font-bold text-[#D4AF37] text-sm">

@@ -27,19 +27,58 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
           <Icon name="MapPin" className="text-[#D4AF37]" size={24} />
           Программа тура
         </h2>
-        <div className="space-y-3 sm:space-y-4">
-          {tour.program.map((day, index) => (
-            <div key={index} className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-[#F5F1E8] rounded-lg">
-              <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-[#D4AF37] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
-                {index + 1}
+        
+        {tour.options && tour.options.length > 0 && tour.options.some(opt => opt.program) ? (
+          <div className="space-y-8 sm:space-y-10">
+            {tour.options.filter(opt => opt.program).slice(0, 3).map((option, optIndex) => (
+              <div key={optIndex} className="space-y-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 py-2 rounded-full">
+                    <span className="font-bold text-sm">{option.days} {option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1A1F2C] font-playfair">
+                    {option.description}
+                  </h3>
+                </div>
+                
+                {option.cities && option.cities.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {option.cities.map((city, cityIndex) => (
+                      <div key={cityIndex} className="bg-white border-2 border-[#D4AF37] px-3 py-1 rounded-full">
+                        <span className="text-xs sm:text-sm text-[#1A1F2C] font-medium">{city}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                
+                <div className="space-y-3">
+                  {option.program?.map((day, dayIndex) => (
+                    <div key={dayIndex} className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-[#F5F1E8] rounded-lg">
+                      <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-[#D4AF37] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
+                        {dayIndex + 1}
+                      </div>
+                      <p className="text-sm sm:text-base text-gray-700 flex-1">{day}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <p className="text-sm sm:text-base text-gray-700 flex-1">{day}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-3 sm:space-y-4">
+            {tour.program.map((day, index) => (
+              <div key={index} className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-[#F5F1E8] rounded-lg">
+                <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-[#D4AF37] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
+                  {index + 1}
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 flex-1">{day}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
-      {tour.cities.length > 0 && (
+      {tour.cities.length > 0 && !(tour.options && tour.options.length > 0 && tour.options.some(opt => opt.cities)) && (
         <section className="w-full">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-playfair text-[#1A1F2C] flex items-center gap-2 sm:gap-3">
             <Icon name="Map" className="text-[#D4AF37]" size={24} />
