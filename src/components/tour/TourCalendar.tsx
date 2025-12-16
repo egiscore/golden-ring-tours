@@ -20,7 +20,7 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
     const dates: TourDate[] = [];
     const today = new Date();
     
-    for (let i = 0; i < 90; i += 2) {
+    for (let i = 0; i < 90; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       
@@ -198,7 +198,7 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
           <div className="flex items-start gap-2 text-xs text-gray-600">
             <Icon name="Info" size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
             <p>
-              Отправление каждые 2 дня. Выберите удобную дату.
+              Отправление ежедневно. Выберите удобную дату.
             </p>
           </div>
         </div>
