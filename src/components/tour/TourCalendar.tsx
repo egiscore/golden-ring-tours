@@ -14,14 +14,27 @@ interface TourCalendarProps {
 }
 
 export default function TourCalendar({ onDateSelect, selectedPrice }: TourCalendarProps) {
-  const generateSeatsForDate = (dateStr: string): number => {
-    let hash = 0;
-    for (let i = 0; i < dateStr.length; i++) {
-      hash = ((hash << 5) - hash) + dateStr.charCodeAt(i);
-      hash = hash & hash;
+  const getOrGenerateSeats = (): Record<string, number> => {
+    const stored = localStorage.getItem('tour-calendar-seats');
+    if (stored) {
+      return JSON.parse(stored);
     }
-    return Math.abs(hash % 16) + 5;
+    
+    const seats: Record<string, number> = {};
+    const today = new Date();
+    
+    for (let i = 0; i < 90; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+      const dateStr = date.toISOString().split('T')[0];
+      seats[dateStr] = Math.floor(Math.random() * 20) + 5;
+    }
+    
+    localStorage.setItem('tour-calendar-seats', JSON.stringify(seats));
+    return seats;
   };
+
+  const [seatsMap] = useState<Record<string, number>>(getOrGenerateSeats);
 
   const generateDates = (month: Date, price: number): TourDate[] => {
     const dates: TourDate[] = [];
@@ -34,7 +47,7 @@ export default function TourCalendar({ onDateSelect, selectedPrice }: TourCalend
       
       dates.push({
         date: dateStr,
-        availableSeats: generateSeatsForDate(dateStr),
+        availableSeats: seatsMap[dateStr] || 10,
         price: price
       });
     }
