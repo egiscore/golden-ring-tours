@@ -284,7 +284,7 @@ export default function TourPage() {
                       <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl">
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-gray-600 text-sm">Базовая стоимость:</span>
-                          <span className="font-semibold">{totalPrice.toLocaleString('ru-RU')} ₽</span>
+                          <span className="font-semibold"><span className="text-xs text-gray-500">от</span> {totalPrice.toLocaleString('ru-RU')} ₽</span>
                         </div>
                         <div className="border-t-2 border-gray-200 pt-3 mt-3">
                           <div className="flex items-center justify-between">

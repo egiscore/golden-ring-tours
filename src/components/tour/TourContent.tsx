@@ -59,11 +59,11 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
         <TourOptionsTable options={tour.options} />
       )}
 
-      {bookingForm}
-
       <div className="lg:hidden">
         {sidebarContent}
       </div>
+
+      {bookingForm}
 
       {tour.gallery.length > 1 && (
         <section className="w-full">
