@@ -25,9 +25,9 @@ export default function TourContent({ tour, onBookingClick }: TourContentProps) 
             <Icon name="Image" className="text-[#D4AF37]" size={32} />
             Фотогалерея
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-2xl">
             {tour.gallery.map((photo, index) => (
-              <div key={index} className="relative aspect-[4/3] rounded-xl overflow-hidden group w-full">
+              <div key={index} className="relative aspect-square rounded-lg overflow-hidden group">
                 <img 
                   src={photo} 
                   alt={`${tour.title} - фото ${index + 1}`}
