@@ -204,9 +204,7 @@ export default function TourPage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
-                          Телефон *
-                        </label>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Телефон (придет сообщение)</label>
                         <input
                           type="tel"
                           required
