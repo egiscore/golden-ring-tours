@@ -51,9 +51,9 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
           </div>
         </div>
         
-        {tour.options && tour.options.length > 0 && tour.options.some(opt => opt.program) ? (
+        {tour.options && tour.options.length > 0 ? (
           <div className="space-y-8 sm:space-y-12">
-            {tour.options.filter(opt => opt.program).map((option, optIndex) => (
+            {tour.options.map((option, optIndex) => (
               <div key={optIndex} className="space-y-4 pb-8 sm:pb-10 border-b-2 border-gray-200 last:border-b-0">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                   <div className="flex items-center gap-2 sm:gap-3">
@@ -79,16 +79,18 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                   </div>
                 )}
                 
-                <div className="space-y-3">
-                  {option.program?.map((day, dayIndex) => (
-                    <div key={dayIndex} className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-[#F5F1E8] rounded-lg">
-                      <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-[#D4AF37] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
-                        {dayIndex + 1}
+                {option.program && option.program.length > 0 && (
+                  <div className="space-y-3">
+                    {option.program.map((day, dayIndex) => (
+                      <div key={dayIndex} className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-[#F5F1E8] rounded-lg">
+                        <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-[#D4AF37] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
+                          {dayIndex + 1}
+                        </div>
+                        <p className="text-sm sm:text-base text-gray-700 flex-1">{day}</p>
                       </div>
-                      <p className="text-sm sm:text-base text-gray-700 flex-1">{day}</p>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
 
                 {option.photos && option.photos.length > 0 && (
                   <div className="mt-4">
