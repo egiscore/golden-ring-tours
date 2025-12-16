@@ -4,18 +4,17 @@ import { TourOption } from '@/data/tours';
 
 interface TourOptionsTableProps {
   options: TourOption[];
-  onBookingClick?: () => void;
+  onBookingClick?: (price: number) => void;
 }
 
 export default function TourOptionsTable({ options, onBookingClick }: TourOptionsTableProps) {
-  const handleBookingClick = () => {
+  const handleBookingClick = (price: number) => {
     if (onBookingClick) {
-      onBookingClick();
-    } else {
-      const bookingSection = document.getElementById('booking-form');
-      if (bookingSection) {
-        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      onBookingClick(price);
+    }
+    const bookingSection = document.getElementById('booking-form');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
   return (
@@ -54,11 +53,11 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
               </div>
             )}
             <Button
-              onClick={handleBookingClick}
+              onClick={() => handleBookingClick(option.price)}
               className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
             >
               <Icon name="Calendar" size={18} className="mr-2" />
-              Бесплатный предзаказ
+              Забронировать
             </Button>
           </div>
         ))}
@@ -112,11 +111,11 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
                   </td>
                   <td className="px-6 py-5 text-center">
                     <Button
-                      onClick={handleBookingClick}
+                      onClick={() => handleBookingClick(option.price)}
                       className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
                     >
                       <Icon name="Calendar" size={18} className="mr-2" />
-                      Бесплатный предзаказ
+                      Забронировать
                     </Button>
                   </td>
                 </tr>

@@ -129,6 +129,10 @@ export default function TourPage() {
                 if (price) {
                   setSelectedPrice(price);
                 }
+                const bookingSection = document.getElementById('booking-form');
+                if (bookingSection) {
+                  bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
               onDateSelect={(date) => navigate(`/booking/${tourId}?date=${date}`)}
               sidebarContent={
