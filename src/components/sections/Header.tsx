@@ -60,13 +60,37 @@ export default function Header({ scrollToSection }: HeaderProps) {
             Контакты
           </button>
         </div>
-        <a
-          href="tel:+74951797444"
-          className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold"
-        >
-          <Icon name="Phone" size={18} />
-          <span className="hidden lg:inline">8 (800) 700-34-98</span>
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="tel:+74951797444"
+            className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold"
+          >
+            <Icon name="Phone" size={18} />
+            <span className="hidden lg:inline">8 (800) 700-34-98</span>
+          </a>
+          
+          <div className="flex items-center gap-2">
+            <a
+              href={`https://wa.me/79099322226`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-full transition-all shadow-sm hover:shadow-md"
+              title="WhatsApp"
+            >
+              <Icon name="MessageCircle" size={18} />
+            </a>
+            
+            <a
+              href={`https://t.me/79099322226`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-full transition-all shadow-sm hover:shadow-md"
+              title="Telegram"
+            >
+              <Icon name="Send" size={18} />
+            </a>
+          </div>
+        </div>
       </nav>
     </header>
   );
