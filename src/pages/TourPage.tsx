@@ -125,7 +125,11 @@ export default function TourPage() {
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             <TourContent 
               tour={tour} 
-              onBookingClick={() => navigate(`/booking/${tourId}`)}
+              onBookingClick={(price) => {
+                if (price) {
+                  setSelectedPrice(price);
+                }
+              }}
               onDateSelect={(date) => navigate(`/booking/${tourId}?date=${date}`)}
               sidebarContent={
                 <div className="space-y-6">

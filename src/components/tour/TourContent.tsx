@@ -4,7 +4,7 @@ import TourOptionsTable from './TourOptionsTable';
 
 interface TourContentProps {
   tour: Tour;
-  onBookingClick: () => void;
+  onBookingClick: (price?: number) => void;
   onDateSelect?: (date: string) => void;
   bookingForm?: React.ReactNode;
   sidebarContent?: React.ReactNode;
@@ -70,14 +70,27 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                     <Icon name="CheckCircle2" className="text-[#D4AF37]" size={20} />
                     Что включено в стоимость
                   </h4>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {tour.included.map((item, itemIndex) => (
+                  <div className="grid sm:grid-cols-2 gap-3 mb-4">
+                    {(option.included || tour.included).map((item, itemIndex) => (
                       <div key={itemIndex} className="flex items-start gap-2">
                         <Icon name="Check" className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
                         <span className="text-sm text-gray-700">{item}</span>
                       </div>
                     ))}
                   </div>
+                  <button
+                    onClick={() => {
+                      const bookingSection = document.getElementById('booking-form');
+                      if (bookingSection) {
+                        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                      onBookingClick(option.price);
+                    }}
+                    className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  >
+                    <Icon name="Calendar" size={20} />
+                    Бесплатный предзаказ
+                  </button>
                 </div>
               </div>
             ))}
