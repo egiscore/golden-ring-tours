@@ -184,10 +184,7 @@ export default function BookingDetailsForm({
         <Button 
           type="submit"
           className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white py-6 rounded-xl text-lg font-bold hover:shadow-xl transition-all"
-        >
-          Продолжить к бронированию
-          <Icon name="ArrowRight" className="ml-2" size={20} />
-        </Button>
+        >Отправить</Button>
 
         <div className="mt-4 flex items-start gap-3 text-sm text-gray-600">
           <Icon name="Shield" size={20} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
