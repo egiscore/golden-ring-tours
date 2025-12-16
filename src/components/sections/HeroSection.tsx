@@ -30,7 +30,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                 className="flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-6 py-4 rounded-xl hover:shadow-xl transition-all font-semibold text-lg"
               >
                 <Icon name="Search" size={20} />
-                <span>Посмотреть туры</span>
+                <span>Посмотреть все туры</span>
               </button>
             </div>
 
