@@ -50,11 +50,12 @@ export const tours: Record<string, Tour> = {
     ],
     gallery: [
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/30e268dd-0545-460d-9268-507a25bcbe7b.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/15e3304b-db9a-480b-a61e-6ee77149ce73.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/bcf1e869-b820-47ac-b567-3dd1a406ab49.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg',
-      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/81ccb69c-77d6-49d6-ba13-5e755970cd28.jpg'
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/5acf7363-1dd4-497b-a469-e289b9497863.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/0b690b95-d722-472f-9d9d-49b5ab07313d.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/98070741-4b1d-4246-90fc-4b398513ba52.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/56ce8a49-2d29-4b61-bb32-c1d91d4c5476.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/098ff97d-0589-433a-922a-e2ae940c93fd.jpg',
+      'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/38e152b5-4732-427d-8aee-752c9df39482.jpg'
     ],
     options: [
       { days: 3, price: 35000, description: 'Суздаль + Владимир' },

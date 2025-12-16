@@ -28,7 +28,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
               </div>
               <div className="text-right">
                 <div className="text-xl font-bold text-[#D4AF37]">
-                  {option.price.toLocaleString('ru-RU')} ₽
+                  от {option.price.toLocaleString('ru-RU')} ₽
                 </div>
                 <div className="text-xs text-gray-500">на человека</div>
               </div>
@@ -76,7 +76,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
                   </td>
                   <td className="px-6 py-5 text-right">
                     <span className="text-2xl font-bold text-[#D4AF37]">
-                      {option.price.toLocaleString('ru-RU')} ₽
+                      от {option.price.toLocaleString('ru-RU')} ₽
                     </span>
                     <div className="text-sm text-gray-500">на человека</div>
                   </td>
