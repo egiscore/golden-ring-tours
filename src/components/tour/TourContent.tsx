@@ -90,14 +90,14 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                   ))}
                 </div>
 
-                {tour.gallery.length > 1 && (
+                {option.photos && option.photos.length > 0 && (
                   <div className="mt-4">
                     <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
                       <Icon name="Image" className="text-[#D4AF37]" size={16} />
                       Фотографии маршрута
                     </h4>
                     <div className="flex gap-2 overflow-x-auto pb-2">
-                      {tour.gallery.slice(0, 6).map((photo, photoIndex) => (
+                      {option.photos.map((photo, photoIndex) => (
                         <button
                           key={photoIndex}
                           onClick={() => openLightbox(photo)}
