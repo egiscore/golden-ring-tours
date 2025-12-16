@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { tours } from '@/data/tours';
+import { useToast } from '@/hooks/use-toast';
 
 export default function TourSearchForm() {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [selectedTour, setSelectedTour] = useState<string>('');
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedDuration, setSelectedDuration] = useState<string>('');
@@ -33,6 +35,15 @@ export default function TourSearchForm() {
   const durations = ['3-4 дня', '4-5 дней', '5-7 дней', '7+ дней'];
 
   const handleSearch = () => {
+    if (!selectedTour && !selectedDate && !selectedDuration) {
+      toast({
+        title: 'Выберите параметры поиска',
+        description: 'Пожалуйста, укажите хотя бы один параметр для подбора тура',
+        variant: 'destructive'
+      });
+      return;
+    }
+
     if (selectedTour) {
       navigate(`/booking/${selectedTour}${selectedDate ? `?date=${selectedDate}` : ''}`);
     } else {
