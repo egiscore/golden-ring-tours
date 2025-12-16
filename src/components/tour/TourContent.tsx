@@ -128,7 +128,10 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
       )}
 
       {tour.options && tour.options.length > 0 && (
-        <TourOptionsTable options={tour.options} />
+        <TourOptionsTable 
+          options={tour.options} 
+          onBookingClick={onBookingClick}
+        />
       )}
 
       <div className="lg:hidden">
