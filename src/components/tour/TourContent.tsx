@@ -23,9 +23,9 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
       </section>
 
       <section className="w-full">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-playfair text-[#1A1F2C] flex items-center gap-2 sm:gap-3">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-playfair text-[#D4AF37] flex items-center gap-2 sm:gap-3">
           <Icon name="MapPin" className="text-[#D4AF37]" size={24} />
-          Программа тура
+          Программы туров
         </h2>
         
         {tour.options && tour.options.length > 0 && tour.options.some(opt => opt.program) ? (
