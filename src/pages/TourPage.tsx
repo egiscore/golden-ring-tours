@@ -321,7 +321,7 @@ export default function TourPage() {
                         </a>
 
                         <a
-                          href={`https://t.me/79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур "${tour?.title}"`)}`}
+                          href={`https://t.me/+79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур "${tour?.title}"`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex flex-col items-center justify-center gap-2 py-5 bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-xl"
