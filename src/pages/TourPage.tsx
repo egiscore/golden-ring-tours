@@ -235,9 +235,7 @@ export default function TourPage() {
                       <Button 
                         type="submit"
                         className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white py-6 rounded-xl text-lg font-bold hover:shadow-xl transition-all"
-                      >
-                        Отправить заявку
-                      </Button>
+                      >Получить бронь</Button>
 
                       <div className="relative">
                         <div className="absolute inset-0 flex items-center">
