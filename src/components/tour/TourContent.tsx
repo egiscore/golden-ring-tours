@@ -32,8 +32,8 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
           <div className="space-y-8 sm:space-y-12">
             {tour.options.filter(opt => opt.program).map((option, optIndex) => (
               <div key={optIndex} className="space-y-4 pb-8 sm:pb-10 border-b-2 border-gray-200 last:border-b-0">
-                <div className="space-y-3 sm:space-y-0 sm:flex sm:items-center sm:justify-between mb-4">
-                  <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full flex-shrink-0">
                       <span className="font-bold text-xs sm:text-sm whitespace-nowrap">{option.days} {option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}</span>
                     </div>
@@ -41,7 +41,7 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                       {option.description}
                     </h3>
                   </div>
-                  <div className="text-left sm:text-right flex-shrink-0">
+                  <div className="text-left sm:text-right flex-shrink-0 pl-11 sm:pl-0">
                     <span className="text-lg sm:text-xl lg:text-2xl font-bold text-[#D4AF37] whitespace-nowrap">от {option.price.toLocaleString('ru-RU')} ₽</span>
                   </div>
                 </div>
