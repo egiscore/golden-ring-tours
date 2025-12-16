@@ -4,10 +4,20 @@ import { Tour } from '@/data/tours';
 
 interface TourSidebarProps {
   tour: Tour;
-  onBookingClick: () => void;
+  onBookingClick?: () => void;
 }
 
 export default function TourSidebar({ tour, onBookingClick }: TourSidebarProps) {
+  const handleBookingClick = () => {
+    if (onBookingClick) {
+      onBookingClick();
+    } else {
+      const bookingSection = document.getElementById('booking-form');
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#F5F1E8] p-6 rounded-xl">
@@ -27,8 +37,11 @@ export default function TourSidebar({ tour, onBookingClick }: TourSidebarProps) 
         <Button
           size="lg"
           className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
-          onClick={onBookingClick}
-        >Получить бронь</Button>
+          onClick={handleBookingClick}
+        >
+          <Icon name="Calendar" size={20} className="mr-2" />
+          Получить бронь
+        </Button>
 
         <div className="mt-4 pt-4 border-t border-gray-300">
           <p className="text-xs text-gray-600 text-center">

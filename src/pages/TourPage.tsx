@@ -144,10 +144,15 @@ export default function TourPage() {
                     <Button
                       size="lg"
                       className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
-                      onClick={() => navigate(`/booking/${tourId}`)}
+                      onClick={() => {
+                        const bookingSection = document.getElementById('booking-form');
+                        if (bookingSection) {
+                          bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
                     >
                       <Icon name="Calendar" size={20} className="mr-2" />
-                      Забронировать
+                      Получить бронь
                     </Button>
 
                     <div className="mt-4 pt-4 border-t border-gray-300">
@@ -179,7 +184,7 @@ export default function TourPage() {
                 </div>
               }
               bookingForm={
-                <section className="w-full">
+                <section className="w-full" id="booking-form">
                   <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-[#D4AF37]/20">
                     <h3 className="text-2xl font-bold font-playfair text-[#1A1F2C] mb-6">Бесплатный предзаказ</h3>
                     
