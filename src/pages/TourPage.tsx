@@ -338,7 +338,15 @@ export default function TourPage() {
                 </section>
               }
             />
-            <TourSidebar tour={tour} onBookingClick={() => navigate(`/booking/${tourId}`)} />
+            <TourSidebar 
+              tour={tour} 
+              onBookingClick={() => {
+                const bookingSection = document.getElementById('booking-form');
+                if (bookingSection) {
+                  bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }} 
+            />
           </div>
         </div>
       </div>
