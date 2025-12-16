@@ -60,29 +60,13 @@ export default function Header({ scrollToSection }: HeaderProps) {
             Контакты
           </button>
         </div>
-        <div className="flex items-center gap-4">
-          <button className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 py-2 rounded-full hover:shadow-lg transition-all font-medium d-nonr"
-            onClick={() => {
-              if (location.pathname === '/') {
-                scrollToSection("tours");
-              } else {
-                navigate('/');
-                setTimeout(() => scrollToSection("tours"), 100);
-              }
-            }}
-            className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 py-2 rounded-full hover:shadow-lg transition-all font-medium"
-          >
-            <Icon name="Search" size={18} />
-            <span>Посмотреть туры</span>
-          </button>
-          <a
-            href="tel:+74951797444"
-            className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold"
-          >
-            <Icon name="Phone" size={18} />
-            <span className="hidden lg:inline">8 (800) 700-34-98</span>
-          </a>
-        </div>
+        <a
+          href="tel:+74951797444"
+          className="flex items-center gap-2 text-[#D4AF37] hover:text-[#B8941F] transition-colors font-semibold"
+        >
+          <Icon name="Phone" size={18} />
+          <span className="hidden lg:inline">8 (800) 700-34-98</span>
+        </a>
       </nav>
     </header>
   );
