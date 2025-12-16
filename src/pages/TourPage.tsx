@@ -116,7 +116,7 @@ export default function TourPage() {
     <div className="min-h-screen bg-white font-inter overflow-x-hidden">
       <Header scrollToSection={scrollToSection} />
       
-      <TourHero tour={tour} onBookingClick={() => navigate(`/booking/${tourId}`)} />
+      <TourHero tour={tour} />
 
       <div className="w-full px-4 sm:px-6 py-16">
         <div className="max-w-6xl mx-auto">

@@ -4,10 +4,20 @@ import { Tour } from '@/data/tours';
 
 interface TourHeroProps {
   tour: Tour;
-  onBookingClick: () => void;
+  onBookingClick?: () => void;
 }
 
 export default function TourHero({ tour, onBookingClick }: TourHeroProps) {
+  const handleBookingClick = () => {
+    if (onBookingClick) {
+      onBookingClick();
+    } else {
+      const bookingSection = document.getElementById('booking-form');
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
   return (
     <>
       <div className="relative h-[70vh] overflow-hidden">
@@ -35,7 +45,7 @@ export default function TourHero({ tour, onBookingClick }: TourHeroProps) {
               <Button
                 size="lg"
                 className="bg-[#D4AF37] hover:bg-[#B8941F] text-white w-full sm:w-auto"
-                onClick={onBookingClick}
+                onClick={handleBookingClick}
               >
                 <Icon name="Calendar" size={18} className="mr-2" />
                 Забронировать тур

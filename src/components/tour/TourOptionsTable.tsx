@@ -4,10 +4,20 @@ import { TourOption } from '@/data/tours';
 
 interface TourOptionsTableProps {
   options: TourOption[];
-  onBookingClick: () => void;
+  onBookingClick?: () => void;
 }
 
 export default function TourOptionsTable({ options, onBookingClick }: TourOptionsTableProps) {
+  const handleBookingClick = () => {
+    if (onBookingClick) {
+      onBookingClick();
+    } else {
+      const bookingSection = document.getElementById('booking-form');
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
   return (
     <section className="my-8 sm:my-12 w-full">
       <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-playfair text-[#1A1F2C] flex items-center gap-2 sm:gap-3">
@@ -35,7 +45,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
             </div>
             <p className="text-sm text-gray-700 mb-3">{option.description}</p>
             <Button
-              onClick={onBookingClick}
+              onClick={handleBookingClick}
               className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
             >
               <Icon name="Calendar" size={18} className="mr-2" />
@@ -82,9 +92,12 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
                   </td>
                   <td className="px-6 py-5 text-center">
                     <Button
-                      onClick={onBookingClick}
+                      onClick={handleBookingClick}
                       className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
-                    >Получить бронь</Button>
+                    >
+                      <Icon name="Calendar" size={18} className="mr-2" />
+                      Получить бронь
+                    </Button>
                   </td>
                 </tr>
               ))}
