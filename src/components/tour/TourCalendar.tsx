@@ -14,6 +14,15 @@ interface TourCalendarProps {
 }
 
 export default function TourCalendar({ onDateSelect, selectedPrice }: TourCalendarProps) {
+  const generateSeatsForDate = (dateStr: string): number => {
+    let hash = 0;
+    for (let i = 0; i < dateStr.length; i++) {
+      hash = ((hash << 5) - hash) + dateStr.charCodeAt(i);
+      hash = hash & hash;
+    }
+    return Math.abs(hash % 16) + 5;
+  };
+
   const generateDates = (month: Date, price: number): TourDate[] => {
     const dates: TourDate[] = [];
     const today = new Date();
@@ -21,10 +30,11 @@ export default function TourCalendar({ onDateSelect, selectedPrice }: TourCalend
     for (let i = 0; i < 90; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
+      const dateStr = date.toISOString().split('T')[0];
       
       dates.push({
-        date: date.toISOString().split('T')[0],
-        availableSeats: Math.floor(Math.random() * 20) + 5,
+        date: dateStr,
+        availableSeats: generateSeatsForDate(dateStr),
         price: price
       });
     }
