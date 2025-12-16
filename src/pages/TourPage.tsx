@@ -16,6 +16,8 @@ export default function TourPage() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const tour = tourId ? tours[tourId] : null;
+
   const [formData, setFormData] = useState({
     date: '',
     adults: 2,
@@ -25,8 +27,6 @@ export default function TourPage() {
   });
 
   const [selectedPrice, setSelectedPrice] = useState<number>(tour?.options?.[0]?.price || 18000);
-
-  const tour = tourId ? tours[tourId] : null;
 
   useEffect(() => {
     if (!tour) {
