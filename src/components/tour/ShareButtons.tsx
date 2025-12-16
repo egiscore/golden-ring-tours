@@ -34,30 +34,30 @@ export default function ShareButtons({ tourTitle, tourUrl }: ShareButtonsProps) 
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-6 rounded-xl border-2 border-[#D4AF37]/20">
-      <h3 className="text-lg font-bold mb-4 font-playfair text-[#1A1F2C] flex items-center gap-2">
-        <Icon name="Share2" className="text-[#D4AF37]" size={24} />
-        Поделиться туром
+    <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-[#D4AF37]/20">
+      <h3 className="text-base font-bold mb-3 font-playfair text-[#1A1F2C] flex items-center gap-2">
+        <Icon name="Share2" className="text-[#D4AF37]" size={20} />
+        Поделиться
       </h3>
       
-      <div className="space-y-3">
+      <div className="flex flex-wrap gap-2">
         <a
           href={shareLinks.vk}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-3 bg-[#0077FF] hover:bg-[#0066DD] text-white rounded-lg transition-colors"
+          className="flex items-center gap-2 px-3 py-2 bg-[#0077FF] hover:bg-[#0066DD] text-white rounded-lg transition-colors text-sm"
         >
-          <Icon name="Share2" size={20} />
-          <span className="font-medium">ВКонтакте</span>
+          <Icon name="Share2" size={16} />
+          <span className="font-medium">ВК</span>
         </a>
 
         <a
           href={shareLinks.telegram}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-3 bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-lg transition-colors"
+          className="flex items-center gap-2 px-3 py-2 bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-lg transition-colors text-sm"
         >
-          <Icon name="Send" size={20} />
+          <Icon name="Send" size={16} />
           <span className="font-medium">Telegram</span>
         </a>
 
@@ -65,19 +65,19 @@ export default function ShareButtons({ tourTitle, tourUrl }: ShareButtonsProps) 
           href={shareLinks.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-3 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-lg transition-colors"
+          className="flex items-center gap-2 px-3 py-2 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-lg transition-colors text-sm"
         >
-          <Icon name="MessageCircle" size={20} />
+          <Icon name="MessageCircle" size={16} />
           <span className="font-medium">WhatsApp</span>
         </a>
 
         <Button
           onClick={copyToClipboard}
           variant="outline"
-          className="w-full justify-start gap-3 border-2 border-[#D4AF37] text-[#1A1F2C] hover:bg-[#D4AF37]/10"
+          className="flex items-center gap-2 px-3 py-2 border-2 border-[#D4AF37] text-[#1A1F2C] hover:bg-[#D4AF37]/10 text-sm h-auto"
         >
-          <Icon name="Copy" size={20} />
-          <span className="font-medium">Скопировать ссылку</span>
+          <Icon name="Copy" size={16} />
+          <span className="font-medium">Копировать</span>
         </Button>
       </div>
     </div>
