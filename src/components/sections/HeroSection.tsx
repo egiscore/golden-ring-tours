@@ -24,6 +24,14 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
                 <strong>Забудьте о массовых турах.</strong> Персональный автомобиль премиум-класса, личный гид-эксперт и программа только для вас — это Золотое кольцо без компромиссов
               </p>
+
+              <button
+                onClick={() => scrollToSection('tours')}
+                className="flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-6 py-4 rounded-xl hover:shadow-xl transition-all font-semibold text-lg"
+              >
+                <Icon name="Search" size={20} />
+                <span>Посмотреть туры</span>
+              </button>
             </div>
 
             <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
