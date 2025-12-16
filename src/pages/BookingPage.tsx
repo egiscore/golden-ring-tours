@@ -23,7 +23,8 @@ export default function BookingPage() {
     name: '',
     email: '',
     phone: '',
-    comment: ''
+    comment: '',
+    bookingNumber: ''
   });
 
   useEffect(() => {
@@ -58,14 +59,47 @@ export default function BookingPage() {
     setStep('payment');
   };
 
-  const handlePayment = () => {
-    setTimeout(() => {
-      setStep('success');
-      toast({
-        title: 'Бронирование подтверждено!',
-        description: 'Информация о туре отправлена на вашу почту'
+  const handlePayment = async () => {
+    try {
+      const response = await fetch('https://functions.poehali.dev/5f3c4163-de98-4711-91ae-4c7424870c2f', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tourId: tourId,
+          tourTitle: tour.title,
+          date: formData.date,
+          adults: formData.adults,
+          children: formData.children,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          totalPrice: totalPrice,
+          comment: formData.comment
+        })
       });
-    }, 1500);
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // Сохраняем номер бронирования
+        setFormData(prev => ({ ...prev, bookingNumber: data.bookingNumber }));
+        setStep('success');
+        toast({
+          title: 'Бронирование подтверждено!',
+          description: 'Информация о туре отправлена на вашу почту'
+        });
+      } else {
+        throw new Error(data.error || 'Ошибка при отправке заявки');
+      }
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: error instanceof Error ? error.message : 'Не удалось отправить заявку',
+        variant: 'destructive'
+      });
+    }
   };
 
   const formatDate = (dateString: string) => {
@@ -417,7 +451,7 @@ export default function BookingPage() {
                   Бронирование подтверждено!
                 </h2>
                 <p className="text-xl text-gray-600 mb-4">
-                  Номер бронирования: <span className="font-mono font-bold text-[#D4AF37]">GR-{Date.now().toString().slice(-6)}</span>
+                  Номер бронирования: <span className="font-mono font-bold text-[#D4AF37]">{formData.bookingNumber || 'GR-******'}</span>
                 </p>
                 <p className="text-gray-600">
                   Спасибо за выбор нашей компании!
