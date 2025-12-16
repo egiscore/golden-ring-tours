@@ -38,7 +38,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         body_data = json.loads(event.get('body', '{}'))
         
         # Валидация
-        required_fields = ['tourId', 'tourTitle', 'date', 'adults', 'name', 'email', 'phone', 'totalPrice']
+        required_fields = ['tourId', 'tourTitle', 'date', 'adults', 'name', 'phone', 'totalPrice']
         for field in required_fields:
             if field not in body_data:
                 return {
@@ -71,7 +71,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             body_data.get('children', 0),
             body_data['totalPrice'],
             body_data['name'],
-            body_data['email'],
+            body_data.get('email', ''),
             body_data['phone'],
             body_data.get('comment', ''),
             'new'
@@ -102,7 +102,6 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 
 👤 Клиент:
   • Имя: {body_data['name']}
-  • Email: {body_data['email']}
   • Телефон: {body_data['phone']}
 
 💬 Комментарий: {body_data.get('comment', 'Нет')}
