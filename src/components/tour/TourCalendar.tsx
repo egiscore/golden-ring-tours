@@ -9,7 +9,7 @@ interface TourDate {
 }
 
 interface TourCalendarProps {
-  onDateSelect: (date: string) => void;
+  onDateSelect: (date: string, price: number) => void;
 }
 
 export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
@@ -57,7 +57,7 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
   const handleDateClick = (day: number, tourDate: TourDate | null) => {
     if (!tourDate) return;
     setSelectedDate(tourDate.date);
-    onDateSelect(tourDate.date);
+    onDateSelect(tourDate.date, tourDate.price);
   };
 
   const changeMonth = (delta: number) => {

@@ -24,6 +24,8 @@ export default function TourPage() {
     phone: ''
   });
 
+  const [selectedPrice, setSelectedPrice] = useState<number>(tour?.options?.[0]?.price || 18000);
+
   const tour = tourId ? tours[tourId] : null;
 
   useEffect(() => {
@@ -48,9 +50,8 @@ export default function TourPage() {
     }, 100);
   };
 
-  const basePrice = tour?.options?.[0]?.price || 18000;
   const childDiscount = 0.7;
-  const totalPrice = (formData.adults * basePrice) + (formData.children * basePrice * childDiscount);
+  const totalPrice = (formData.adults * selectedPrice) + (formData.children * selectedPrice * childDiscount);
 
   const handleInputChange = (field: string, value: string | number) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -189,7 +190,10 @@ export default function TourPage() {
                     <h3 className="text-2xl font-bold font-playfair text-[#1A1F2C] mb-6">Бесплатный предзаказ</h3>
                     
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      <TourCalendar onDateSelect={(date) => handleInputChange('date', date)} />
+                      <TourCalendar onDateSelect={(date, price) => {
+                        handleInputChange('date', date);
+                        setSelectedPrice(price);
+                      }} />
 
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">
