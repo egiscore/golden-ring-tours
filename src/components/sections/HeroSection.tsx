@@ -17,7 +17,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               </h1>
               
               <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
-                <strong>Забудьте о массовых турах.</strong> Персональный автомобиль премиум-класса, личный гид-эксперт и программа только для вас — это Золотое кольцо без компромиссов
+                <strong>Забудьте о массовых турах.</strong> Комфортный автомобиль, опытный гид и индивидуальная программа — откройте для себя Золотое кольцо России
               </p>
 
               <button
@@ -88,9 +88,9 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { icon: 'Car', title: 'Премиум авто', desc: 'Mercedes, BMW, Audi' },
-              { icon: 'User', title: 'Личный гид', desc: 'Эксперт-историк' },
-              { icon: 'Hotel', title: 'Отели 5★', desc: 'Лучшие гостиницы' },
+              { icon: 'Car', title: 'Комфортный транспорт', desc: 'Удобные автомобили' },
+              { icon: 'User', title: 'Опытный гид', desc: 'Знающий историк' },
+              { icon: 'Hotel', title: 'Хорошие отели', desc: 'Проверенные гостиницы' },
               { icon: 'Shield', title: 'Гарантия', desc: 'Полная страховка' }
             ].map((feature, i) => (
               <div key={i} className="text-center animate-scale-in" style={{ animationDelay: `${i * 0.1}s` }}>
