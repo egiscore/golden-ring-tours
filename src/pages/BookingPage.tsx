@@ -396,11 +396,11 @@ export default function BookingPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 text-sm text-gray-600 bg-green-50 border-2 border-green-200 p-6 rounded-xl">
-                <Icon name="Lock" size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 text-sm text-gray-600 bg-blue-50 border-2 border-blue-200 p-6 rounded-xl">
+                <Icon name="Info" size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-green-800 mb-1">Безопасная оплата</p>
-                  <p>Ваши платежные данные защищены по стандарту PCI DSS и не передаются третьим лицам.</p>
+                  <p className="font-semibold text-blue-800 mb-1">Информация о бронировании</p>
+                  <p>После подтверждения мы свяжемся с вами в течение 24 часов для уточнения деталей поездки.</p>
                 </div>
               </div>
             </div>
