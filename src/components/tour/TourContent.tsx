@@ -6,9 +6,10 @@ import TourCalendar from './TourCalendar';
 interface TourContentProps {
   tour: Tour;
   onBookingClick: () => void;
+  onDateSelect?: (date: string) => void;
 }
 
-export default function TourContent({ tour, onBookingClick }: TourContentProps) {
+export default function TourContent({ tour, onBookingClick, onDateSelect }: TourContentProps) {
   return (
     <div className="lg:col-span-2 space-y-8 sm:space-y-12 w-full max-w-full overflow-hidden">
       <section>
@@ -45,7 +46,7 @@ export default function TourContent({ tour, onBookingClick }: TourContentProps) 
         <TourOptionsTable options={tour.options} onBookingClick={onBookingClick} />
       )}
 
-      <TourCalendar onDateSelect={(date) => console.log('Selected date:', date)} />
+      <TourCalendar onDateSelect={(date) => onDateSelect?.(date)} />
 
       <section className="w-full">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-playfair text-[#1A1F2C] flex items-center gap-2 sm:gap-3">
