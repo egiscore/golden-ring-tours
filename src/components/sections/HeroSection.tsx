@@ -12,11 +12,6 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 bg-red-100 px-4 py-2 rounded-full mb-6 border-2 border-red-300">
-                <Icon name="Clock" size={18} className="text-red-600" />
-                <span className="text-sm font-bold text-red-600">Скидка -5% до 31 декабря • Осталось 15 дней!</span>
-              </div>
-              
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-playfair leading-tight text-[#1A1F2C]">
                 Путешествие,<br />о котором <span className="text-[#D4AF37]">мечтали</span>
               </h1>
