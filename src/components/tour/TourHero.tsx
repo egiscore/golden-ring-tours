@@ -37,7 +37,7 @@ export default function TourHero({ tour, onBookingClick }: TourHeroProps) {
                 className="bg-[#D4AF37] hover:bg-[#B8941F] text-white w-full sm:w-auto"
                 onClick={onBookingClick}
               >
-                <Icon name="Phone" size={18} className="mr-2" />
+                <Icon name="Calendar" size={18} className="mr-2" />
                 Забронировать тур
               </Button>
             </div>

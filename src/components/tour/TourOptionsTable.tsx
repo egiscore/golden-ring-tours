@@ -38,7 +38,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
               onClick={onBookingClick}
               className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
             >
-              <Icon name="Phone" size={18} className="mr-2" />
+              <Icon name="Calendar" size={18} className="mr-2" />
               Забронировать
             </Button>
           </div>
@@ -85,7 +85,7 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
                       onClick={onBookingClick}
                       className="bg-[#D4AF37] hover:bg-[#B8941F] text-white"
                     >
-                      <Icon name="Phone" size={18} className="mr-2" />
+                      <Icon name="Calendar" size={18} className="mr-2" />
                       Забронировать
                     </Button>
                   </td>
