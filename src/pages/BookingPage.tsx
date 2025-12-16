@@ -32,6 +32,8 @@ export default function BookingPage() {
   useEffect(() => {
     if (!tour) {
       navigate('/');
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [tour, navigate]);
 
