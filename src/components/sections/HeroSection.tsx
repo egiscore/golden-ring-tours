@@ -10,7 +10,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
     <>
       <section className="relative pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden bg-gradient-to-br from-[#F5F1E8] via-white to-[#F5F1E8]">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="animate-fade-in-up">
               <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-6">
                 <Icon name="Sparkles" size={18} className="text-[#D4AF37]" />
@@ -21,44 +21,9 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                 Путешествие,<br />о котором <span className="text-[#D4AF37]">мечтали</span>
               </h1>
               
-              <p className="text-lg md:text-xl mb-10 text-gray-700 leading-relaxed">
+              <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
                 <strong>Забудьте о массовых турах.</strong> Персональный автомобиль премиум-класса, личный гид-эксперт и программа только для вас — это Золотое кольцо без компромиссов
               </p>
-
-              <div className="bg-white/80 backdrop-blur-sm border border-[#D4AF37]/20 rounded-2xl p-6 mb-8">
-                <div className="flex items-start gap-3 mb-4">
-                  <Icon name="CheckCircle" size={24} className="text-[#D4AF37] flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-gray-700 leading-relaxed">
-                      <strong className="text-[#1A1F2C]">Гарантия незабываемых впечатлений</strong> — 98% наших клиентов возвращаются снова или рекомендуют нас друзьям
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
-                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
-                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
-                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
-                  <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
-                  <span className="ml-2 font-semibold">4.9 из 5</span>
-                  <span className="text-gray-400">• 500+ отзывов</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-6">
-                <div>
-                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">14</div>
-                  <div className="text-sm text-gray-600">Лет на рынке</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Счастливых гостей</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">100%</div>
-                  <div className="text-sm text-gray-600">Индивидуально</div>
-                </div>
-              </div>
             </div>
 
             <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -84,11 +49,47 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Форма поиска тура */}
-        <div className="container mx-auto px-6">
+          {/* Форма поиска тура */}
           <TourSearchForm />
+
+          {/* Статистика и гарантии */}
+          <div className="grid md:grid-cols-2 gap-8 mt-16">
+            <div className="bg-white/80 backdrop-blur-sm border border-[#D4AF37]/20 rounded-2xl p-6">
+              <div className="flex items-start gap-3 mb-4">
+                <Icon name="CheckCircle" size={24} className="text-[#D4AF37] flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-gray-700 leading-relaxed">
+                    <strong className="text-[#1A1F2C]">Гарантия незабываемых впечатлений</strong> — 98% наших клиентов возвращаются снова или рекомендуют нас друзьям
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                <span className="ml-2 font-semibold">4.9 из 5</span>
+                <span className="text-gray-400">• 500+ отзывов</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-6">
+              <div>
+                <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">14</div>
+                <div className="text-sm text-gray-600">Лет на рынке</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">500+</div>
+                <div className="text-sm text-gray-600">Счастливых гостей</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">100%</div>
+                <div className="text-sm text-gray-600">Индивидуально</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
