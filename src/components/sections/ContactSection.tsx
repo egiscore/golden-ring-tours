@@ -98,35 +98,24 @@ export default function ContactSection() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-[#1A1F2C]">
-              Готовы увидеть Золотое кольцо?
+              Остались вопросы?
             </h2>
             <p className="text-lg text-gray-600">
-              <strong>Оставьте заявку сейчас</strong> — мы перезвоним в
-              течение 15 минут и подберём идеальную программу
+              <strong>Оставьте телефон</strong> — перезвоним за 15 минут и подберём лучший тур
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#D4AF37]/5 to-white rounded-3xl p-2 mb-12">
+          <div className="bg-gradient-to-br from-red-50 to-white rounded-3xl p-2 mb-12 border-2 border-red-200">
             <div className="bg-white rounded-2xl p-6">
               <div className="flex items-center justify-center gap-8 flex-wrap">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">
+                  <div className="text-3xl font-bold text-red-600 font-playfair mb-1">
                     -5%
                   </div>
-                  <div className="text-sm text-gray-600">
-                    При бронировании
+                  <div className="text-sm text-gray-600 font-semibold">
+                    Только до 31 декабря
                     <br />
-                    до 31 декабря
-                  </div>
-                </div>
-                <div className="h-12 w-px bg-gray-200"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">
-                    Бесплатно
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    Консультация
-                    <br />и подбор тура
+                    <span className="text-xs text-red-600">Осталось 15 дней!</span>
                   </div>
                 </div>
                 <div className="h-12 w-px bg-gray-200"></div>
@@ -134,10 +123,21 @@ export default function ContactSection() {
                   <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">
                     15 мин
                   </div>
-                  <div className="text-sm text-gray-600">
-                    Время ответа
+                  <div className="text-sm text-gray-600 font-semibold">
+                    Перезвоним
                     <br />
-                    на заявку
+                    <span className="text-xs text-green-600">Даже в выходные</span>
+                  </div>
+                </div>
+                <div className="h-12 w-px bg-gray-200"></div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#D4AF37] font-playfair mb-1">
+                    0₽
+                  </div>
+                  <div className="text-sm text-gray-600 font-semibold">
+                    Консультация
+                    <br />
+                    <span className="text-xs text-gray-500">И подбор тура</span>
                   </div>
                 </div>
               </div>
@@ -149,63 +149,42 @@ export default function ContactSection() {
               <div className="absolute -top-4 -right-4 bg-gradient-to-br from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
                 Скидка -5%!
               </div>
-              <form className="space-y-6" onSubmit={handleContactSubmit}>
+              <form className="space-y-5" onSubmit={handleContactSubmit}>
                 <div>
                   <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">
-                    Ваше имя *
+                    Ваше имя
                   </label>
                   <Input
                     name="name"
                     type="text"
-                    placeholder="Иван Иванов"
-                    className="h-12 border-gray-300 focus:border-[#D4AF37]"
+                    placeholder="Как к вам обращаться?"
+                    className="h-14 border-gray-300 focus:border-[#D4AF37] text-base"
                     required
                   />
                 </div>
                 <div>
                   <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">
-                    Телефон *
+                    Телефон
                   </label>
                   <Input
                     name="phone"
                     type="tel"
-                    placeholder="+7 (999) 123-45-67"
-                    className="h-12 border-gray-300 focus:border-[#D4AF37]"
+                    placeholder="+7 (___) ___-__-__"
+                    className="h-14 border-gray-300 focus:border-[#D4AF37] text-base"
                     required
                   />
                 </div>
-                <div>
-                  <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">
-                    Email (необязательно)
-                  </label>
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="email@example.com"
-                    className="h-12 border-gray-300 focus:border-[#D4AF37]"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-semibold mb-2 block text-[#1A1F2C]">
-                    Сообщение
-                  </label>
-                  <Textarea
-                    name="message"
-                    placeholder="Расскажите о ваших пожеланиях..."
-                    className="min-h-[120px] border-gray-300 focus:border-[#D4AF37]"
-                  />
-                </div>
+                <input type="hidden" name="message" value="Заявка на консультацию по турам" />
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white h-16 text-lg font-bold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 mt-6"
                 >
-                  {isSubmitting ? "Отправка..." : "Получить консультацию"}
-                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                  {isSubmitting ? "Отправляем..." : "Перезвоните мне"}
+                  <Icon name="Phone" size={22} className="ml-2" />
                 </Button>
-                <p className="text-xs text-gray-500 text-center mt-3">
-                  Нажимая кнопку, вы соглашаетесь с политикой
-                  конфиденциальности
+                <p className="text-xs text-gray-500 text-center">
+                  Перезвоним за 15 минут • Работаем 7 дней в неделю
                 </p>
               </form>
             </div>

@@ -17,6 +17,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     """
     Обрабатывает заявки с сайта и отправляет их на email и в Telegram
     """
+    print(f"[INFO] Request received: {event.get('httpMethod', 'GET')}")
+    
     method: str = event.get('httpMethod', 'GET')
     
     if method == 'OPTIONS':
@@ -43,13 +45,38 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False
         }
     
-    body_data = json.loads(event.get('body', '{}'))
-    
-    # Преобразуем пустую строку email в None
-    if 'email' in body_data and body_data['email'] == '':
-        body_data['email'] = None
-    
-    contact_request = ContactRequest(**body_data)
+    try:
+        body_data = json.loads(event.get('body', '{}'))
+        print(f"[INFO] Body parsed: name={body_data.get('name')}, phone={body_data.get('phone')}")
+        
+        # Преобразуем пустую строку email в None
+        if 'email' in body_data and body_data['email'] == '':
+            body_data['email'] = None
+        
+        contact_request = ContactRequest(**body_data)
+        print(f"[INFO] Validation passed")
+    except json.JSONDecodeError as e:
+        print(f"[ERROR] JSON decode error: {e}")
+        return {
+            'statusCode': 400,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': 'Неверный формат данных'}),
+            'isBase64Encoded': False
+        }
+    except Exception as e:
+        print(f"[ERROR] Validation error: {e}")
+        return {
+            'statusCode': 400,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': f'Ошибка валидации: {str(e)}'}),
+            'isBase64Encoded': False
+        }
     
     smtp_email = os.environ.get('SMTP_EMAIL')
     smtp_password = os.environ.get('SMTP_PASSWORD')
@@ -90,12 +117,17 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     email_error = None
     if smtp_email and smtp_password:
         try:
+            print(f"[INFO] Sending email to {recipient_email}")
             with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
                 server.login(smtp_email, smtp_password)
                 server.send_message(msg)
             email_sent = True
+            print(f"[SUCCESS] Email sent successfully")
         except Exception as e:
             email_error = str(e)
+            print(f"[ERROR] Email sending failed: {e}")
+    else:
+        print(f"[WARNING] Email credentials not configured")
     
     # Отправка в Telegram
     telegram_sent = False
@@ -109,6 +141,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 {contact_request.message}"""
         
         try:
+            print(f"[INFO] Sending telegram message to chat {telegram_chat_id}")
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
             telegram_payload = {
                 'chat_id': telegram_chat_id,
@@ -117,8 +150,13 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             response = requests.post(telegram_url, json=telegram_payload, timeout=5)
             if response.status_code == 200:
                 telegram_sent = True
-        except Exception:
-            pass
+                print(f"[SUCCESS] Telegram message sent successfully")
+            else:
+                print(f"[ERROR] Telegram API error: {response.status_code} - {response.text}")
+        except Exception as e:
+            print(f"[ERROR] Telegram sending failed: {e}")
+    else:
+        print(f"[WARNING] Telegram credentials not configured")
     
     if email_sent or telegram_sent:
         return {

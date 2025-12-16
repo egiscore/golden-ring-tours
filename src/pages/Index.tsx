@@ -8,6 +8,7 @@ import GallerySection from "@/components/sections/GallerySection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/sections/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Index() {
   const scrollToSection = (id: string) => {
@@ -35,6 +36,7 @@ export default function Index() {
       <FAQSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
