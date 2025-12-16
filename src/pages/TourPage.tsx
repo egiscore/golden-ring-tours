@@ -239,6 +239,25 @@ export default function TourPage() {
                         Отправить заявку
                       </Button>
 
+                      <div className="relative">
+                        <div className="absolute inset-0 flex items-center">
+                          <div className="w-full border-t border-gray-200"></div>
+                        </div>
+                        <div className="relative flex justify-center text-sm">
+                          <span className="px-2 bg-white text-gray-500">или</span>
+                        </div>
+                      </div>
+
+                      <a
+                        href={`https://wa.me/79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур "${tour?.title}"`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#1EBE57] text-white py-6 rounded-xl text-lg font-bold transition-all shadow-md hover:shadow-xl"
+                      >
+                        <Icon name="MessageCircle" size={24} />
+                        Быстрая заявка в WhatsApp
+                      </a>
+
                       <div className="flex items-start gap-2 text-xs text-gray-600">
                         <Icon name="Shield" size={16} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
                         <p>
