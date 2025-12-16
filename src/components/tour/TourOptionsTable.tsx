@@ -127,10 +127,10 @@ export default function TourOptionsTable({ options, onBookingClick }: TourOption
       </div>
 
       {/* Информационное сообщение */}
-      <div className="mt-4 px-4 py-3 bg-blue-50 border-2 border-blue-200 rounded-lg">
+      <div className="mt-4 px-4 py-3 bg-amber-50 border-2 border-[#D4AF37] rounded-lg">
         <div className="flex items-start gap-2 sm:gap-3">
-          <Icon name="Info" className="text-blue-600 flex-shrink-0 mt-0.5" size={18} />
-          <p className="text-xs sm:text-sm text-blue-700">
+          <Icon name="Info" className="text-[#D4AF37] flex-shrink-0 mt-0.5" size={18} />
+          <p className="text-xs sm:text-sm text-gray-700">
             <strong>Обратите внимание:</strong> Цены указаны на одного человека при двухместном размещении. 
             Возможны скидки для групп от 4 человек.
           </p>

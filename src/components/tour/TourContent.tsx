@@ -75,7 +75,7 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                   <div className="space-y-1.5 mb-4">
                     {(option.included || tour.included).map((item, itemIndex) => (
                       <div key={itemIndex} className="flex items-start gap-2">
-                        <Icon name="Check" className="text-green-600 flex-shrink-0 mt-0.5" size={14} />
+                        <Icon name="Check" className="text-[#D4AF37] flex-shrink-0 mt-0.5" size={14} />
                         <span className="text-xs sm:text-sm text-gray-700 leading-snug">{item}</span>
                       </div>
                     ))}
