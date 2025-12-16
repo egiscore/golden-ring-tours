@@ -7,9 +7,10 @@ interface TourContentProps {
   onBookingClick: () => void;
   onDateSelect?: (date: string) => void;
   bookingForm?: React.ReactNode;
+  sidebarContent?: React.ReactNode;
 }
 
-export default function TourContent({ tour, onBookingClick, onDateSelect, bookingForm }: TourContentProps) {
+export default function TourContent({ tour, onBookingClick, onDateSelect, bookingForm, sidebarContent }: TourContentProps) {
   return (
     <div className="lg:col-span-2 space-y-8 sm:space-y-12 w-full max-w-full overflow-hidden">
       <section>
@@ -59,6 +60,10 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
       )}
 
       {bookingForm}
+
+      <div className="lg:hidden">
+        {sidebarContent}
+      </div>
 
       {tour.gallery.length > 1 && (
         <section className="w-full">
