@@ -9,6 +9,7 @@ import { tours } from '@/data/tours';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import TourCalendar from '@/components/tour/TourCalendar';
 
 export default function TourPage() {
   const { tourId } = useParams<{ tourId: string }>();
@@ -16,6 +17,7 @@ export default function TourPage() {
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
+    date: '',
     adults: 2,
     children: 0,
     name: '',
@@ -57,7 +59,7 @@ export default function TourPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.phone) {
+    if (!formData.date || !formData.name || !formData.phone) {
       toast({
         title: 'Заполните все поля',
         description: 'Пожалуйста, укажите все обязательные данные',
@@ -75,6 +77,7 @@ export default function TourPage() {
         body: JSON.stringify({
           tourId: tourId,
           tourTitle: tour?.title,
+          date: formData.date,
           adults: formData.adults,
           children: formData.children,
           name: formData.name,
@@ -91,6 +94,7 @@ export default function TourPage() {
           description: 'Мы свяжемся с вами в ближайшее время'
         });
         setFormData({
+          date: '',
           adults: 2,
           children: 0,
           name: '',
@@ -180,6 +184,8 @@ export default function TourPage() {
                     <h3 className="text-2xl font-bold font-playfair text-[#1A1F2C] mb-6">Бесплатный предзаказ</h3>
                     
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      <TourCalendar onDateSelect={(date) => handleInputChange('date', date)} />
+
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">
                           <label className="block text-sm font-semibold text-gray-700 mb-3">
