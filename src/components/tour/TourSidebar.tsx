@@ -28,10 +28,7 @@ export default function TourSidebar({ tour, onBookingClick }: TourSidebarProps) 
           size="lg"
           className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white"
           onClick={onBookingClick}
-        >
-          <Icon name="Calendar" size={20} className="mr-2" />
-          Забронировать
-        </Button>
+        >Получить бронь</Button>
 
         <div className="mt-4 pt-4 border-t border-gray-300">
           <p className="text-xs text-gray-600 text-center">
