@@ -1,6 +1,7 @@
 import Icon from '@/components/ui/icon';
 import { Tour } from '@/data/tours';
 import TourOptionsTable from './TourOptionsTable';
+import TourCalendar from './TourCalendar';
 
 interface TourContentProps {
   tour: Tour;
@@ -43,6 +44,8 @@ export default function TourContent({ tour, onBookingClick }: TourContentProps) 
       {tour.options && tour.options.length > 0 && (
         <TourOptionsTable options={tour.options} onBookingClick={onBookingClick} />
       )}
+
+      <TourCalendar onDateSelect={(date) => console.log('Selected date:', date)} />
 
       <section className="w-full">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-playfair text-[#1A1F2C] flex items-center gap-2 sm:gap-3">
