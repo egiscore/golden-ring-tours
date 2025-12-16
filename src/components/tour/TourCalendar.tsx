@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
@@ -13,9 +13,6 @@ interface TourCalendarProps {
 }
 
 export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-
   const generateDates = (month: Date): TourDate[] => {
     const dates: TourDate[] = [];
     const today = new Date();
@@ -35,6 +32,16 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
   };
 
   const [allDates] = useState<TourDate[]>(generateDates(new Date()));
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  useEffect(() => {
+    if (allDates.length > 0 && !selectedDate) {
+      const nearestDate = allDates[0];
+      setSelectedDate(nearestDate.date);
+      onDateSelect(nearestDate.date, nearestDate.price);
+    }
+  }, [allDates, selectedDate, onDateSelect]);
 
   const getDaysInMonth = (date: Date) => {
     const year = date.getFullYear();
