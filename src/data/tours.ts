@@ -58,6 +58,7 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/38e152b5-4732-427d-8aee-752c9df39482.jpg'
     ],
     options: [
+      { days: 2, price: 28000, description: 'Экспресс: Суздаль' },
       { days: 3, price: 35000, description: 'Суздаль + Владимир' },
       { days: 4, price: 42000, description: 'Расширенный тур с Ярославлем' },
       { days: 5, price: 49000, description: 'Полный тур + Кострома' }
@@ -100,7 +101,8 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/0fc43796-9f6d-470c-8a36-2e374fcccdfe.jpg'
     ],
     options: [
-      { days: 3, price: 18000, description: 'Экспресс-тур: Сергиев Посад + Ярославль + Ростов' },
+      { days: 2, price: 14000, description: 'Экспресс: Сергиев Посад + Переславль' },
+      { days: 3, price: 18000, description: 'Короткий: Сергиев Посад + Ярославль + Ростов' },
       { days: 4, price: 23000, description: 'Классический: + Кострома + Суздаль' },
       { days: 5, price: 28000, description: 'Полный тур всех городов Золотого кольца' }
     ]
@@ -140,6 +142,7 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/0fc43796-9f6d-470c-8a36-2e374fcccdfe.jpg'
     ],
     options: [
+      { days: 2, price: 28000, description: 'Мини-круиз: Москва-Углич' },
       { days: 5, price: 45000, description: 'Стандартная каюта' },
       { days: 6, price: 62000, description: 'Комфорт-каюта с окном' },
       { days: 7, price: 85000, description: 'Люкс-каюта с балконом' }
@@ -178,6 +181,7 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg'
     ],
     options: [
+      { days: 2, price: 18000, description: 'Выходные: Владимир + Суздаль' },
       { days: 3, price: 25000, description: 'Экспресс: Владимир + Суздаль' },
       { days: 5, price: 38000, description: 'Классический: + Ярославль + Кострома' },
       { days: 7, price: 52000, description: 'Расширенный: все города + мастер-классы' }
@@ -216,6 +220,7 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg'
     ],
     options: [
+      { days: 2, price: 16000, description: 'Выходные: Владимир + Суздаль' },
       { days: 4, price: 22000, description: 'Плацкарт: Владимир + Суздаль + Ярославль' },
       { days: 5, price: 29000, description: 'Купе: + Кострома' },
       { days: 6, price: 38000, description: 'СВ (люкс): полный маршрут' }
@@ -253,6 +258,7 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg'
     ],
     options: [
+      { days: 2, price: 28000, description: 'Выходные: Сергиев Посад' },
       { days: 3, price: 35000, description: 'Сергиев Посад + Суздаль' },
       { days: 5, price: 48000, description: '+ Владимир + Дивеево' },
       { days: 7, price: 62000, description: 'Расширенное паломничество с беседами' }
@@ -286,6 +292,7 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8d3d5500-3428-4cd0-b7db-19e5836a3c42.jpg'
     ],
     options: [
+      { days: 2, price: 42000, description: 'Выходные: Суздаль с дегустациями' },
       { days: 3, price: 52000, description: 'Суздаль + Ростов: дегустации и мастер-классы' },
       { days: 4, price: 68000, description: '+ Ярославль: расширенная программа' },
       { days: 5, price: 85000, description: 'Полный гастротур с сомелье' }
@@ -352,6 +359,7 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/137ede6c-dc37-4b47-b2cd-d84877bec21e.jpg'
     ],
     options: [
+      { days: 2, price: 28000, description: 'Выходные: Суздаль' },
       { days: 4, price: 38000, description: 'Базовый: Суздаль + Владимир' },
       { days: 5, price: 52000, description: 'Расширенный: + Плёс + рассветы/закаты' },
       { days: 6, price: 68000, description: 'Премиум: все локации + обработка фото' }
