@@ -10,34 +10,32 @@ interface TourDate {
 
 interface TourCalendarProps {
   onDateSelect: (date: string, price: number) => void;
+  selectedPrice?: number;
 }
 
-export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
-  const generateDates = (month: Date): TourDate[] => {
+export default function TourCalendar({ onDateSelect, selectedPrice }: TourCalendarProps) {
+  const generateDates = (month: Date, price: number): TourDate[] => {
     const dates: TourDate[] = [];
     const today = new Date();
-    
-    const tourPrices = [10990, 12790, 20390, 21390, 23590, 28990, 35990];
     
     for (let i = 0; i < 90; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       
-      const randomPrice = tourPrices[Math.floor(Math.random() * tourPrices.length)];
-      
       dates.push({
         date: date.toISOString().split('T')[0],
         availableSeats: Math.floor(Math.random() * 20) + 5,
-        price: randomPrice
+        price: price
       });
     }
     
     return dates;
   };
 
-  const [allDates] = useState<TourDate[]>(generateDates(new Date()));
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  
+  const allDates = generateDates(new Date(), selectedPrice || 10990);
 
   useEffect(() => {
     if (allDates.length > 0 && !selectedDate) {
