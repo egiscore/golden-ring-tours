@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
-import BookingModal from '@/components/modals/BookingModal';
-import CallbackButton from '@/components/CallbackButton';
+import { useNavigate } from 'react-router-dom';
+import Header from '@/components/sections/Header';
+import Footer from '@/components/sections/Footer';
 import PromoHeroSection from '@/components/promo/PromoHeroSection';
 import PromoToursGrid from '@/components/promo/PromoToursGrid';
 import PromoBenefitsSection from '@/components/promo/PromoBenefitsSection';
+import { Button } from '@/components/ui/button';
+import Icon from '@/components/ui/icon';
+import { useToast } from '@/hooks/use-toast';
 
 const cityTargeting: Record<string, {
   city: string;
@@ -85,7 +89,8 @@ const cityTargeting: Record<string, {
 };
 
 export default function Retargeting() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [selectedTour, setSelectedTour] = useState<string>('');
   const [userCity, setUserCity] = useState<string>('moscow');
   const [utmParams, setUtmParams] = useState({
@@ -95,10 +100,13 @@ export default function Retargeting() {
     content: '',
     term: ''
   });
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 59,
-    seconds: 59
+
+  const [formData, setFormData] = useState({
+    date: '',
+    adults: 2,
+    children: 0,
+    name: '',
+    phone: ''
   });
 
   useEffect(() => {
@@ -166,30 +174,86 @@ export default function Retargeting() {
     };
 
     detectCity();
-
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
   }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleInputChange = (field: string, value: string | number) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const childDiscount = 0.7;
+  const basePrice = 25000;
+  const totalPrice = (formData.adults * basePrice) + (formData.children * basePrice * childDiscount);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.phone) {
+      toast({
+        title: 'Заполните все поля',
+        description: 'Пожалуйста, укажите все обязательные данные',
+        variant: 'destructive'
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/5f3c4163-de98-4711-91ae-4c7424870c2f', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tourId: 'promo',
+          tourTitle: selectedTour || 'Промо-тур из ' + cityTargeting[userCity].city,
+          date: formData.date,
+          adults: formData.adults,
+          children: formData.children,
+          name: formData.name,
+          phone: formData.phone,
+          totalPrice: totalPrice
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        toast({
+          title: 'Заявка отправлена!',
+          description: 'Мы свяжемся с вами в ближайшее время'
+        });
+        setFormData({
+          date: '',
+          adults: 2,
+          children: 0,
+          name: '',
+          phone: ''
+        });
+      } else {
+        throw new Error(data.error || 'Ошибка при отправке заявки');
+      }
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: error instanceof Error ? error.message : 'Не удалось отправить заявку',
+        variant: 'destructive'
+      });
+    }
+  };
 
   const tours = [
     {
       title: 'Автобусный тур',
       subtitle: 'Комфортное групповое путешествие',
       originalPrice: '19 000 ₽',
-      discountPrice: 'от 18 000 ₽',
-      duration: '3-5 дней',
+      discountPrice: 'от 14 000 ₽',
+      duration: '2-5 дней',
       icon: 'Bus',
       features: ['Комфортабельный автобус', 'Группа до 30 человек', 'Профессиональный гид', 'Все экскурсии включены']
     },
@@ -197,8 +261,8 @@ export default function Retargeting() {
       title: 'Круиз на лайнере',
       subtitle: 'Путешествие по рекам с комфортом',
       originalPrice: '47 400 ₽',
-      discountPrice: 'от 45 000 ₽',
-      duration: '5-7 дней',
+      discountPrice: 'от 28 000 ₽',
+      duration: '2-7 дней',
       icon: 'Ship',
       features: ['Комфортабельная каюта', 'Трёхразовое питание', 'Береговые экскурсии', 'Развлекательная программа']
     },
@@ -206,8 +270,8 @@ export default function Retargeting() {
       title: 'Экскурсионный тур',
       subtitle: 'Насыщенная программа по всем городам',
       originalPrice: '26 300 ₽',
-      discountPrice: 'от 25 000 ₽',
-      duration: '3-7 дней',
+      discountPrice: 'от 18 000 ₽',
+      duration: '2-7 дней',
       icon: 'Landmark',
       features: ['Опытный экскурсовод', 'Входные билеты включены', 'Удобный трансфер', 'Посещение музеев и храмов']
     },
@@ -215,8 +279,8 @@ export default function Retargeting() {
       title: 'Тур на поезде',
       subtitle: 'Комфортабельное путешествие между городами',
       originalPrice: '23 200 ₽',
-      discountPrice: 'от 22 000 ₽',
-      duration: '4-6 дней',
+      discountPrice: 'от 16 000 ₽',
+      duration: '2-6 дней',
       icon: 'Train',
       features: ['Билеты на поезд включены', 'Трансфер на вокзалы', 'Гид в каждом городе', 'Проживание в отелях 3-4★']
     },
@@ -224,8 +288,8 @@ export default function Retargeting() {
       title: 'Духовное путешествие',
       subtitle: 'Паломничество с духовным наставником',
       originalPrice: '36 850 ₽',
-      discountPrice: 'от 35 000 ₽',
-      duration: '3-7 дней',
+      discountPrice: 'от 28 000 ₽',
+      duration: '2-7 дней',
       icon: 'Church',
       features: ['Духовный наставник', 'Беседы с настоятелями', 'Участие в службах', 'Паломнические места']
     },
@@ -233,8 +297,8 @@ export default function Retargeting() {
       title: 'Гастрономический тур',
       subtitle: 'Вкусы древней Руси',
       originalPrice: '54 800 ₽',
-      discountPrice: 'от 52 000 ₽',
-      duration: '3-5 дней',
+      discountPrice: 'от 42 000 ₽',
+      duration: '2-5 дней',
       icon: 'ChefHat',
       features: ['Мастер-классы от шефа', 'Дегустации вин', 'Посещение ферм', 'Эксклюзивные рестораны']
     },
@@ -251,77 +315,210 @@ export default function Retargeting() {
       title: 'Фототур для профессионалов',
       subtitle: 'Золотые купола в объективе',
       originalPrice: '40 000 ₽',
-      discountPrice: 'от 38 000 ₽',
-      duration: '4-6 дней',
+      discountPrice: 'от 28 000 ₽',
+      duration: '2-6 дней',
       icon: 'Camera',
       features: ['Фотограф-эксперт', 'Секретные локации', 'Индивидуальный маршрут', 'Обработка фото']
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/5 via-white to-primary/5">
-      <PromoHeroSection 
-        userCity={userCity}
-        cityTargeting={cityTargeting}
-        timeLeft={timeLeft}
-        utmParams={utmParams}
-        onBookingClick={(tourTitle?: string) => {
-          if (typeof window !== 'undefined' && (window as any).ym) {
-            (window as any).ym(105829530, 'reachGoal', 'booking_click', {
-              timestamp: Date.now(),
-              event: 'booking_click',
-              city: userCity,
-              tour: tourTitle || 'not_selected',
-              utm_source: utmParams.source || 'direct',
-              utm_campaign: utmParams.campaign || 'retargeting',
-              utm_medium: utmParams.medium || 'website'
-            });
-          }
-          setSelectedTour(tourTitle || '');
-          setIsBookingOpen(true);
-        }}
-      />
-
-      <PromoToursGrid 
-        tours={tours}
-        userCity={userCity}
-        cityTargeting={cityTargeting}
-        utmParams={utmParams}
-        onBookingClick={(tourTitle: string) => {
-          if (typeof window !== 'undefined' && (window as any).ym) {
-            (window as any).ym(105829530, 'reachGoal', 'booking_click', {
-              timestamp: Date.now(),
-              event: 'booking_click',
-              city: userCity,
-              tour: tourTitle,
-              utm_source: utmParams.source || 'direct',
-              utm_campaign: utmParams.campaign || 'retargeting',
-              utm_medium: utmParams.medium || 'website'
-            });
-          }
-          setSelectedTour(tourTitle);
-          setIsBookingOpen(true);
-        }}
-      />
-
-      <PromoBenefitsSection 
-        userCity={userCity}
-        cityTargeting={cityTargeting}
-        timeLeft={timeLeft}
-        onBookingClick={(tourTitle?: string) => {
-          setSelectedTour(tourTitle || '');
-          setIsBookingOpen(true);
-        }}
-      />
-
-      <BookingModal 
-        isOpen={isBookingOpen} 
-        onClose={() => setIsBookingOpen(false)}
-        source="промо (скидка 5%)"
-        selectedTour={selectedTour}
-      />
+    <div className="min-h-screen bg-white font-inter overflow-x-hidden">
+      <Header scrollToSection={scrollToSection} />
       
-      <CallbackButton />
+      <PromoHeroSection cityInfo={cityTargeting[userCity]} />
+
+      <PromoToursGrid tours={tours} onTourSelect={(tour) => {
+        setSelectedTour(tour);
+        scrollToSection('booking-form');
+      }} />
+
+      <PromoBenefitsSection />
+
+      <section id="booking-form" className="py-16 bg-gradient-to-br from-[#F5F1E8] via-white to-[#F5F1E8]">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 border-2 border-[#D4AF37]/20">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-4">
+                  <Icon name="Sparkles" size={18} className="text-[#D4AF37]" />
+                  <span className="text-sm font-semibold text-[#D4AF37]">Специальное предложение</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold font-playfair text-[#1A1F2C] mb-2">
+                  Бесплатный предзаказ
+                </h2>
+                <p className="text-gray-600">
+                  Забронируйте тур без предоплаты — мы свяжемся с вами за 15 минут
+                </p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Дата поездки
+                  </label>
+                  <input
+                    type="date"
+                    value={formData.date}
+                    onChange={(e) => handleInputChange('date', e.target.value)}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none transition-colors"
+                    min={new Date().toISOString().split('T')[0]}
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">
+                    <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      Взрослые
+                    </label>
+                    <div className="flex items-center justify-center gap-3">
+                      <button
+                        type="button"
+                        onClick={() => handleInputChange('adults', Math.max(1, formData.adults - 1))}
+                        className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                      >
+                        −
+                      </button>
+                      <span className="text-2xl font-bold text-[#1A1F2C] w-10 text-center">
+                        {formData.adults}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleInputChange('adults', Math.min(10, formData.adults + 1))}
+                        className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">
+                    <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      Дети
+                    </label>
+                    <div className="flex items-center justify-center gap-3">
+                      <button
+                        type="button"
+                        onClick={() => handleInputChange('children', Math.max(0, formData.children - 1))}
+                        className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                      >
+                        −
+                      </button>
+                      <span className="text-2xl font-bold text-[#1A1F2C] w-10 text-center">
+                        {formData.children}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleInputChange('children', Math.min(10, formData.children + 1))}
+                        className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-[#D4AF37]/10 border-2 border-[#D4AF37] rounded-xl p-3">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-700 font-medium">Детские билеты:</span>
+                    <span className="text-[#D4AF37] font-bold">-30%</span>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Имя *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none transition-colors"
+                    placeholder="Иван Иванов"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Телефон (придет сообщение) *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none transition-colors"
+                    placeholder="+7 (999) 123-45-67"
+                  />
+                </div>
+
+                <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-gray-600 text-sm">Базовая стоимость:</span>
+                    <span className="font-semibold">{totalPrice.toLocaleString('ru-RU')} ₽</span>
+                  </div>
+                  <div className="border-t-2 border-gray-200 pt-3 mt-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-bold text-[#1A1F2C]">Итого:</span>
+                      <span className="text-2xl font-bold text-[#D4AF37]">
+                        {totalPrice.toLocaleString('ru-RU')} ₽
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <Button 
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white py-6 rounded-xl text-lg font-bold hover:shadow-xl transition-all"
+                >
+                  Получить бронь
+                </Button>
+
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-200"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-2 bg-white text-gray-500">или быстрая заявка</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <a
+                    href={`https://wa.me/79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур из ${cityTargeting[userCity].city}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center gap-2 py-5 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-xl"
+                  >
+                    <Icon name="MessageCircle" size={28} />
+                    <span className="text-sm">WhatsApp</span>
+                  </a>
+
+                  <a
+                    href={`https://t.me/+79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур из ${cityTargeting[userCity].city}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center gap-2 py-5 bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-xl"
+                  >
+                    <Icon name="Send" size={28} />
+                    <span className="text-sm">Telegram</span>
+                  </a>
+                </div>
+
+                <div className="flex items-start gap-2 text-xs text-gray-600">
+                  <Icon name="Shield" size={16} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
+                  <p>
+                    Нажимая кнопку, вы соглашаетесь с условиями бронирования
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
