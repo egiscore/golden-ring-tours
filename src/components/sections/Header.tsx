@@ -61,7 +61,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
           </button>
         </div>
         <div className="flex items-center gap-4">
-          <button
+          <button className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 py-2 rounded-full hover:shadow-lg transition-all font-medium d-nonr"
             onClick={() => {
               if (location.pathname === '/') {
                 scrollToSection("tours");
