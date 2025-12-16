@@ -1,8 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
-import TourBookingModal from '@/components/tour/TourBookingModal';
 import TourHero from '@/components/tour/TourHero';
 import TourContent from '@/components/tour/TourContent';
 import TourSidebar from '@/components/tour/TourSidebar';
@@ -11,8 +10,6 @@ import { tours } from '@/data/tours';
 export default function TourPage() {
   const { tourId } = useParams<{ tourId: string }>();
   const navigate = useNavigate();
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<string>('');
 
   const tour = tourId ? tours[tourId] : null;
 
@@ -42,33 +39,22 @@ export default function TourPage() {
     <div className="min-h-screen bg-white font-inter overflow-x-hidden">
       <Header scrollToSection={scrollToSection} />
       
-      <TourHero tour={tour} onBookingClick={() => setIsBookingOpen(true)} />
+      <TourHero tour={tour} onBookingClick={() => navigate(`/booking/${tourId}`)} />
 
       <div className="w-full px-4 sm:px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             <TourContent 
               tour={tour} 
-              onBookingClick={() => setIsBookingOpen(true)}
-              onDateSelect={(date) => {
-                setSelectedDate(date);
-                setIsBookingOpen(true);
-              }}
+              onBookingClick={() => navigate(`/booking/${tourId}`)}
+              onDateSelect={(date) => navigate(`/booking/${tourId}?date=${date}`)}
             />
-            <TourSidebar tour={tour} onBookingClick={() => setIsBookingOpen(true)} />
+            <TourSidebar tour={tour} onBookingClick={() => navigate(`/booking/${tourId}`)} />
           </div>
         </div>
       </div>
 
       <Footer />
-
-      <TourBookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        tourTitle={tour.title}
-        selectedDate={selectedDate}
-        basePrice={tour.options?.[0]?.price || 18000}
-      />
     </div>
   );
 }

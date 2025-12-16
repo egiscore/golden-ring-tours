@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Retargeting from "./pages/Retargeting";
 import AnalyticsDashboard from "./components/AnalyticsDashboard";
 import TourPage from "./pages/TourPage";
+import BookingPage from "./pages/BookingPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const AnimatedRoutes = () => {
         <Route path="/promo" element={<PageTransition><Retargeting /></PageTransition>} />
         <Route path="/analytics" element={<PageTransition><AnalyticsDashboard /></PageTransition>} />
         <Route path="/tours/:tourId" element={<PageTransition><TourPage /></PageTransition>} />
+        <Route path="/booking/:tourId" element={<PageTransition><BookingPage /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
