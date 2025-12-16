@@ -17,14 +17,18 @@ export default function TourCalendar({ onDateSelect }: TourCalendarProps) {
     const dates: TourDate[] = [];
     const today = new Date();
     
+    const tourPrices = [10990, 20390, 21390];
+    
     for (let i = 0; i < 90; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       
+      const randomPrice = tourPrices[Math.floor(Math.random() * tourPrices.length)];
+      
       dates.push({
         date: date.toISOString().split('T')[0],
         availableSeats: Math.floor(Math.random() * 20) + 5,
-        price: 18000 + Math.floor(Math.random() * 10000)
+        price: randomPrice
       });
     }
     
