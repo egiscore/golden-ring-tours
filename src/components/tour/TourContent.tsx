@@ -28,6 +28,15 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
           Программы туров
         </h2>
         
+        <div className="mb-6 px-4 py-3 bg-blue-50 border-2 border-blue-200 rounded-lg">
+          <div className="flex items-start gap-2 sm:gap-3">
+            <Icon name="Bus" className="text-blue-600 flex-shrink-0 mt-0.5" size={20} />
+            <p className="text-sm sm:text-base text-blue-900">
+              <strong>Дополнительная услуга:</strong> Для туристов из других городов мы можем организовать трансфер до Москвы из вашего города пребывания. Уточняйте стоимость при бронировании.
+            </p>
+          </div>
+        </div>
+        
         {tour.options && tour.options.length > 0 && tour.options.some(opt => opt.program) ? (
           <div className="space-y-8 sm:space-y-12">
             {tour.options.filter(opt => opt.program).map((option, optIndex) => (
