@@ -62,10 +62,48 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/38e152b5-4732-427d-8aee-752c9df39482.jpg'
     ],
     options: [
-      { days: 2, price: 28000, description: 'Экспресс: Суздаль' },
-      { days: 3, price: 35000, description: 'Суздаль + Владимир' },
-      { days: 4, price: 42000, description: 'Расширенный тур с Ярославлем' },
-      { days: 5, price: 49000, description: 'Полный тур + Кострома' }
+      { 
+        days: 2, 
+        price: 28000, 
+        description: 'Экспресс: Суздаль',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/c040cb4d-23fd-48f3-aade-f0a7a513155c.jpg'
+        ]
+      },
+      { 
+        days: 3, 
+        price: 35000, 
+        description: 'Суздаль + Владимир',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/c040cb4d-23fd-48f3-aade-f0a7a513155c.jpg'
+        ]
+      },
+      { 
+        days: 4, 
+        price: 42000, 
+        description: 'Расширенный тур с Ярославлем',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/c040cb4d-23fd-48f3-aade-f0a7a513155c.jpg'
+        ]
+      },
+      { 
+        days: 5, 
+        price: 49000, 
+        description: 'Полный тур + Кострома',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/c040cb4d-23fd-48f3-aade-f0a7a513155c.jpg'
+        ]
+      }
     ]
   },
   'bus-tour': {
@@ -327,10 +365,49 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/0fc43796-9f6d-470c-8a36-2e374fcccdfe.jpg'
     ],
     options: [
-      { days: 2, price: 28000, description: 'Мини-круиз: Углич' },
-      { days: 5, price: 45000, description: 'Стандартная каюта' },
-      { days: 6, price: 62000, description: 'Комфорт-каюта с окном' },
-      { days: 7, price: 85000, description: 'Люкс-каюта с балконом' }
+      { 
+        days: 2, 
+        price: 28000, 
+        description: 'Мини-круиз: Углич',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ca963a76-5faf-473d-a509-c6eb40bab553.jpg'
+        ]
+      },
+      { 
+        days: 5, 
+        price: 45000, 
+        description: 'Стандартная каюта',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ca963a76-5faf-473d-a509-c6eb40bab553.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/f254d1a8-6f27-459a-b985-a5fee03783c6.jpg'
+        ]
+      },
+      { 
+        days: 6, 
+        price: 62000, 
+        description: 'Комфорт-каюта с окном',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ca963a76-5faf-473d-a509-c6eb40bab553.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/f254d1a8-6f27-459a-b985-a5fee03783c6.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/38cf0f92-fa03-42e6-bb10-a3af45e10f8a.jpg'
+        ]
+      },
+      { 
+        days: 7, 
+        price: 85000, 
+        description: 'Люкс-каюта с балконом',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/ca963a76-5faf-473d-a509-c6eb40bab553.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/f254d1a8-6f27-459a-b985-a5fee03783c6.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/38cf0f92-fa03-42e6-bb10-a3af45e10f8a.jpg'
+        ]
+      }
     ]
   },
   'excursion': {
@@ -366,10 +443,48 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg'
     ],
     options: [
-      { days: 2, price: 18000, description: 'Выходные: Владимир + Суздаль' },
-      { days: 3, price: 25000, description: 'Экспресс: Владимир + Суздаль' },
-      { days: 5, price: 38000, description: 'Классический: + Ярославль + Кострома' },
-      { days: 7, price: 52000, description: 'Расширенный: все города + мастер-классы' }
+      { 
+        days: 2, 
+        price: 18000, 
+        description: 'Выходные: Владимир + Суздаль',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg'
+        ]
+      },
+      { 
+        days: 3, 
+        price: 25000, 
+        description: 'Экспресс: Владимир + Суздаль',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a6e0b3e7-ad02-4fd9-aa84-91f664af28d8.jpg'
+        ]
+      },
+      { 
+        days: 5, 
+        price: 38000, 
+        description: 'Классический: + Ярославль + Кострома',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg'
+        ]
+      },
+      { 
+        days: 7, 
+        price: 52000, 
+        description: 'Расширенный: все города + мастер-классы',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/eb9b4058-7da2-4dc7-ac90-ef7e7c0feb39.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg'
+        ]
+      }
     ]
   },
   'train': {
@@ -405,10 +520,48 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/7956c0c8-581f-4ee8-85af-affe2ecfb6fb.jpg'
     ],
     options: [
-      { days: 2, price: 16000, description: 'Выходные: Владимир + Суздаль' },
-      { days: 4, price: 22000, description: 'Плацкарт: Владимир + Суздаль + Ярославль' },
-      { days: 5, price: 29000, description: 'Купе: + Кострома' },
-      { days: 6, price: 38000, description: 'СВ (люкс): полный маршрут' }
+      { 
+        days: 2, 
+        price: 16000, 
+        description: 'Выходные: Владимир + Суздаль',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg'
+        ]
+      },
+      { 
+        days: 4, 
+        price: 22000, 
+        description: 'Плацкарт: Владимир + Суздаль + Ярославль',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg'
+        ]
+      },
+      { 
+        days: 5, 
+        price: 29000, 
+        description: 'Купе: + Кострома',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg'
+        ]
+      },
+      { 
+        days: 6, 
+        price: 38000, 
+        description: 'СВ (люкс): полный маршрут',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/eb9b4058-7da2-4dc7-ac90-ef7e7c0feb39.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg'
+        ]
+      }
     ]
   },
   'spiritual': {
@@ -443,10 +596,46 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/886a505f-c2e5-4ef4-99c7-d3b572c14291.jpg'
     ],
     options: [
-      { days: 2, price: 28000, description: 'Выходные: Сергиев Посад' },
-      { days: 3, price: 35000, description: 'Сергиев Посад + Суздаль' },
-      { days: 5, price: 48000, description: '+ Владимир + Дивеево' },
-      { days: 7, price: 62000, description: 'Расширенное паломничество с беседами' }
+      { 
+        days: 2, 
+        price: 28000, 
+        description: 'Выходные: Сергиев Посад',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8537533d-5a8a-4cce-8b9c-5846500884a1.jpg'
+        ]
+      },
+      { 
+        days: 3, 
+        price: 35000, 
+        description: 'Сергиев Посад + Суздаль',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8537533d-5a8a-4cce-8b9c-5846500884a1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg'
+        ]
+      },
+      { 
+        days: 5, 
+        price: 48000, 
+        description: '+ Владимир + Дивеево',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8537533d-5a8a-4cce-8b9c-5846500884a1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/f8703cd0-e26e-4816-82fe-26244961be44.jpg'
+        ]
+      },
+      { 
+        days: 7, 
+        price: 62000, 
+        description: 'Расширенное паломничество с беседами',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8537533d-5a8a-4cce-8b9c-5846500884a1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/f8703cd0-e26e-4816-82fe-26244961be44.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/de52a775-7a82-42f4-af42-0553bcc6aad1.jpg'
+        ]
+      }
     ]
   },
   'gastro': {
@@ -477,10 +666,48 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8d3d5500-3428-4cd0-b7db-19e5836a3c42.jpg'
     ],
     options: [
-      { days: 2, price: 42000, description: 'Выходные: Суздаль с дегустациями' },
-      { days: 3, price: 52000, description: 'Суздаль + Ростов: дегустации и мастер-классы' },
-      { days: 4, price: 68000, description: '+ Ярославль: расширенная программа' },
-      { days: 5, price: 85000, description: 'Полный гастротур с сомелье' }
+      { 
+        days: 2, 
+        price: 42000, 
+        description: 'Выходные: Суздаль с дегустациями',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4fa40abb-727d-4a21-9984-9d7e8bed58e1.jpg'
+        ]
+      },
+      { 
+        days: 3, 
+        price: 52000, 
+        description: 'Суздаль + Ростов: дегустации и мастер-классы',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/eb9b4058-7da2-4dc7-ac90-ef7e7c0feb39.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4fa40abb-727d-4a21-9984-9d7e8bed58e1.jpg'
+        ]
+      },
+      { 
+        days: 4, 
+        price: 68000, 
+        description: '+ Ярославль: расширенная программа',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/eb9b4058-7da2-4dc7-ac90-ef7e7c0feb39.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4fa40abb-727d-4a21-9984-9d7e8bed58e1.jpg'
+        ]
+      },
+      { 
+        days: 5, 
+        price: 85000, 
+        description: 'Полный гастротур с сомелье',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/eb9b4058-7da2-4dc7-ac90-ef7e7c0feb39.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4fa40abb-727d-4a21-9984-9d7e8bed58e1.jpg'
+        ]
+      }
     ]
   },
   'vip': {
@@ -511,9 +738,39 @@ export const tours: Record<string, Tour> = {
       'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/cd2d6549-1f39-42b9-a01d-b1f2c1b08c8c.jpg'
     ],
     options: [
-      { days: 2, price: 42000, description: 'Экспресс-тур: 1-2 города' },
-      { days: 4, price: 78000, description: 'Классический VIP: 3-4 города' },
-      { days: 7, price: 145000, description: 'Премиум: полный маршрут с эксклюзивами' }
+      { 
+        days: 2, 
+        price: 42000, 
+        description: 'Экспресс-тур: 1-2 города',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg'
+        ]
+      },
+      { 
+        days: 4, 
+        price: 78000, 
+        description: 'Классический VIP: 3-4 города',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/3ef23615-680d-44df-8aac-f752f4f2ca3f.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg'
+        ]
+      },
+      { 
+        days: 7, 
+        price: 145000, 
+        description: 'Премиум: полный маршрут с эксклюзивами',
+        photos: [
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/8537533d-5a8a-4cce-8b9c-5846500884a1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/5a8ec40b-0eec-4a51-b187-31c5e454f747.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/eb9b4058-7da2-4dc7-ac90-ef7e7c0feb39.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/a75abbe0-2a5f-4fbe-ae68-8106dda779fe.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/d1f32ae9-b93d-4eb7-9598-6cc2b572def1.jpg',
+          'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/4d26f4f8-b3a9-4cd3-88df-58ccce064ad0.jpg'
+        ]
+      }
     ]
   },
   'vladimir-principality': {
