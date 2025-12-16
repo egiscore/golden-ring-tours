@@ -9,15 +9,15 @@ interface TourOptionsTableProps {
 
 export default function TourOptionsTable({ options, onBookingClick }: TourOptionsTableProps) {
   return (
-    <section className="my-12">
+    <section className="my-12 w-full">
       <h2 className="text-3xl font-bold mb-6 font-playfair text-[#1A1F2C] flex items-center gap-3">
         <Icon name="Calendar" className="text-[#D4AF37]" size={32} />
         Варианты и стоимость
       </h2>
       
-      <div className="bg-gradient-to-br from-white to-[#F5F1E8] rounded-xl border-2 border-[#D4AF37]/20 overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
+      <div className="bg-gradient-to-br from-white to-[#F5F1E8] rounded-xl border-2 border-[#D4AF37]/20 overflow-hidden w-full">
+        <div className="overflow-x-auto w-full">
+          <table className="w-full min-w-full">
             <thead>
               <tr className="bg-[#D4AF37] text-white">
                 <th className="px-6 py-4 text-left font-semibold">Длительность</th>
