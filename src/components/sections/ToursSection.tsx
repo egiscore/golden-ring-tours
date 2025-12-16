@@ -184,7 +184,7 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                     onClick={() => navigate(`/tours/${tour.id}`)}
                   >
                     <Icon name="Eye" size={18} className="mr-2" />
-                    Подобрать тур
+                    Посмотреть тур
                   </Button>
                 </div>
               </CardContent>
