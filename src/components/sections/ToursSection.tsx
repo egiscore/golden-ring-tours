@@ -101,16 +101,6 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
       icon: 'Crown',
       image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/cd2d6549-1f39-42b9-a01d-b1f2c1b08c8c.jpg',
       features: ['Mercedes-Benz S-Class', 'Личный гид-историк', 'Проживание 5★', 'Трансферы включены']
-    },
-    {
-      id: 'photo',
-      title: 'Фототур для профессионалов',
-      description: 'Секретные локации и профессиональный опыт',
-      price: 'от 38 000 ₽',
-      duration: '4-6 дней',
-      icon: 'Camera',
-      image: 'https://cdn.poehali.dev/projects/c7fef2ff-49f4-4dfe-aa88-82f2fbf56c64/files/137ede6c-dc37-4b47-b2cd-d84877bec21e.jpg',
-      features: ['Фотограф-эксперт', 'Секретные локации', 'Индивидуальный маршрут', 'Обработка фото']
     }
   ];
 
