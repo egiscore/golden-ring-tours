@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import { tours } from '@/data/tours';
+import DateCalendar from '@/components/booking/DateCalendar';
 
 export default function BookingPage() {
   const { tourId } = useParams<{ tourId: string }>();
@@ -159,7 +160,7 @@ export default function BookingPage() {
                 </div>
                 <div>
                   <div className={`font-semibold ${step === 'payment' ? 'text-[#1A1F2C]' : 'text-gray-400'}`}>
-                    Оплата
+                    Бронирование
                   </div>
                   <div className="text-xs text-gray-500">Подтверждение заказа</div>
                 </div>
@@ -177,25 +178,11 @@ export default function BookingPage() {
                   Детали бронирования
                 </h2>
 
-                {/* Дата */}
-                <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Дата отправления *
-                  </label>
-                  <input
-                    type="date"
-                    value={formData.date}
-                    onChange={(e) => handleInputChange('date', e.target.value)}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none text-lg"
-                    required
-                  />
-                  {formData.date && (
-                    <p className="text-sm text-gray-600 mt-2 capitalize flex items-center gap-2">
-                      <Icon name="Calendar" size={16} className="text-[#D4AF37]" />
-                      {formatDate(formData.date)}
-                    </p>
-                  )}
-                </div>
+                {/* Календарь с датами */}
+                <DateCalendar 
+                  selectedDate={formData.date}
+                  onDateSelect={(date) => handleInputChange('date', date)}
+                />
 
                 {/* Количество человек */}
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -386,7 +373,7 @@ export default function BookingPage() {
 
               <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#F5F1E8] p-8 rounded-xl border-2 border-[#D4AF37]/30">
                 <div className="text-center mb-6">
-                  <p className="text-gray-700 mb-2 text-lg">К оплате:</p>
+                  <p className="text-gray-700 mb-2 text-lg">Итоговая стоимость:</p>
                   <p className="text-5xl font-bold text-[#D4AF37]">{totalPrice.toLocaleString('ru-RU')} ₽</p>
                 </div>
 
@@ -395,8 +382,8 @@ export default function BookingPage() {
                     onClick={handlePayment}
                     className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white text-xl py-8 rounded-xl shadow-lg hover:shadow-xl transition-all"
                   >
-                    <Icon name="CreditCard" size={24} className="mr-3" />
-                    Оплатить картой
+                    <Icon name="Check" size={24} className="mr-3" />
+                    Подтвердить бронирование
                   </Button>
 
                   <button
