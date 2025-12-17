@@ -4,6 +4,9 @@ import psycopg2
 from datetime import datetime
 from typing import Dict, Any
 import requests
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
@@ -109,15 +112,78 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 🕐 Время заявки: {datetime.now().strftime('%d.%m.%Y %H:%M')}
             '''
             
-            requests.post(
-                f'https://api.telegram.org/bot{telegram_token}/sendMessage',
-                json={
-                    'chat_id': telegram_chat_id,
-                    'text': message.strip(),
-                    'parse_mode': 'HTML'
-                },
-                timeout=5
-            )
+            try:
+                requests.post(
+                    f'https://api.telegram.org/bot{telegram_token}/sendMessage',
+                    json={
+                        'chat_id': telegram_chat_id,
+                        'text': message.strip(),
+                        'parse_mode': 'HTML'
+                    },
+                    timeout=5
+                )
+            except Exception as tg_error:
+                print(f'Telegram error: {tg_error}')
+        
+        # Отправка на Email
+        smtp_email = os.environ.get('SMTP_EMAIL')
+        smtp_password = os.environ.get('SMTP_PASSWORD')
+        recipient_email = os.environ.get('RECIPIENT_EMAIL')
+        
+        if smtp_email and smtp_password and recipient_email:
+            try:
+                msg = MIMEMultipart('alternative')
+                msg['Subject'] = f'Новая заявка на бронирование тура - {booking_number}'
+                msg['From'] = smtp_email
+                msg['To'] = recipient_email
+                
+                email_body = f'''
+                <html>
+                <body style="font-family: Arial, sans-serif; color: #333;">
+                    <h2 style="color: #D4AF37;">🎫 Новая заявка на бронирование!</h2>
+                    
+                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <p><strong>📋 Номер брони:</strong> {booking_number}</p>
+                        <p><strong>🎯 Тур:</strong> {body_data['tourTitle']}</p>
+                        <p><strong>📅 Дата отправления:</strong> {body_data['date']}</p>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <h3>👥 Туристы</h3>
+                        <p>• Взрослые: {body_data['adults']} чел.</p>
+                        <p>• Дети: {body_data.get('children', 0)} чел.</p>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <h3>💰 Стоимость</h3>
+                        <p style="font-size: 20px; color: #D4AF37; font-weight: bold;">{body_data['totalPrice']:,.0f} ₽</p>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <h3>👤 Клиент</h3>
+                        <p><strong>Имя:</strong> {body_data['name']}</p>
+                        <p><strong>Телефон:</strong> {body_data['phone']}</p>
+                        {f"<p><strong>Email:</strong> {body_data.get('email', 'Не указан')}</p>" if body_data.get('email') else ''}
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <h3>💬 Комментарий</h3>
+                        <p>{body_data.get('comment', 'Нет комментария')}</p>
+                    </div>
+                    
+                    <hr style="border: 1px solid #ddd; margin: 30px 0;">
+                    <p style="color: #888; font-size: 12px;">🕐 Время заявки: {datetime.now().strftime('%d.%m.%Y %H:%M')}</p>
+                </body>
+                </html>
+                '''
+                
+                msg.attach(MIMEText(email_body, 'html'))
+                
+                with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+                    server.login(smtp_email, smtp_password)
+                    server.send_message(msg)
+            except Exception as email_error:
+                print(f'Email error: {email_error}')
         
         return {
             'statusCode': 200,
