@@ -218,6 +218,36 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
           Отправить заявку
         </Button>
 
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-300"></div>
+          </div>
+          <div className="relative flex justify-center text-xs sm:text-sm">
+            <span className="px-2 bg-white text-gray-500">или свяжитесь быстро</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <a
+            href={`https://t.me/shatadventuretravel?text=Здравствуйте! Интересует тур "${tourTitle || 'Экскурсия'}". ${formData.date ? `Дата: ${formData.date}` : ''} Взрослых: ${formData.adults}, детей: ${formData.children}. Примерная стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-[#0088cc] text-[#0088cc] rounded-xl hover:bg-[#0088cc] hover:text-white transition-all font-semibold text-sm"
+          >
+            <Icon name="Send" size={18} />
+            Telegram
+          </a>
+          <a
+            href={`https://wa.me/79969034908?text=Здравствуйте! Интересует тур "${tourTitle || 'Экскурсия'}". ${formData.date ? `Дата: ${formData.date}` : ''} Взрослых: ${formData.adults}, детей: ${formData.children}. Примерная стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-[#25D366] text-[#25D366] rounded-xl hover:bg-[#25D366] hover:text-white transition-all font-semibold text-sm"
+          >
+            <Icon name="MessageCircle" size={18} />
+            WhatsApp
+          </a>
+        </div>
+
         <div className="flex items-start gap-2 text-xs sm:text-sm text-gray-600">
           <Icon name="Shield" size={18} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
           <p>
