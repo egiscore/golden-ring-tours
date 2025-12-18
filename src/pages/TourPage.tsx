@@ -172,7 +172,7 @@ export default function TourPage() {
                         }} 
                       />
 
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 rounded-xl border-2 border-gray-200">
                           <label className="block text-sm font-semibold text-gray-700 mb-3">
                             Взрослые
@@ -181,17 +181,17 @@ export default function TourPage() {
                             <button
                               type="button"
                               onClick={() => handleInputChange('adults', Math.max(1, formData.adults - 1))}
-                              className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                              className="w-11 h-11 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg flex-shrink-0"
                             >
                               −
                             </button>
-                            <span className="text-2xl font-bold text-[#1A1F2C] w-10 text-center">
+                            <span className="text-2xl font-bold text-[#1A1F2C] min-w-[3rem] text-center">
                               {formData.adults}
                             </span>
                             <button
                               type="button"
                               onClick={() => handleInputChange('adults', Math.min(10, formData.adults + 1))}
-                              className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                              className="w-11 h-11 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg flex-shrink-0"
                             >
                               +
                             </button>
@@ -206,17 +206,17 @@ export default function TourPage() {
                             <button
                               type="button"
                               onClick={() => handleInputChange('children', Math.max(0, formData.children - 1))}
-                              className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                              className="w-11 h-11 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg flex-shrink-0"
                             >
                               −
                             </button>
-                            <span className="text-2xl font-bold text-[#1A1F2C] w-10 text-center">
+                            <span className="text-2xl font-bold text-[#1A1F2C] min-w-[3rem] text-center">
                               {formData.children}
                             </span>
                             <button
                               type="button"
                               onClick={() => handleInputChange('children', Math.min(10, formData.children + 1))}
-                              className="w-10 h-10 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg"
+                              className="w-11 h-11 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-lg flex-shrink-0"
                             >
                               +
                             </button>
