@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import Retargeting from "./pages/Retargeting";
 import AnalyticsDashboard from "./components/AnalyticsDashboard";
 import TourPage from "./pages/TourPage";
-import BookingPage from "./pages/BookingPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +24,6 @@ function App() {
           <Route path="/promo" element={<Retargeting />} />
           <Route path="/analytics" element={<AnalyticsDashboard />} />
           <Route path="/tours/:tourId" element={<TourPage />} />
-          <Route path="/booking/:tourId" element={<BookingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
