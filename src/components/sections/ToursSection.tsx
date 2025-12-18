@@ -105,30 +105,30 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
   ];
 
   return (
-    <section id="tours" className="py-24 bg-gradient-to-b from-white to-[#F5F1E8]">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full mb-4">
-            <Icon name="Sparkles" size={18} className="text-[#D4AF37]" />
-            <span className="text-sm font-semibold text-[#D4AF37]">Эксклюзивные предложения</span>
+    <section id="tours" className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-[#F5F1E8]">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#D4AF37]/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4">
+            <Icon name="Sparkles" size={16} className="text-[#D4AF37] sm:w-[18px] sm:h-[18px]" />
+            <span className="text-xs sm:text-sm font-semibold text-[#D4AF37]">Эксклюзивные предложения</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-[#1A1F2C]">Выберите свой формат путешествия</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 font-playfair text-[#1A1F2C] px-4">Выберите свой формат путешествия</h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             <strong>Каждый тур — это уникальный опыт.</strong> Мы создадим программу специально под вас, учитывая все пожелания
           </p>
-          <div className="mt-6 inline-flex items-center gap-3 bg-blue-50 border border-blue-200 px-6 py-3 rounded-xl">
-            <Icon name="MapPin" size={20} className="text-blue-600" />
-            <span className="text-sm font-semibold text-blue-700">
-              Бронирование тура возможно из любого города России
+          <div className="mt-4 sm:mt-6 inline-flex items-center gap-2 sm:gap-3 bg-blue-50 border border-blue-200 px-3 sm:px-6 py-2 sm:py-3 rounded-xl">
+            <Icon name="MapPin" size={16} className="text-blue-600 sm:w-5 sm:h-5 shrink-0" />
+            <span className="text-xs sm:text-sm font-semibold text-blue-700">
+              Бронирование тура из любого города России
             </span>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {tours.map((tour, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden border-0 bg-white">
+            <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 overflow-hidden border-0 bg-white">
               <div 
-                className="relative h-56 overflow-hidden cursor-pointer"
+                className="relative h-48 sm:h-56 overflow-hidden cursor-pointer"
                 onClick={() => navigate(`/tours/${tour.id}`)}
               >
                 <img 
@@ -137,43 +137,43 @@ export default function ToursSection({ scrollToSection }: ToursSectionProps) {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-[#D4AF37] text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                   {tour.duration}
                 </div>
-                <div className="absolute bottom-4 left-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                    <Icon name={tour.icon} className="text-[#D4AF37]" size={24} />
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center">
+                    <Icon name={tour.icon} className="text-[#D4AF37]" size={20} />
                   </div>
                 </div>
               </div>
               
-              <CardHeader>
-                <CardTitle className="text-xl font-playfair text-[#1A1F2C]">{tour.title}</CardTitle>
-                <CardDescription className="text-gray-600">{tour.description}</CardDescription>
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="text-lg sm:text-xl font-playfair text-[#1A1F2C]">{tour.title}</CardTitle>
+                <CardDescription className="text-sm sm:text-base text-gray-600">{tour.description}</CardDescription>
               </CardHeader>
               
-              <CardContent>
-                <div className="space-y-3 mb-6">
+              <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                   {tour.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
-                      <Icon name="Check" size={16} className="text-[#D4AF37] flex-shrink-0" />
+                    <div key={i} className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-700">
+                      <Icon name="Check" size={14} className="text-[#D4AF37] flex-shrink-0 sm:w-4 sm:h-4" />
                       <span>{feature}</span>
                     </div>
                   ))}
                 </div>
                 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm text-gray-500 mb-1">Цена</div>
-                      <div className="text-lg font-bold text-[#D4AF37] font-playfair">{tour.price}</div>
+                      <div className="text-xs sm:text-sm text-gray-500 mb-1">Цена</div>
+                      <div className="text-base sm:text-lg font-bold text-[#D4AF37] font-playfair">{tour.price}</div>
                     </div>
                   </div>
                   <Button 
-                    className="w-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all"
+                    className="w-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all text-sm sm:text-base py-2 sm:py-2.5 h-auto"
                     onClick={() => navigate(`/tours/${tour.id}`)}
                   >
-                    <Icon name="Eye" size={18} className="mr-2" />
+                    <Icon name="Eye" size={16} className="mr-2 sm:w-[18px] sm:h-[18px]" />
                     Посмотреть тур
                   </Button>
                 </div>
