@@ -38,51 +38,51 @@ export default function BookingDetailsForm({
           onDateSelect={(date) => onInputChange('date', date)}
         />
 
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-6 rounded-xl border-2 border-gray-200">
-            <label className="block text-sm font-semibold text-gray-700 mb-4">
+        <div className="grid sm:grid-cols-2 gap-4 mb-6">
+          <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 sm:p-6 rounded-xl border-2 border-gray-200">
+            <label className="block text-sm font-semibold text-gray-700 mb-3 sm:mb-4">
               Взрослые (от 12 лет)
             </label>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => onInputChange('adults', Math.max(1, formData.adults - 1))}
-                className="w-12 h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md flex-shrink-0"
               >
                 −
               </button>
-              <span className="text-3xl font-bold text-[#1A1F2C] w-12 text-center">
+              <span className="text-2xl sm:text-3xl font-bold text-[#1A1F2C] min-w-[3rem] text-center">
                 {formData.adults}
               </span>
               <button
                 type="button"
                 onClick={() => onInputChange('adults', Math.min(10, formData.adults + 1))}
-                className="w-12 h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md flex-shrink-0"
               >
                 +
               </button>
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-6 rounded-xl border-2 border-gray-200">
-            <label className="block text-sm font-semibold text-gray-700 mb-4">
+          <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 sm:p-6 rounded-xl border-2 border-gray-200">
+            <label className="block text-sm font-semibold text-gray-700 mb-3 sm:mb-4">
               Дети (до 12 лет)
             </label>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => onInputChange('children', Math.max(0, formData.children - 1))}
-                className="w-12 h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md flex-shrink-0"
               >
                 −
               </button>
-              <span className="text-3xl font-bold text-[#1A1F2C] w-12 text-center">
+              <span className="text-2xl sm:text-3xl font-bold text-[#1A1F2C] min-w-[3rem] text-center">
                 {formData.children}
               </span>
               <button
                 type="button"
                 onClick={() => onInputChange('children', Math.min(10, formData.children + 1))}
-                className="w-12 h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-bold text-xl shadow-md flex-shrink-0"
               >
                 +
               </button>
