@@ -38,7 +38,7 @@ export default function BookingDetailsForm({
           onDateSelect={(date) => onInputChange('date', date)}
         />
 
-        <div className="grid sm:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div className="bg-gradient-to-br from-[#F5F1E8] to-white p-4 sm:p-6 rounded-xl border-2 border-gray-200">
             <label className="block text-sm font-semibold text-gray-700 mb-3 sm:mb-4">
               Взрослые (от 12 лет)
