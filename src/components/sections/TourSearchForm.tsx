@@ -60,24 +60,24 @@ export default function TourSearchForm() {
   };
 
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 -mt-16 relative z-10 border-2 border-[#D4AF37]/20">
-      <h3 className="text-2xl font-bold text-[#1A1F2C] mb-6 font-playfair flex items-center gap-2">
-        <Icon name="Search" size={24} className="text-[#D4AF37]" />
-        Поиск идеального тура
+    <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 -mt-16 relative z-10 border-2 border-[#D4AF37]/20">
+      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#1A1F2C] mb-4 sm:mb-6 font-playfair flex items-center gap-2">
+        <Icon name="Search" size={20} className="text-[#D4AF37] sm:w-6 sm:h-6" />
+        <span className="leading-tight">Поиск тура</span>
       </h3>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
         {/* Выбор тура */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Направление
           </label>
           <div className="relative">
-            <Icon name="MapPin" size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Icon name="MapPin" size={16} className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <select
               value={selectedTour}
               onChange={(e) => setSelectedTour(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none appearance-none bg-white cursor-pointer"
+              className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none appearance-none bg-white cursor-pointer"
             >
               <option value="">Все направления</option>
               {Object.values(tours).map((tour) => (
@@ -86,21 +86,21 @@ export default function TourSearchForm() {
                 </option>
               ))}
             </select>
-            <Icon name="ChevronDown" size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <Icon name="ChevronDown" size={16} className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
           </div>
         </div>
 
         {/* Выбор даты */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Дата выезда
           </label>
           <div className="relative">
-            <Icon name="Calendar" size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Icon name="Calendar" size={16} className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <select
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none appearance-none bg-white cursor-pointer"
+              className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none appearance-none bg-white cursor-pointer"
             >
               <option value="">Любая дата</option>
               {dates.map((date) => (
@@ -109,21 +109,21 @@ export default function TourSearchForm() {
                 </option>
               ))}
             </select>
-            <Icon name="ChevronDown" size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <Icon name="ChevronDown" size={16} className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
           </div>
         </div>
 
         {/* Выбор длительности */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Длительность
           </label>
           <div className="relative">
-            <Icon name="Clock" size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Icon name="Clock" size={16} className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <select
               value={selectedDuration}
               onChange={(e) => setSelectedDuration(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none appearance-none bg-white cursor-pointer"
+              className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm border-2 border-gray-200 rounded-xl focus:border-[#D4AF37] focus:outline-none appearance-none bg-white cursor-pointer"
             >
               <option value="">Любая</option>
               {durations.map((duration) => (
@@ -132,26 +132,26 @@ export default function TourSearchForm() {
                 </option>
               ))}
             </select>
-            <Icon name="ChevronDown" size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <Icon name="ChevronDown" size={16} className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
           </div>
         </div>
       </div>
 
       <Button
         onClick={handleSearch}
-        className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white text-lg py-6 rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold"
+        className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white text-base sm:text-lg py-4 sm:py-6 rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold"
       >
-        <Icon name="Search" size={20} className="mr-2" />
+        <Icon name="Search" size={18} className="mr-2" />
         Подобрать тур
       </Button>
 
-      <div className="mt-4 flex items-center justify-center gap-6 text-sm text-gray-600">
-        <div className="flex items-center gap-2">
-          <Icon name="CheckCircle" size={16} className="text-green-600" />
+      <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-600">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <Icon name="CheckCircle" size={14} className="text-green-600 sm:w-4 sm:h-4" />
           <span>Бесплатная консультация</span>
         </div>
-        <div className="flex items-center gap-2">
-          <Icon name="Shield" size={16} className="text-green-600" />
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <Icon name="Shield" size={14} className="text-green-600 sm:w-4 sm:h-4" />
           <span>Гарантия возврата</span>
         </div>
       </div>
