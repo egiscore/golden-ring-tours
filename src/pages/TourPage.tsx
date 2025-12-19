@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import TourHero from '@/components/tour/TourHero';
@@ -12,6 +12,7 @@ import TourBookingForm from '@/components/forms/TourBookingForm';
 export default function TourPage() {
   const { tourId } = useParams<{ tourId: string }>();
   const navigate = useNavigate();
+  const [selectedPrice, setSelectedPrice] = useState<number | undefined>(undefined);
 
   const tour = tourId ? tours[tourId] : null;
 
@@ -48,7 +49,8 @@ export default function TourPage() {
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             <TourContent 
               tour={tour} 
-              onBookingClick={() => {
+              onBookingClick={(price) => {
+                if (price) setSelectedPrice(price);
                 const bookingSection = document.getElementById('booking-form');
                 if (bookingSection) {
                   bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -89,6 +91,7 @@ export default function TourPage() {
                     tourId={tourId}
                     tourTitle={tour.title}
                     defaultPrice={tour.options?.[0]?.price || 18000}
+                    selectedPrice={selectedPrice}
                   />
                 </section>
               }

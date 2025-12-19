@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
@@ -8,9 +8,10 @@ interface TourBookingFormProps {
   tourId?: string;
   tourTitle?: string;
   defaultPrice?: number;
+  selectedPrice?: number;
 }
 
-export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 18000 }: TourBookingFormProps) {
+export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 18000, selectedPrice: externalSelectedPrice }: TourBookingFormProps) {
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
@@ -22,6 +23,12 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
   });
 
   const [selectedPrice, setSelectedPrice] = useState<number>(defaultPrice);
+
+  useEffect(() => {
+    if (externalSelectedPrice) {
+      setSelectedPrice(externalSelectedPrice);
+    }
+  }, [externalSelectedPrice]);
 
   const childDiscount = 0.7;
   const totalPrice = (formData.adults * selectedPrice) + (formData.children * selectedPrice * childDiscount);
