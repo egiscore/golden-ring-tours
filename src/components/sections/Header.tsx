@@ -27,9 +27,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
           </div>
           <div className="flex flex-col min-w-0">
             <span className="text-lg sm:text-xl md:text-2xl text-[#1A1F2C] font-playfair leading-tight font-semibold whitespace-nowrap">Ви Эф Эс</span>
-            <span className="text-[10px] sm:text-xs text-gray-600 font-medium whitespace-nowrap">
-              Туроператор
-            </span>
+            <span className="text-[10px] sm:text-xs text-gray-600 font-medium whitespace-nowrap">Туристический оператор</span>
           </div>
         </div>
         <div className="hidden md:flex gap-8 items-center">
