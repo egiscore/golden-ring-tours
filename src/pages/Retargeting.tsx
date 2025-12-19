@@ -527,27 +527,15 @@ export default function Retargeting() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <a
-                    href={`https://wa.me/79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур из ${cityTargeting[userCity].city}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center justify-center gap-2 py-5 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-xl"
-                  >
-                    <Icon name="MessageCircle" size={28} />
-                    <span className="text-sm">WhatsApp</span>
-                  </a>
-
-                  <a
-                    href={`https://t.me/+79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур из ${cityTargeting[userCity].city}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center justify-center gap-2 py-5 bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-xl"
-                  >
-                    <Icon name="Send" size={28} />
-                    <span className="text-sm">Telegram</span>
-                  </a>
-                </div>
+                <a
+                  href={`https://t.me/+79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур из ${cityTargeting[userCity].city}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 py-5 bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-xl w-full"
+                >
+                  <Icon name="Send" size={28} />
+                  <span className="text-sm">Написать в Telegram</span>
+                </a>
 
                 <div className="flex items-start gap-2 text-xs text-gray-600">
                   <Icon name="Shield" size={16} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />

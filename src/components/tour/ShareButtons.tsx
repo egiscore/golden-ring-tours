@@ -14,7 +14,6 @@ export default function ShareButtons({ tourTitle, tourUrl }: ShareButtonsProps) 
   const shareLinks = {
     vk: `https://vk.com/share.php?url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(tourTitle)}`,
     telegram: `https://t.me/share/url?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(tourTitle)}`,
-    whatsapp: `https://wa.me/?text=${encodeURIComponent(`${tourTitle} - ${fullUrl}`)}`,
   };
 
   const copyToClipboard = async () => {
@@ -59,16 +58,6 @@ export default function ShareButtons({ tourTitle, tourUrl }: ShareButtonsProps) 
         >
           <Icon name="Send" size={16} />
           <span className="font-medium">Telegram</span>
-        </a>
-
-        <a
-          href={shareLinks.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-3 py-2 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-lg transition-colors text-sm"
-        >
-          <Icon name="MessageCircle" size={16} />
-          <span className="font-medium">WhatsApp</span>
         </a>
 
         <Button
