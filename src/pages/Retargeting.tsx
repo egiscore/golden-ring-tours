@@ -528,7 +528,7 @@ export default function Retargeting() {
                 </div>
 
                 <a
-                  href={`https://t.me/+79099322226?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур из ${cityTargeting[userCity].city}`)}`}
+                  href={`https://t.me/+79255693984?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур из ${cityTargeting[userCity].city}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 py-5 bg-[#0088CC] hover:bg-[#0077BB] text-white rounded-xl font-bold transition-all shadow-md hover:shadow-xl w-full"
