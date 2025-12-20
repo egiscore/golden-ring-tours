@@ -234,15 +234,27 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
           </div>
         </div>
 
-        <a
-          href={`https://t.me/+79255693984?text=Здравствуйте! Интересует тур "${tourTitle || 'Экскурсия'}". ${formData.date ? `Дата: ${formData.date}` : ''} Взрослых: ${formData.adults}, детей: ${formData.children}. Примерная стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-[#0088cc] text-white rounded-xl hover:bg-[#0077bb] transition-all font-semibold text-sm shadow-md w-full"
-        >
-          <Icon name="Send" size={18} />
-          Написать в Telegram
-        </a>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a
+            href={`https://wa.me/79255693984?text=Здравствуйте! Интересует тур "${tourTitle || 'Экскурсия'}". ${formData.date ? `Дата: ${formData.date}` : ''} Взрослых: ${formData.adults}, детей: ${formData.children}. Примерная стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-4 py-3 bg-[#25D366] text-white rounded-xl hover:bg-[#20BA5A] transition-all font-semibold text-sm shadow-md"
+          >
+            <Icon name="MessageCircle" size={18} />
+            WhatsApp
+          </a>
+          
+          <a
+            href={`https://t.me/+79255693984?text=Здравствуйте! Интересует тур "${tourTitle || 'Экскурсия'}". ${formData.date ? `Дата: ${formData.date}` : ''} Взрослых: ${formData.adults}, детей: ${formData.children}. Примерная стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-4 py-3 bg-[#0088cc] text-white rounded-xl hover:bg-[#0077bb] transition-all font-semibold text-sm shadow-md"
+          >
+            <Icon name="Send" size={18} />
+            Telegram
+          </a>
+        </div>
 
         <div className="flex items-start gap-2 text-xs sm:text-sm text-gray-600">
           <Icon name="Shield" size={18} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
