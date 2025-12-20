@@ -23,6 +23,7 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
   });
 
   const [selectedPrice, setSelectedPrice] = useState<number>(defaultPrice);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (externalSelectedPrice) {
@@ -48,6 +49,8 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
       });
       return;
     }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('https://functions.poehali.dev/5f3c4163-de98-4711-91ae-4c7424870c2f', {
@@ -91,6 +94,8 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
         description: error instanceof Error ? error.message : 'Не удалось отправить заявку',
         variant: 'destructive'
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -219,10 +224,20 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
 
         <Button 
           type="submit"
-          className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white py-4 sm:py-6 rounded-xl text-base sm:text-lg font-bold hover:shadow-xl transition-all"
+          disabled={isSubmitting}
+          className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white py-4 sm:py-6 rounded-xl text-base sm:text-lg font-bold hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <Icon name="Send" size={20} className="mr-2" />
-          Отправить заявку
+          {isSubmitting ? (
+            <>
+              <Icon name="Loader2" size={20} className="mr-2 animate-spin" />
+              Отправка...
+            </>
+          ) : (
+            <>
+              <Icon name="Send" size={20} className="mr-2" />
+              Отправить заявку
+            </>
+          )}
         </Button>
 
         <div className="relative">
