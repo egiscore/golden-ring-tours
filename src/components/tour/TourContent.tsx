@@ -129,19 +129,15 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                       </div>
                     ))}
                   </div>
-                  <button
-                    onClick={() => {
-                      const bookingSection = document.getElementById('booking-form');
-                      if (bookingSection) {
-                        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                      onBookingClick(option.price);
-                    }}
-                    className="w-full bg-[#D4AF37] hover:bg-[#B8941F] text-white font-bold py-3 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                  <a
+                    href={`https://wa.me/79255693984?text=Здравствуйте! Интересует тур "${tour.title}" (${option.description}, ${option.days} ${option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}, ${option.price.toLocaleString('ru-RU')} ₽)`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                   >
-                    <Icon name="Calendar" size={18} />
-                    Бесплатный предзаказ
-                  </button>
+                    <Icon name="MessageCircle" size={18} />
+                    Быстрый заказ в WhatsApp
+                  </a>
                 </div>
               </div>
             ))}
