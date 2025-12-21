@@ -8,6 +8,7 @@ import TourSidebar from '@/components/tour/TourSidebar';
 import Icon from '@/components/ui/icon';
 import { tours } from '@/data/tours';
 import TourBookingForm from '@/components/forms/TourBookingForm';
+import FloatingBookingBar from '@/components/tour/FloatingBookingBar';
 
 export default function TourPage() {
   const { tourId } = useParams<{ tourId: string }>();
@@ -39,7 +40,7 @@ export default function TourPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-inter overflow-x-hidden">
+    <div className="min-h-screen bg-white font-inter overflow-x-hidden pb-20">
       <Header scrollToSection={scrollToSection} />
       
       <TourHero tour={tour} />
@@ -108,6 +109,8 @@ export default function TourPage() {
           </div>
         </div>
       </div>
+
+      <FloatingBookingBar price={tour.price} tourTitle={tour.title} />
 
       <Footer />
     </div>
