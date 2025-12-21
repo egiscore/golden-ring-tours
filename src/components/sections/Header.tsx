@@ -90,7 +90,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
             </a>
             
             <a
-              href={`https://t.me/79255693984?text=${encodeURIComponent('Здравствуйте! Хочу узнать подробнее о ваших турах')}`}
+              href="https://t.me/+79255693984"
               target="_blank"
               rel="noopener noreferrer"
               className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#0088cc] hover:bg-[#0077bb] text-white rounded-full transition-all shadow-sm hover:shadow-md"
