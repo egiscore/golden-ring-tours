@@ -266,7 +266,7 @@ export default function TourBookingForm({ tourId, tourTitle, defaultPrice = 1800
           </a>
           
           <a
-            href="https://t.me/+79255693984"
+            href="https://t.me/vfstravel"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-4 py-3 bg-[#0088cc] text-white rounded-xl hover:bg-[#0077bb] transition-all font-semibold text-sm shadow-md"

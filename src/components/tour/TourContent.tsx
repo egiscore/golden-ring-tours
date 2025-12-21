@@ -130,7 +130,9 @@ export default function TourContent({ tour, onBookingClick, onDateSelect, bookin
                     ))}
                   </div>
                   <a
-                    href={`tg://resolve?domain=79255693984&text=Здравствуйте! Интересует тур "${tour.title}" (${option.description}, ${option.days} ${option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}, ${option.price.toLocaleString('ru-RU')} ₽)`}
+                    href={`https://t.me/vfstravel?text=Здравствуйте! Интересует тур "${tour.title}" (${option.description}, ${option.days} ${option.days === 1 ? 'день' : option.days < 5 ? 'дня' : 'дней'}, ${option.price.toLocaleString('ru-RU')} ₽)`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full bg-[#0088cc] hover:bg-[#0077bb] text-white font-bold py-3 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                     onClick={(e) => {
                       e.stopPropagation();
