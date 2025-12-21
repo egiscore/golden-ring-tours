@@ -75,7 +75,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
             </a>
             
             <a
-              href={`https://wa.me/79255693984`}
+              href={`https://wa.me/79255693984?text=Здравствуйте! Хочу узнать подробнее о ваших турах`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full transition-all shadow-sm hover:shadow-md"
