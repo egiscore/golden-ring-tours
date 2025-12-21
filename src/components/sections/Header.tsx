@@ -22,9 +22,11 @@ export default function Header({ scrollToSection }: HeaderProps) {
             }
           }}
         >
-          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shrink-0">
-            <Icon name="Crown" className="text-white" size={16} />
-          </div>
+          <img 
+            src="https://cdn.poehali.dev/files/logo.png" 
+            alt="VFS Logo" 
+            className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 object-contain"
+          />
           <div className="flex flex-col min-w-0">
             <span className="text-lg sm:text-xl md:text-2xl text-[#1A1F2C] font-playfair leading-tight font-semibold whitespace-nowrap">Ви Эф Эс</span>
             <span className="text-[10px] sm:text-xs text-gray-600 font-medium whitespace-nowrap">Туристический оператор</span>
