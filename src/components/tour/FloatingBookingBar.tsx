@@ -4,7 +4,7 @@ interface FloatingBookingBarProps {
 }
 
 export default function FloatingBookingBar({ price, tourTitle }: FloatingBookingBarProps) {
-  const telegramLink = `https://t.me/vfstravel?text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур "${tourTitle}"`)}`;
+  const telegramLink = `tg://resolve?domain=vfstravel&text=${encodeURIComponent(`Здравствуйте! Хочу забронировать тур "${tourTitle}"`)}`;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-[#D4AF37] shadow-2xl">
@@ -19,8 +19,6 @@ export default function FloatingBookingBar({ price, tourTitle }: FloatingBooking
           
           <a
             href={telegramLink}
-            target="_blank"
-            rel="noopener noreferrer"
             className="flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:shadow-xl transition-all shadow-lg"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="flex-shrink-0">

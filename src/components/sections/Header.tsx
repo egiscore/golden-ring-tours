@@ -92,9 +92,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
             </a>
             
             <a
-              href="https://t.me/vfstravel"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="tg://resolve?domain=vfstravel"
               className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#0088cc] hover:bg-[#0077bb] text-white rounded-full transition-all shadow-sm hover:shadow-md"
               title="Telegram"
               onClick={(e) => {
